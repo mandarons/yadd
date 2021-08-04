@@ -57,7 +57,14 @@ jobs:
 #           flags: unittests
 #           verbose: true
 #           fail_ci_if_error: true
-      
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+          
       - name: Generate Allure Test Report
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -66,15 +73,7 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
           keep_reports: 100
-          
-      - name: Checkout gh-pages
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-      
+             
       - name: Publish test report to gh-pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
