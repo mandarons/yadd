@@ -1,0 +1,46 @@
+{
+  "uid" : "2bf009886a99582e",
+  "name" : "should handle exception on increment hits",
+  "fullName" : "Runtime Schema.should handle exception on increment hits",
+  "historyId" : "b1c7857f2cffde922b3c6723b46b7bb2",
+  "time" : {
+    "start" : 1628120426197,
+    "stop" : 1628120426208,
+    "duration" : 11
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle exception on increment hits"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2bf009886a99582e.json",
+  "parameterValues" : [ ]
+}
