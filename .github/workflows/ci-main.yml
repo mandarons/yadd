@@ -61,8 +61,7 @@ jobs:
       
       - name: Publish test report to gh-pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v2
+        uses: peaceiris/actions-gh-pages@v3.1.12
         env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+          publish_branch: gh-pages
+          publish_dir: allure-history
