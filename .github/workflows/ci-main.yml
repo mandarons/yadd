@@ -74,7 +74,6 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
-          DESTINATION_DIR: test-result
     
       - name: Publish test coverage to gh-pages
         if: always()
@@ -83,4 +82,4 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: coverage
-          DESTINATION_DIR: test-coverage
+          keep_files: true
