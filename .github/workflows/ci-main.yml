@@ -82,4 +82,4 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: coverage
-          keep_files: true
+          KEEP_FILES: true
