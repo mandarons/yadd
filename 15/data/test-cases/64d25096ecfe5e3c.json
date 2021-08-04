@@ -1,0 +1,46 @@
+{
+  "uid" : "64d25096ecfe5e3c",
+  "name" : "should delete an existing service record",
+  "fullName" : "Runtime Schema.should delete an existing service record",
+  "historyId" : "e4c5fc8461708853bcbeb927c72d36f0",
+  "time" : {
+    "start" : 1628119378307,
+    "stop" : 1628119378317,
+    "duration" : 10
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should delete an existing service record"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "64d25096ecfe5e3c.json",
+  "parameterValues" : [ ]
+}
