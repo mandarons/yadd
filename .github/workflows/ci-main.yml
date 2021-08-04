@@ -61,7 +61,7 @@ jobs:
       
       - name: Publish test report to gh-pages
         if: always()
-        uses: peaceiris/actions-gh-pages@b80a30e9bf3c1ec596532c3813f0aff094f555e2
+        uses: peaceiris/actions-gh-pages@v2
         env:
           publish_branch: gh-pages
           publish_dir: allure-history
