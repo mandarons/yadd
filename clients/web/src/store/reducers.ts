@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import { combineReducers } from 'redux';
+import { IAlert } from '../components/Alerts/constants';
+import { alerts } from '../components/Alerts/alert.reducer';
+import { IService } from '../components/Services/constants';
+import { services } from '../components/Services/reducer';
+
+export interface IState {
+    alerts: IAlert[];
+    services: IService[];
+};
+const rootReducer = combineReducers({
+    alerts,
+    services
+});
+
+export default rootReducer;

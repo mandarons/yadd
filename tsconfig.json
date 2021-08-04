@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "rootDir": "./server",
+        "outDir": "./build/",
+        "esModuleInterop": true,
+        "strict": true,
+        "noUnusedLocals": true
+    },
+    "exclude": [
+        "./server/tests/",
+        "./node_modules/",
+        "./build",
+        "./clients",
+        "./cypress"
+    ]
+}

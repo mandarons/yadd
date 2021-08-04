@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,23 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import { SEVICES_ACTION_TYPES, IService } from "./constants";
+import { getAllServices } from './proxy';
+import { Dispatch } from '../../store';
+
+export const fetchServicesAction = () => {
+    const request = () => ({ type: SEVICES_ACTION_TYPES.FETCHING_ALL });
+    const success = (services: IService[]) => ({ type: SEVICES_ACTION_TYPES.FETCH_ALL_SUCCESS, services });
+    const failure = () => ({ type: SEVICES_ACTION_TYPES.FETCH_ALL_FAILED });
+    return async (dispatch: Dispatch) => {
+        dispatch(request());
+        const response = await getAllServices();
+        if (response.success) {
+            dispatch(success(response.services as IService[]));
+        } else {
+            dispatch(failure());
+        }
+    };
+};

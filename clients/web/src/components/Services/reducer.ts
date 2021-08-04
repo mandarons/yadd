@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,32 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import { IServicesState, IServiceAction, SEVICES_ACTION_TYPES } from './constants';
+
+const initialState: IServicesState = {
+    services: [],
+    fetching: false,
+    invalidated: false
+};
+
+export const services = (state = initialState, action: IServiceAction) => {
+    let newState = { ...state };
+    switch (action.type) {
+        case SEVICES_ACTION_TYPES.FETCHING_ALL:
+            newState.fetching = true;
+            break;
+        case SEVICES_ACTION_TYPES.FETCH_ALL_SUCCESS:
+            newState.fetching = false;
+            newState.services = action.services;
+            break;
+        case SEVICES_ACTION_TYPES.FETCH_ALL_FAILED:
+            newState.fetching = false;
+            newState.services = [];
+            break;
+        default:
+            break;
+    }
+    return newState;
+};

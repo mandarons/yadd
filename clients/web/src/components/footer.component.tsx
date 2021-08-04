@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+
+const FooterComponent = () => {
+    return (
+        <footer id={'footer'} className="h-10 text-center text-gray-500">Created with ReactJS, TailwindCSS</footer>
+    );
+};
+
+export default FooterComponent;

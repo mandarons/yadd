@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,33 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import cron from 'node-cron';
+import isReachable from 'is-reachable';
+import configSchema from '../db/config.schema';
+import { getAllServices, IServiceRecordAttributes, updateLastOnline } from '../db/services.schema';
+
+const enableServiceStatusRefresh = async () => {
+    let result = ((await configSchema.getStatusCheckInterval()).values as { [key: string]: string; })!.value;
+
+    return cron.schedule(result, async () => {
+        const allServices = (await getAllServices()).values as [IServiceRecordAttributes];
+        await Promise.all(allServices.map(async service => {
+            try {
+                if (await isReachable(service.url)) {
+                    return updateLastOnline(service.shortName, new Date());
+                }
+                return new Promise(resolve => resolve(false));
+            } catch (error) {
+                console.log(`Service ${service.shortName} is offline.`);
+                return new Promise(resolve => resolve(false));
+            }
+        }));
+    });
+};
+
+export default {
+    enableServiceStatusRefresh
+};
+

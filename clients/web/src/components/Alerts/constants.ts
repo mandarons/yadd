@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+export const ALERT_ACTION_TYPES = {
+    INFO: 'INFO',
+    SUCCESS: 'SUCCESS',
+    WARNING: 'WARNING',
+    ERROR: 'ERROR',
+    CLEAR: 'CLEAR'
+};
+export interface IAlertAction {
+    type: string;
+    autoClose: boolean;
+    message: string;
+};
+export interface IAlert extends IAlertAction {
+    id: string | undefined;
+};

@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import path from 'path';
+import { Sequelize } from 'sequelize';
+
+const CONFIG_DIR_PATH = path.resolve(path.join(__dirname, '..', '..', 'config'));
+const DEFAULT_DB_PATH = path.resolve(path.join(CONFIG_DIR_PATH, 'db.sqlite'));
+
+export interface IDatabaseResponse {
+    values?: object;
+    success: boolean;
+    errorMessage?: string;
+    data?: object;
+};
+
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: DEFAULT_DB_PATH,
+    logging: false
+});
+
+export default sequelize;

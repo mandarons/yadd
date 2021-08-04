@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,33 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import { connect } from 'react-redux';
+import { AlertComponent } from './alert.component';
+import { IAlert } from './constants';
+import { IState } from '../../store/reducers';
+
+interface IProps {
+    alerts: IAlert[];
+};
+
+const AlertListComponent = (props: IProps) => {
+    return (
+        <div id={'alert-list'} className={'absolute flex flex-grow flex-wrap w-9/12'}>
+            {props.alerts.map((alert, index) =>
+                <AlertComponent key={index} id={`alert${index}`} type={alert.type} message={alert.message} autoClose={alert.autoClose}
+                />
+            )}
+        </div>
+    );
+};
+
+const mapStateToProps = (state: IState) => {
+    const { alerts } = state;
+    return { alerts };
+};
+const connectedAlertListComponent = connect(mapStateToProps)(AlertListComponent);
+export {
+    connectedAlertListComponent as AlertListComponent
+};

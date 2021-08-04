@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import { AlertListComponent } from './Alerts/list.component';
+import { connect } from 'react-redux';
+
+const NavigationComponent = () => {
+    return (
+        <nav className={'flex items-center-stretch justify-center flex-wrap p-6'}>
+            <div className={""}>
+                <img src={'/yadd.png'} alt={'Mandarons:: Yadd Logo'} width={180} height={60} className={'rounded-sm'} />
+            </div>
+            <div className={'flex flex-grow justify-center'}>
+                <AlertListComponent />
+            </div>
+        </nav>
+    );
+};
+
+const connectedComponent = connect()(NavigationComponent);
+
+export { connectedComponent as NavigationComponent };

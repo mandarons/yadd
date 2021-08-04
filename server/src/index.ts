@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,33 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import express from 'express';
+import path from 'path';
+import bodyParser from 'body-parser';
+import routes from './routes';
+import cors from 'cors';
+import cronJobs from './controllers/cron-jobs';
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.resolve(path.join(__dirname, '..', 'public'))));
+app.use('/', routes);
+cronJobs.enableServiceStatusRefresh();
+const PORT = 3334;
+let service = null;
+
+/* istanbul ignore if */
+if (require.main === module) {
+    service = app.listen(PORT, '0.0.0.0', () => {
+        console.info(`Service is listening on port ${PORT}.`);
+    });
+}
+
+export default {
+    service,
+    app
+};

@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,32 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import express from 'express';
+import path from 'path';
+import * as db from '../db/services.schema';
+import utils from './route.utils';
+
+const Router = express.Router();
+
+Router.get('/favicon.ico', (req, res) => res.status(204).end());
+Router.get('/', (req, res) => {
+    return res.sendFile(path.resolve(path.join(__dirname, '..', '..', 'public', 'index.html')));
+});
+Router.get('/:name', async (req, res) => {
+    const fromDB = await db.findURLByShortName(req.params.name);
+    if (!fromDB.success) {
+        return utils.errorResponse(res, 500, fromDB.errorMessage as string);
+    }
+    const url = fromDB.data !== undefined ? (fromDB.data as { [key: string]: string; }).url : undefined;
+    if (url === undefined) {
+        return utils.errorResponse(res, 404, 'Service not found.', {
+            shortName: req.params.name
+        });
+    }
+    return res.redirect(url);
+});
+
+
+export default Router;

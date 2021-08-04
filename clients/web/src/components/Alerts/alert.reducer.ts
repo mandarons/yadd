@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2021 Mandar Patil (mandarons@pm.me)
@@ -19,3 +20,32 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+import { IAlert, IAlertAction, ALERT_ACTION_TYPES } from './constants';
+
+const initialState: IAlert[] = [];
+
+const addUnique = (alerts: IAlert[], alert: IAlert) => {
+    alerts = alerts.filter(a => a.message !== alert.message);
+    alerts.push(alert);
+    return alerts;
+};
+
+export function alerts(state = initialState, action: IAlertAction) {
+    let newState = [...state];
+    switch (action.type) {
+        case ALERT_ACTION_TYPES.INFO:
+        case ALERT_ACTION_TYPES.SUCCESS:
+        case ALERT_ACTION_TYPES.WARNING:
+        case ALERT_ACTION_TYPES.ERROR:
+            newState = addUnique(newState, action as IAlert);
+            break;
+        case ALERT_ACTION_TYPES.CLEAR:
+            newState = action.message !== null ? newState.filter(a => a.message !== action.message) : [];
+            break;
+        default:
+            return state;
+    }
+    return newState;
+}
