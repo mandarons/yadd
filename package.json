@@ -21,10 +21,6 @@
     "dashboard",
     "self-host"
   ],
-  "engines": {
-    "node": "^14.0.0",
-    "yarn": "^1.0.0."
-  },
   "scripts": {
     "e2e": "npm run prod:local & wait-on http://localhost:3334/ && CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open",
     "build": "NODE_ENV=production rm -rf ./build && tsc --build ./tsconfig.json && npm run build --prefix ./clients/web && mv ./clients/web/build ./build/public",
