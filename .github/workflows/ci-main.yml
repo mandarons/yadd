@@ -53,8 +53,10 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v2
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: .nyc_output
           flags: unittests
+          verbose: true
+          fail_ci_if_error: true
       
       - name: Generate Allure Test Report
         uses: simple-elf/allure-report-action@v1.5
@@ -77,7 +79,7 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         env:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          actions_deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 #          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
