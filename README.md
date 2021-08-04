@@ -1,4 +1,0 @@
-# yadd
-
-Yet Another DashboarD
-
