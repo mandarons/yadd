@@ -1,0 +1,46 @@
+{
+  "uid" : "e23a194c6a013110",
+  "name" : "/service GET should get an existing service",
+  "fullName" : "/api route./service GET should get an existing service",
+  "historyId" : "c2bfb63044245ae7d521ae59e4e91772",
+  "time" : {
+    "start" : 1628120661877,
+    "stop" : 1628120661909,
+    "duration" : 32
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service GET should get an existing service"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e23a194c6a013110.json",
+  "parameterValues" : [ ]
+}
