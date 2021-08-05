@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://mandarons.github.io/yadd/test-results",
+  "buildOrder" : 24,
+  "buildName" : "GitHub Actions Run #1099628329",
+  "buildUrl" : "https://github.com/mandarons/yadd/actions/runs/1099628329",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://mandarons.github.io/yadd/test-results/24/"
+} ]
