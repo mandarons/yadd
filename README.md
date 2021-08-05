@@ -32,7 +32,7 @@ A minimalistic dashboard for all the services that you use and love. It also mon
    
    `SHORT NAME`: Unique, short name to be used as short URL e.g. `amazon`
    
-   `LOGO URL`: Relative path to icon to be used e.g. `/icons/amazon.com`. [Full list of available icons](https://github.com/mandarons/yadd/tree/main/clients/web/public/icons)
+   `LOGO URL`: Relative path to icon to be used e.g. `/icons/amazon.png`. [Full list of available icons](https://github.com/mandarons/yadd/tree/main/clients/web/public/icons)
    
    Click on `CREATE SERVICE`
 
@@ -52,6 +52,6 @@ Simply click on `pencil` icon on the service card, make changes and click `SAVE 
 
 Simply click on `pencil` icon on the service card that you want to delete and click `DELETE SERVICE`.
 
-### Recommended Setup (using NGINX)
+### Recommended Setup (using `NGINX` and `docker compose`)
 
 TODO
