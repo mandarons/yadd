@@ -29,7 +29,7 @@
     "prod:local": "NODE_ENV=production node ./build/src/index.js",
     "prod": "NODE_ENV=production node ./src/index.js",
     "test:server": "NODE_ENV=test mocha -r ts-node/register --r source-map-support/register --recursive ./server/tests/**/*.test.ts",
-    "test:server:ci": "NODE_ENV=test nyc --reporter=html mocha --reporter mocha-allure-reporter --exit -r ts-node/register ./server/tests/**/*.ts"
+    "test:server:ci": "NODE_ENV=test nyc --reporter=html --reporter=json-summary  mocha --reporter mocha-allure-reporter --exit -r ts-node/register ./server/tests/**/*.ts"
   },
   "dependencies": {
     "axios": "^0.21.1",
