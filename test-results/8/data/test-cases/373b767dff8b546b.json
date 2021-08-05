@@ -1,0 +1,46 @@
+{
+  "uid" : "373b767dff8b546b",
+  "name" : "/config GET should return list of configuration entries",
+  "fullName" : "/api route./config GET should return list of configuration entries",
+  "historyId" : "27d35feabd306abfe33b3b6f0cb89f6a",
+  "time" : {
+    "start" : 1628171295950,
+    "stop" : 1628171295969,
+    "duration" : 19
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/config GET should return list of configuration entries"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "373b767dff8b546b.json",
+  "parameterValues" : [ ]
+}

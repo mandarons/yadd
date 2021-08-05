@@ -1,0 +1,46 @@
+{
+  "uid" : "15e1fb25ac1ebc26",
+  "name" : "should not get url by shortName for non-existing service",
+  "fullName" : "Runtime Schema.should not get url by shortName for non-existing service",
+  "historyId" : "1af3c18f0f46f8dc298f6f7af1954012",
+  "time" : {
+    "start" : 1628171296395,
+    "stop" : 1628171296400,
+    "duration" : 5
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should not get url by shortName for non-existing service"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "15e1fb25ac1ebc26.json",
+  "parameterValues" : [ ]
+}
