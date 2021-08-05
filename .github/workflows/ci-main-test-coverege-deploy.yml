@@ -100,120 +100,120 @@ jobs:
           path: build
           retention-days: 1
 
-#   test-and-publish-report:
-#     needs: cache-server-install
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - name: Checkout source code
-#         uses: actions/checkout@v2
-#       - name: Setup Node.js environment
-#         uses: actions/setup-node@v2.3.2
-#         with:
-#           node-version: 14.17.0
-#       - name: Restore yarn-server depdendencies
-#         uses: actions/cache@v2
-#         with:
-#           path: node_modules
-#           key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
-#           restore-keys: |
-#             ${{ runner.os }}-yarn-server-
-#       - name: Run Server Tests
-#         run: |
-#           yarn test:server:ci
-#       - name: Generate Allure Test Report
-#         uses: simple-elf/allure-report-action@master
-#         if: always()
-#         with:
-#           allure_results: allure-results
-#           subfolder: test-results
-#           allure_report: allure-report
-#           allure_history: allure-history
-#           keep_reports: 100
-#       - name: Generate badges
-#         run: |
-#           node generate-badges.js
-#       - name: Upload badges artifacts
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: badges-output
-#           path: badges
-#           retention-days: 1
-#       - name: Checkout gh-pages
-#         uses: actions/checkout@v2
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
-#       - name: Publish test report to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           publish_branch: gh-pages
-#           publish_dir: allure-history
-#       - name: Upload tests artifacts
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: tests-output
-#           path: allure-history
-#           retention-days: 1
-#       - name: Upload coverage artifacts
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: coverage-output
-#           path: coverage
-#           retention-days: 1
+  test-and-publish-report:
+    needs: cache-server-install
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.3.2
+        with:
+          node-version: 14.17.0
+      - name: Restore yarn-server depdendencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-server-
+      - name: Run Server Tests
+        run: |
+          yarn test:server:ci
+      - name: Generate Allure Test Report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          subfolder: test-results
+          allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 100
+      - name: Generate badges
+        run: |
+          node generate-badges.js
+      - name: Upload badges artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: badges-output
+          path: badges
+          retention-days: 1
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Publish test report to gh-pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
+      - name: Upload tests artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: tests-output
+          path: allure-history
+          retention-days: 1
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-output
+          path: coverage
+          retention-days: 1
 
-#   publish-coverage-report:
-#     needs: test-and-publish-report
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - name: Download coverage artifacts
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: coverage-output
-#           path: coverage
-#       - name: Checkout gh-pages
-#         uses: actions/checkout@v2
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
-#       - name: Publish test coverage to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           publish_branch: gh-pages
-#           publish_dir: coverage
-#           destination_dir: test-coverage
+  publish-coverage-report:
+    needs: test-and-publish-report
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Download coverage artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage-output
+          path: coverage
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Publish test coverage to gh-pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          publish_branch: gh-pages
+          publish_dir: coverage
+          destination_dir: test-coverage
 
-#   publish-badges:
-#     needs: test-and-publish-report
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - name: Download badges artifacts
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: badges-output
-#           path: badges
-#       - name: Checkout gh-pages
-#         uses: actions/checkout@v2
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
-#       - name: Publish badges to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           publish_branch: gh-pages
-#           publish_dir: badges
-#           destination_dir: badges
+  publish-badges:
+    needs: test-and-publish-report
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Download badges artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: badges-output
+          path: badges
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Publish badges to gh-pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          publish_branch: gh-pages
+          publish_dir: badges
+          destination_dir: badges
   
   e2e-tests-chrome:
     needs: build
@@ -253,39 +253,39 @@ jobs:
           headless: true
           install: false
         
-#   deploy:
-#     needs: [build, test-and-publish-report]
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Check Out Repo
-#         uses: actions/checkout@v2
-#       - name: Download build artifacts
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: build-output
-#           path: build
-#       - name: Cache Docker layers
-#         uses: actions/cache@v2
-#         with:
-#           path: /tmp/.buildx-cache
-#           key: ${{ runner.os }}-buildx-${{ github.sha }}
-#           restore-keys: |
-#             ${{ runner.os }}-buildx-
-#       - name: Log into Docker Hub
-#         uses: docker/login-action@v1
-#         with:
-#           username: ${{ secrets.DOCKER_HUB_USERNAME }}
-#           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-#       - name: Set up Docker Buildx
-#         id: buildx
-#         uses: docker/setup-buildx-action@v1
-#       - name: Build and push the image
-#         id: docker_build
-#         uses: docker/build-push-action@v2
-#         with:
-#           context: ./
-#           file: ./Dockerfile
-#           push: true
-#           tags: mandarons/yadd:main
-#       - name: Image digest
-#         run: echo ${{ steps.docker_build.outputs.digest }}
+  deploy:
+    needs: [build, test-and-publish-report]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo
+        uses: actions/checkout@v2
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-output
+          path: build
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Log into Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Build and push the image
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: mandarons/yadd:main
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
