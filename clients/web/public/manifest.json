@@ -1,0 +1,13 @@
+{
+  "short_name": "yadd",
+  "name": "Yet Another DashboarD for your services",
+  "icons": [{
+    "src": "yadd.png",
+    "type": "image/png",
+    "sizes": "300x100 2559x853"
+  }],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
