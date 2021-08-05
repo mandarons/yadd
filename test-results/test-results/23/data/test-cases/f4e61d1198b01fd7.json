@@ -1,0 +1,46 @@
+{
+  "uid" : "f4e61d1198b01fd7",
+  "name" : "should handle exception on delete",
+  "fullName" : "Runtime Schema.should handle exception on delete",
+  "historyId" : "aae00efb6da040d7f7248965a0c64ced",
+  "time" : {
+    "start" : 1628121962779,
+    "stop" : 1628121962785,
+    "duration" : 6
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle exception on delete"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f4e61d1198b01fd7.json",
+  "parameterValues" : [ ]
+}
