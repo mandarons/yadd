@@ -1,0 +1,46 @@
+{
+  "uid" : "8cd40b85edb64155",
+  "name" : "should update lastOnline",
+  "fullName" : "Runtime Schema.should update lastOnline",
+  "historyId" : "cd3786557456d69754870b103da1b869",
+  "time" : {
+    "start" : 1628135977507,
+    "stop" : 1628135977528,
+    "duration" : 21
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should update lastOnline"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8cd40b85edb64155.json",
+  "parameterValues" : [ ]
+}

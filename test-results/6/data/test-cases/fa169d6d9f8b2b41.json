@@ -1,0 +1,46 @@
+{
+  "uid" : "fa169d6d9f8b2b41",
+  "name" : "should update an existing service",
+  "fullName" : "Runtime Schema.should update an existing service",
+  "historyId" : "ff348952b1142a982339a3991634d15a",
+  "time" : {
+    "start" : 1628135977435,
+    "stop" : 1628135977457,
+    "duration" : 22
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should update an existing service"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "fa169d6d9f8b2b41.json",
+  "parameterValues" : [ ]
+}
