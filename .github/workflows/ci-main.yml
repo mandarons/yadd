@@ -89,7 +89,7 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
-          actions_deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_branch: gh-pages
           publish_dir: allure-history
           destination_dir: test-results
@@ -98,7 +98,7 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
-          actions_deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_branch: gh-pages
           publish_dir: coverage
           destination_dir: test-coverage
