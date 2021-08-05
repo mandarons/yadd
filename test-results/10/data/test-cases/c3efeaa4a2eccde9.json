@@ -1,0 +1,46 @@
+{
+  "uid" : "c3efeaa4a2eccde9",
+  "name" : "should increment hits",
+  "fullName" : "Runtime Schema.should increment hits",
+  "historyId" : "f3039b96adbc105ad14c26cf99c81e63",
+  "time" : {
+    "start" : 1628173798595,
+    "stop" : 1628173798612,
+    "duration" : 17
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should increment hits"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c3efeaa4a2eccde9.json",
+  "parameterValues" : [ ]
+}
