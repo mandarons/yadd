@@ -169,7 +169,7 @@ jobs:
           publish_dir: coverage
           destination_dir: test-coverage
   deploy:
-    needs: test
+    needs: [ build, test ]
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo 
