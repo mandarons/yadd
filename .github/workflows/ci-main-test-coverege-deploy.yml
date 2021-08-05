@@ -1,11 +1,16 @@
-name: Main - Test, Coverage and Deploy
+name: CI
 
 on:
   push:
     branches: [ main ]
-
+    paths:
+      - 'clients/**'
+      - 'cypress/**'
+      - 'server/**'
+      - 'Dockerfile'
+      - '*.json'
+      - 'yarn.lock'
   workflow_dispatch:
-
 jobs:
   cache-server-install:
     runs-on: ubuntu-18.04
