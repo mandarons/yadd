@@ -93,13 +93,13 @@ jobs:
           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_branch: gh-pages
           publish_dir: allure-history
-          destination_dir: test-results
+#           destination_dir: test-results
           
-      - name: Publish test coverage to gh-pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          publish_branch: gh-pages
-          publish_dir: coverage
-          destination_dir: test-coverage
+#       - name: Publish test coverage to gh-pages
+#         if: always()
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+#           publish_branch: gh-pages
+#           publish_dir: coverage
+#           destination_dir: test-coverage
