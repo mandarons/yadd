@@ -68,24 +68,6 @@ jobs:
           ref: gh-pages
           path: gh-pages
                        
-#       - name: Publish test report to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v2
-#         env:
-#           ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           PUBLISH_BRANCH: gh-pages
-#           PUBLISH_DIR: allure-history
-    
-#       - name: Publish test coverage to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v2
-#         env:
-#           ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           PUBLISH_BRANCH: gh-pages
-#           PUBLISH_DIR: coverage
-#         with:
-#           keepFiles: true
-
       - name: Publish test report to gh-pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
@@ -93,13 +75,3 @@ jobs:
           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_branch: gh-pages
           publish_dir: allure-history
-#           destination_dir: test-results
-          
-#       - name: Publish test coverage to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           publish_branch: gh-pages
-#           publish_dir: coverage
-#           destination_dir: test-coverage
