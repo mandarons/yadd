@@ -1,0 +1,46 @@
+{
+  "uid" : "69ea297a724b3735",
+  "name" : "/config PUT should update existing config entry",
+  "fullName" : "/api route./config PUT should update existing config entry",
+  "historyId" : "857debd1a1e94076fa77e9a1c169a202",
+  "time" : {
+    "start" : 1628199729575,
+    "stop" : 1628199729589,
+    "duration" : 14
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/config PUT should update existing config entry"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "69ea297a724b3735.json",
+  "parameterValues" : [ ]
+}
