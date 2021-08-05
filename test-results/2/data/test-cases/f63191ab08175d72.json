@@ -1,0 +1,46 @@
+{
+  "uid" : "f63191ab08175d72",
+  "name" : "should handle exception for get lastOnline",
+  "fullName" : "Runtime Schema.should handle exception for get lastOnline",
+  "historyId" : "89e7aca2c40670d38b2199bfdbd49b28",
+  "time" : {
+    "start" : 1628124963038,
+    "stop" : 1628124963044,
+    "duration" : 6
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle exception for get lastOnline"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f63191ab08175d72.json",
+  "parameterValues" : [ ]
+}

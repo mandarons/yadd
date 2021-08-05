@@ -1,0 +1,46 @@
+{
+  "uid" : "ad91d03ce1f64bb",
+  "name" : "/service GET should return error for invalid data",
+  "fullName" : "/api route./service GET should return error for invalid data",
+  "historyId" : "17cb7420c90ba134904fe34a8e3b55a6",
+  "time" : {
+    "start" : 1628124962602,
+    "stop" : 1628124962615,
+    "duration" : 13
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service GET should return error for invalid data"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ad91d03ce1f64bb.json",
+  "parameterValues" : [ ]
+}

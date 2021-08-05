@@ -1,0 +1,46 @@
+{
+  "uid" : "8edcf29c9ee63319",
+  "name" : "/:invalid_name should return error",
+  "fullName" : "Root route./:invalid_name should return error",
+  "historyId" : "55593bb61dcd8dc5458199136f1a553",
+  "time" : {
+    "start" : 1628124962884,
+    "stop" : 1628124962894,
+    "duration" : 10
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Root route"
+  }, {
+    "name" : "testClass",
+    "value" : "Root route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/:invalid_name should return error"
+  }, {
+    "name" : "package",
+    "value" : "Root route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8edcf29c9ee63319.json",
+  "parameterValues" : [ ]
+}
