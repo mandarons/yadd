@@ -28,8 +28,8 @@ import { connect } from 'react-redux';
 const NavigationComponent = () => {
     return (
         <nav className={'flex items-center-stretch justify-center flex-wrap p-6'}>
-            <div className={""}>
-                <img src={'/yadd.png'} alt={'Mandarons:: Yadd Logo'} width={180} height={60} className={'rounded-sm'} />
+            <div>
+                <img id={'appLogoImage'} src={'/yadd.png'} alt={'Mandarons:: Yadd Logo'} width={180} height={60} className={'rounded-sm'} />
             </div>
             <div className={'flex flex-grow justify-center'}>
                 <AlertListComponent />

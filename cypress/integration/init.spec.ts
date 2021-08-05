@@ -14,8 +14,11 @@ describe('Initialize App', () => {
     after(async () => {
     });
     it('should launch the app', () => {
-        cy.get('#spanAppName')
-            .should('have.text', 'YADD')
+        cy.get('#appLogoImage')
+            .should('be.visible')
+            .and(img => {
+                expect((img[0] as HTMLImageElement).naturalWidth).to.be.greaterThan(0);
+            });
         cy.get('#btnAddNewService')
             .should('not.be.null');
         cy.get('#footer')
