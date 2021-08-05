@@ -25,7 +25,9 @@ SOFTWARE.
 
 const FooterComponent = () => {
     return (
-        <footer id={'footer'} className="h-10 text-center text-gray-500">Created with ReactJS, TailwindCSS</footer>
+        <footer id={'footer'} className="h-10 text-center">
+            <a className={'text-blue-400'} href={'https://github.com/mandarons/yadd'}>GitHub</a>
+        </footer>
     );
 };
 
