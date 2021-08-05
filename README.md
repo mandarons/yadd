@@ -36,19 +36,19 @@ A minimalistic dashboard for all the services that you use and love. It also mon
    
    Click on `CREATE SERVICE`
 
-### Navigating to existing service using short name
+### Navigating to an existing service using short name
 
 Simply navigate to `http://localhost:3334/amazon` (from example above) and it will take you to `https://amazon.com` (the service URL).
 
-### Checking the service status
+### Checking the online status of an existing service
 
 After adding a new service for first few seconds, the service background will be red. If the service is online, it should turn green and stay green.
 
-### Editing the service
+### Editing an existing service
 
 Simply click on `pencil` icon on the service card, make changes and click `SAVE CHANGES`.
 
-### Deleting the service
+### Deleting an existing service
 
 Simply click on `pencil` icon on the service card that you want to delete and click `DELETE SERVICE`.
 
