@@ -166,6 +166,8 @@ jobs:
       - name: Build
         run: |
           yarn build
+        env:
+          PUBLIC_URL: "."
       
       - name: Cache Docker layers
         uses: actions/cache@v2
