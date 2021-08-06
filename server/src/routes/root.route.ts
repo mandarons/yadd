@@ -44,7 +44,12 @@ Router.get('/:name', async (req, res) => {
             shortName: req.params.name
         });
     }
-    return res.redirect(url);
+    return res.send(`
+    <head>
+    <script async defer data-domain="yadd.mandarons" src="https://bea26a2221fd8090ea38720fc445eca6.mandarons.com/js/plausible.js"></script>
+    <meta http-equiv="refresh" content="0; URL=${url}" />
+    </head>
+    `);
 });
 
 

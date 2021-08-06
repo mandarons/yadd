@@ -25,6 +25,7 @@
     "e2e": "npm run prod:local & wait-on http://localhost:3334/ && CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open",
     "build": "NODE_ENV=production rm -rf ./build && tsc --build ./tsconfig.json && npm run build --prefix ./clients/web && mv ./clients/web/build ./build/public",
     "build:server": "tsc --build ./tsconfig.json",
+    "build:docker:local": "PUBLIC_URL=. npm run build && docker build --tag yadd .",
     "start": "nodemon ./server/src/index.ts",
     "prod:local": "NODE_ENV=production node ./build/src/index.js",
     "prod": "NODE_ENV=production node ./src/index.js",

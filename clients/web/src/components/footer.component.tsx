@@ -22,8 +22,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+import { useEffect } from 'react';
+import Plausible from 'plausible-tracker';
 
 const FooterComponent = () => {
+    const { enableAutoPageviews, enableAutoOutboundTracking } = Plausible({
+        domain: 'yadd.mandarons',
+        apiHost: 'https://bea26a2221fd8090ea38720fc445eca6.mandarons.com',
+        trackLocalhost: true
+    });
+    const cleanupAutoPageviews = enableAutoPageviews();
+    const cleanupAutoOutboundTracking = enableAutoOutboundTracking();
+    useEffect(() => {
+        return () => {
+            cleanupAutoPageviews();
+            cleanupAutoOutboundTracking();
+        };
+    }, [cleanupAutoPageviews, cleanupAutoOutboundTracking]);
     return (
         <footer id={'footer'} className="h-10 text-center">
             <a className={'text-blue-400'} href={'https://github.com/mandarons/yadd'}>GitHub</a>
