@@ -1,0 +1,46 @@
+{
+  "uid" : "b222d92ed9027437",
+  "name" : "/services GET should return error in case of internal exception",
+  "fullName" : "/api route./services GET should return error in case of internal exception",
+  "historyId" : "e0fb2b9c9b7fdfac67db682ed5dccf27",
+  "time" : {
+    "start" : 1628291777260,
+    "stop" : 1628291777297,
+    "duration" : 37
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/services GET should return error in case of internal exception"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b222d92ed9027437.json",
+  "parameterValues" : [ ]
+}

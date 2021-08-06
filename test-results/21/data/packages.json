@@ -1,0 +1,667 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "/api route",
+    "children" : [ {
+      "name" : "/service POST should create a new service",
+      "uid" : "8d76aa180e15f395",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291776929,
+        "stop" : 1628291776973,
+        "duration" : 44
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service POST should not create a duplicate service",
+      "uid" : "43539b3827bd7ed9",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291776974,
+        "stop" : 1628291776994,
+        "duration" : 20
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service POST should return error for invalid service",
+      "uid" : "e60d8733b0ff8970",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291776995,
+        "stop" : 1628291777012,
+        "duration" : 17
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service GET should get an existing service",
+      "uid" : "cf147c39c868a732",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777012,
+        "stop" : 1628291777036,
+        "duration" : 24
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service GET should return error in case of exception",
+      "uid" : "8d50a84b84fbabca",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777036,
+        "stop" : 1628291777067,
+        "duration" : 31
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service GET should return error for invalid data",
+      "uid" : "a9c219fda8f64701",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777067,
+        "stop" : 1628291777088,
+        "duration" : 21
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service PUT should update an existing service",
+      "uid" : "93af09793f278bd4",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777088,
+        "stop" : 1628291777120,
+        "duration" : 32
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service PUT should not update a non-existing service",
+      "uid" : "91e51a234234f529",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777120,
+        "stop" : 1628291777140,
+        "duration" : 20
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service PUT should return error for invalid data",
+      "uid" : "4817c89917bfaee6",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777140,
+        "stop" : 1628291777167,
+        "duration" : 27
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service DELETE should delete an existing service",
+      "uid" : "bc1e16928d3964c4",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777167,
+        "stop" : 1628291777189,
+        "duration" : 22
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service DELETE should not delete a non-existing service",
+      "uid" : "77fc916e596437c6",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777189,
+        "stop" : 1628291777203,
+        "duration" : 14
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/service DELETE should return error for invalid data",
+      "uid" : "3dcda3fbf394ea70",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777203,
+        "stop" : 1628291777225,
+        "duration" : 22
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/services GET should return list of services",
+      "uid" : "e34ecf9c637efed0",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777225,
+        "stop" : 1628291777260,
+        "duration" : 35
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/services GET should return error in case of internal exception",
+      "uid" : "b222d92ed9027437",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777260,
+        "stop" : 1628291777297,
+        "duration" : 37
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/config GET should return list of configuration entries",
+      "uid" : "8a352a9ffd7ee869",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777297,
+        "stop" : 1628291777320,
+        "duration" : 23
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/config PUT should update existing config entry",
+      "uid" : "dce43231e8418bf2",
+      "parentUid" : "0bfa045d0a77d3c206229771fa9d4dce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777320,
+        "stop" : 1628291777344,
+        "duration" : 24
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "0bfa045d0a77d3c206229771fa9d4dce"
+  }, {
+    "name" : "Root route",
+    "children" : [ {
+      "name" : "/favicon.ico should redirect to /",
+      "uid" : "35fb9bcd16c484e8",
+      "parentUid" : "3a90c8be1bf688f65e151b7651a42a58",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777354,
+        "stop" : 1628291777366,
+        "duration" : 12
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/ should return index file",
+      "uid" : "6efc6c847eca69cb",
+      "parentUid" : "3a90c8be1bf688f65e151b7651a42a58",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777366,
+        "stop" : 1628291777374,
+        "duration" : 8
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/:name should redirect to named URL",
+      "uid" : "e0c0332ecb9b3572",
+      "parentUid" : "3a90c8be1bf688f65e151b7651a42a58",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777374,
+        "stop" : 1628291777388,
+        "duration" : 14
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/:invalid_name should return error",
+      "uid" : "c08f9dce26186bf",
+      "parentUid" : "3a90c8be1bf688f65e151b7651a42a58",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777388,
+        "stop" : 1628291777401,
+        "duration" : 13
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "/:name should return error in case of exception",
+      "uid" : "ad0b6d69460e1d75",
+      "parentUid" : "3a90c8be1bf688f65e151b7651a42a58",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777401,
+        "stop" : 1628291777416,
+        "duration" : 15
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "3a90c8be1bf688f65e151b7651a42a58"
+  }, {
+    "name" : "Runtime Schema",
+    "children" : [ {
+      "name" : "should create a new service record",
+      "uid" : "e6a7c7c73b385a5b",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777418,
+        "stop" : 1628291777427,
+        "duration" : 9
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should not create a duplicate service record",
+      "uid" : "45307bcba5f5c615",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777427,
+        "stop" : 1628291777437,
+        "duration" : 10
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should return empty array if no services are created",
+      "uid" : "ac0b3a6aa4b1317a",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777437,
+        "stop" : 1628291777443,
+        "duration" : 6
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should return an array of services",
+      "uid" : "5860365ba9fdca93",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777443,
+        "stop" : 1628291777467,
+        "duration" : 24
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should return error in case of failure for getting all services",
+      "uid" : "1eb1437247aecd43",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777467,
+        "stop" : 1628291777495,
+        "duration" : 28
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should find an existing service record",
+      "uid" : "e5f28c22c1b9dfdb",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777495,
+        "stop" : 1628291777503,
+        "duration" : 8
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should not find a non-existing service record",
+      "uid" : "9e94410f5a4bb50a",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777503,
+        "stop" : 1628291777508,
+        "duration" : 5
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should handle exception on find service record",
+      "uid" : "dd1a9ab3b220ccd8",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777508,
+        "stop" : 1628291777512,
+        "duration" : 4
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should update an existing service",
+      "uid" : "fc932c1242f4aa03",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777512,
+        "stop" : 1628291777523,
+        "duration" : 11
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should not update a non-existing service",
+      "uid" : "c9381c23c7c6771b",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777523,
+        "stop" : 1628291777528,
+        "duration" : 5
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should handle exception on update",
+      "uid" : "f1458879ee85f225",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777529,
+        "stop" : 1628291777533,
+        "duration" : 4
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should delete an existing service record",
+      "uid" : "3a09ff07ae27df30",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777534,
+        "stop" : 1628291777544,
+        "duration" : 10
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should not delete a non-existing service record",
+      "uid" : "206d6bd3bb81dda8",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777544,
+        "stop" : 1628291777549,
+        "duration" : 5
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should handle exception on delete",
+      "uid" : "2496e690b5572cfb",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777549,
+        "stop" : 1628291777556,
+        "duration" : 7
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should update lastOnline",
+      "uid" : "9c3dca0959ad7c13",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777556,
+        "stop" : 1628291777570,
+        "duration" : 14
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should not update lastOnline for invalid service",
+      "uid" : "5739091cbd47e703",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777570,
+        "stop" : 1628291777575,
+        "duration" : 5
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should handle exception for updating lastOnline",
+      "uid" : "95d0643811ec0ed7",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777575,
+        "stop" : 1628291777584,
+        "duration" : 9
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should get lastOnline",
+      "uid" : "9474c128dacbf0c8",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777584,
+        "stop" : 1628291777597,
+        "duration" : 13
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should get lastOnline as null for invalid service",
+      "uid" : "190b9fd407ae4cc1",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777597,
+        "stop" : 1628291777608,
+        "duration" : 11
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should handle exception for get lastOnline",
+      "uid" : "1e9743c79a160e16",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777608,
+        "stop" : 1628291777616,
+        "duration" : 8
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should get hits",
+      "uid" : "1e528bdfbd7a1063",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777616,
+        "stop" : 1628291777630,
+        "duration" : 14
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should not get hits for non-existant service",
+      "uid" : "e542d3114ab74e73",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777630,
+        "stop" : 1628291777637,
+        "duration" : 7
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should handle exception on get hits",
+      "uid" : "5a3a9ff4bc8f3a66",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777637,
+        "stop" : 1628291777651,
+        "duration" : 14
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should increment hits",
+      "uid" : "c551181ea18b9365",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777651,
+        "stop" : 1628291777666,
+        "duration" : 15
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should not increment hits for non-existent service",
+      "uid" : "91be601061822f71",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777666,
+        "stop" : 1628291777674,
+        "duration" : 8
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should handle exception on increment hits",
+      "uid" : "d8f292ef44fb4f8f",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777674,
+        "stop" : 1628291777683,
+        "duration" : 9
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should get url by shortName",
+      "uid" : "12a69db7644632cd",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777683,
+        "stop" : 1628291777691,
+        "duration" : 8
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should not get url by shortName for non-existing service",
+      "uid" : "1924ea8431f445d6",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777691,
+        "stop" : 1628291777698,
+        "duration" : 7
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "should handle excpetion while getting url by shortName",
+      "uid" : "9d3d57e9a93be60f",
+      "parentUid" : "0ec60c56147c4ea8cdc53b3ae66ab172",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628291777698,
+        "stop" : 1628291777705,
+        "duration" : 7
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "0ec60c56147c4ea8cdc53b3ae66ab172"
+  } ],
+  "name" : "packages"
+}
