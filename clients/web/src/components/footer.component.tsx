@@ -41,7 +41,7 @@ const FooterComponent = () => {
     }, [cleanupAutoPageviews, cleanupAutoOutboundTracking]);
     return (
         <footer id={'footer'} className="h-10 text-center">
-            <a className={'text-blue-400'} href={'https://github.com/mandarons/yadd'}>GitHub</a>
+            <a className={'text-blue-400'} target='_blank' href={'https://github.com/mandarons/yadd'}>GitHub</a>
         </footer>
     );
 };

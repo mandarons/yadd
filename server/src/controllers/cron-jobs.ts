@@ -28,9 +28,9 @@ import configSchema from '../db/config.schema';
 import { getAllServices, IServiceRecordAttributes, updateLastOnline } from '../db/services.schema';
 
 const enableServiceStatusRefresh = async () => {
-    let result = ((await configSchema.getStatusCheckInterval()).values as { [key: string]: string; })!.value;
-
-    return cron.schedule(result, async () => {
+    let result = ((await configSchema.getStatusCheckInterval()).values as { [key: string]: string; });
+    const statusCheckRefreshInterval = result === undefined ? configSchema.DEFAULT_STATUS_CHECK_REFRESH_INTERVAL_IN_MS : result.value;
+    return cron.schedule(statusCheckRefreshInterval, async () => {
         const allServices = (await getAllServices()).values as [IServiceRecordAttributes];
         await Promise.all(allServices.map(async service => {
             try {

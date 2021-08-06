@@ -21,7 +21,7 @@ describe('Service Flow', () => {
     afterEach(async () => {
 
     });
-    const createNewService = (service: { [key: string]: string }) => {
+    const createNewService = (service: { [key: string]: string; }) => {
         cy.get('#btnAddNewService')
             .click().get('#textNewService').should('have.text', 'New Service')
             .get('#inputNewServiceName').type(service.name)
@@ -31,10 +31,10 @@ describe('Service Flow', () => {
             .get('#textNewServiceMessage').should('have.text', '')
             .get('#btnNewServiceCreate').click();
     };
-    const verifyService = (service: { [key: string]: string }, exists = true) => {
+    const verifyService = (service: { [key: string]: string; }, exists = true) => {
         if (exists) {
             cy.get(`#status${newServiceData.shortName}`).should('not.be.null')
-                .get(`#link${newServiceData.shortName}`).should('have.attr', 'href').and('include', service.url)
+                .get(`#link${newServiceData.shortName}`).should('have.attr', 'href').and('include', `/${service.shortName}`)
                 .get(`#img${newServiceData.shortName}`).should('have.attr', 'src').and('equal', service.logoURL)
                 .get(`#text${newServiceData.shortName}Name`).should('have.text', service.name)
                 .get(`#text${newServiceData.shortName}ShortName`).should('have.text', service.shortName);
@@ -43,7 +43,7 @@ describe('Service Flow', () => {
         }
 
     };
-    const deleteExistingService = (service: { [key: string]: string }) => {
+    const deleteExistingService = (service: { [key: string]: string; }) => {
         cy.get(`#btn${service.shortName}Edit`).click()
             .get(`#btnEditService${service.shortName}Delete`).click()
             .get(`#textEditService${service.shortName}Message`).should('not.be.empty')

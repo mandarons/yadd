@@ -99,7 +99,7 @@ const NewServiceComponent = (props: IProps) => {
                                     <div className="relative w-full mb-3 col-span-3 p-2">
                                         <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="serviceLogoURL">Logo URL</label>
                                         <input id="inputNewServiceLogoURL" type="text" name='serviceLogoURL' className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                            placeholder="e.g. /icons/adminer.png" style={{ transition: "all .15s ease" }}
+                                            placeholder="e.g. /icons/google.png" style={{ transition: "all .15s ease" }}
                                             value={state.logoURL} onChange={e => setState({ ...state, logoURL: getTargetValue(e) })} />
                                     </div>
                                 </form>

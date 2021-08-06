@@ -70,8 +70,10 @@ describe('Root route', async () => {
         response = await chai.request(server)
             .get(`/${service.shortName}`);
         response.status.should.be.equal(200);
-        response.redirects.length.should.be.greaterThan(0);
-        response.redirects[0].startsWith(service.url).should.be.true;
+        response.type.should.be.equal('text/html');
+        response.text.should.include(`<meta http-equiv="refresh" content="0; URL=${service.url}" />`);
+        // response.redirects.length.should.be.greaterThan(0);
+        // response.redirects[0].startsWith(service.url).should.be.true;
     });
     it('/:invalid_name should return error', async () => {
         const service = utils.randomServiceRecord();
