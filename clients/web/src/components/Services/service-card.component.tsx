@@ -63,7 +63,7 @@ const ServiceCardComponent = (props: IProps) => {
     const service = props.service;
     return (
         <div className={'relative flex rounded-xl shadow-lg overflow-hidden m-4'}>
-            <a id={`link${service.shortName}`} target='_blank' href={`/${service.shortName}`} className="flex">
+            <a id={`link${service.shortName}`} target='_blank' rel='noreferrer' href={`/${service.shortName}`} className="flex">
                 <div className="h-16 w-16">
                     <img id={`img${service.shortName}`} alt={`Icon of ${service.shortName}`} src={service.logoURL} />
                 </div>

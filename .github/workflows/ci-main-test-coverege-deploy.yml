@@ -214,7 +214,7 @@ jobs:
           publish_branch: gh-pages
           publish_dir: badges
           destination_dir: badges
-  
+
   e2e-tests-chrome:
     needs: build
     runs-on: ubuntu-18.04
@@ -248,13 +248,13 @@ jobs:
       - name: Run cypress
         uses: cypress-io/github-action@v2.10.1
         with:
-          start: yarn prod:local & wait-on http://localhost:3334/ 
+          start: yarn prod:local & wait-on http://localhost:3334/
           browser: chrome
           headless: true
           install: false
-        
+
   deploy:
-    needs: [build, test-and-publish-report]
+    needs: [build, test-and-publish-report, e2e-tests-chrome]
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo
