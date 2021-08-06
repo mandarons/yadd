@@ -62,15 +62,15 @@ Most common use case is repurpose existing system/VM to serve `yadd` from root u
 
 ```nginx
 server {
-		listen 80;
-		server_name goto;
+	listen 80;
+	server_name goto;
 	
-		location / {
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-			proxy_pass http://localhost:3334/;
-		}
-	}
+	location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://localhost:3334/;
+    }
+}
 ```
 If you host a DNS server, you can add entry to resolve `http://goto` to above server. If not, you can update `/etc/hosts` on Linux/Mac, `C:\Windows\System32\drivers\etc\hosts` with the following entry:
 
