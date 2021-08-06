@@ -191,7 +191,7 @@ jobs:
           destination_dir: test-coverage
 
   publish-badges:
-    needs: test-and-publish-report
+    needs: publish-coverage-report
     runs-on: ubuntu-18.04
     steps:
       - name: Download badges artifacts
