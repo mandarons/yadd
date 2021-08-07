@@ -28,6 +28,8 @@ import bodyParser from 'body-parser';
 import routes from './routes';
 import cors from 'cors';
 import cronJobs from './controllers/cron-jobs';
+import { Server } from 'http';
+import sequelize from './db/sql.connection';
 
 const app = express();
 app.use(cors());
@@ -35,15 +37,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.resolve(path.join(__dirname, '..', 'public'))));
 app.use('/', routes);
-cronJobs.enableServiceStatusRefresh();
+
+const scheduledTasks = (async () => await cronJobs.enableServiceStatusRefresh())();
 const PORT = 3334;
-let service = null;
+let service: Server | null = null;
+
 
 /* istanbul ignore if */
 if (require.main === module) {
+
     service = app.listen(PORT, '0.0.0.0', () => {
         console.info(`Service is listening on port ${PORT}.`);
     });
+    const closeGracefully = async (signal: NodeJS.Signals) => {
+        console.warn(`^!@4=> Received signal to terminate: ${signal}`);
+        service?.close(err => process.exit());
+        (await scheduledTasks).stop();
+        await sequelize.close();
+    };
+    process.on('SIGINT', closeGracefully);
+    process.on('SIGTERM', closeGracefully);
 }
 
 export default {
