@@ -1,4 +1,4 @@
-# YADD - Yet Another Dashboard
+# YADD - Yet Another Dashboard (Dockerized)
 
 [![Main - Test, Coverage and Deploy](https://github.com/mandarons/yadd/actions/workflows/ci-main-test-coverege-deploy.yml/badge.svg?branch=main)](https://github.com/mandarons/yadd/actions/workflows/ci-main-test-coverege-deploy.yml)
 [![Tests](https://mandarons.github.io/yadd/badges/tests.svg)](https://mandarons.github.io/yadd/test-results/)
