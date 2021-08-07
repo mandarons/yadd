@@ -1,0 +1,46 @@
+{
+  "uid" : "cd19c8b30b5b8689",
+  "name" : "/service DELETE should return error for invalid data",
+  "fullName" : "/api route./service DELETE should return error for invalid data",
+  "historyId" : "50cfb501ab680f96bf8b44635d55a4ca",
+  "time" : {
+    "start" : 1628361683890,
+    "stop" : 1628361683917,
+    "duration" : 27
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service DELETE should return error for invalid data"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "cd19c8b30b5b8689.json",
+  "parameterValues" : [ ]
+}
