@@ -1,0 +1,140 @@
+name: CD
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+jobs:
+  cache-server-install:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v2.3.2
+        with:
+          node-version: 14.17.0
+      - name: Cache yarn dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-server-
+      - name: Cache Cypress binary
+        id: cache-cypress-binary
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-binary-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            cypress-binary-
+      - name: Install Dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true' || steps.cache-cypress-binary.outputs.cache-hit != 'true'
+        run: |
+          yarn install --frozen-lockfile
+  cache-web-client-install:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v2.3.2
+        with:
+          node-version: 14.17.0
+      - name: Cache yarn dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: clients/web/node_modules
+          key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-web-client-
+      - name: Install Dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: |
+          yarn install --cwd clients/web --frozen-lockfile
+  build:
+    needs: [cache-server-install, cache-web-client-install]
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check Out Repo
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.3.2
+        with:
+          node-version: 14.17.0
+      - name: Restore yarn-server depdendencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-server-
+      - name: Restore yarn-web-client depdendencies
+        uses: actions/cache@v2
+        with:
+          path: clients/web/node_modules
+          key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-web-client-
+      - name: Build
+        run: |
+          yarn build
+        env:
+          PUBLIC_URL: "."
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-output
+          path: build
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo
+        uses: actions/checkout@v2
+      - name: Prepare
+        id: prep
+        run: |
+          DOCKER_IMAGE=mandarons/yadd
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+          fi
+          TAGS="${DOCKER_IMAGE}:${VERSION},${DOCKER_IMAGE}:latest"
+          echo "${TAGS}"
+          echo ::set-output name=tags::${TAGS}
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-output
+          path: build
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Log into Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Build and push the image
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          platform: linux/386,linux/amd64
+          tags: ${{ steps.prep.outputs.tags }}
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
