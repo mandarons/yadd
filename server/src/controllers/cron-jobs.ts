@@ -35,8 +35,9 @@ const enableServiceStatusRefresh = async () => {
         await Promise.all(allServices.map(async service => {
             try {
                 if (await isReachable(service.url)) {
-                    return updateLastOnline(service.shortName, new Date());
+                    return updateLastOnline(service.shortName, true);
                 }
+                await updateLastOnline(service.shortName, false);
                 return new Promise(resolve => resolve(false));
             } catch (error) {
                 console.log(`Service ${service.shortName} is offline.`);

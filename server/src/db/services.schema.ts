@@ -162,12 +162,11 @@ const getAllServices = async (): Promise<IDatabaseResponse> => {
     }
     return returnValue;
 };
-const updateLastOnline = async (shortName: string, lastOnline: Date): Promise<IDatabaseResponse> => {
+const updateLastOnline = async (shortName: string, online: boolean, lastOnline: Date = new Date()): Promise<IDatabaseResponse> => {
     let returnValue: IDatabaseResponse = { success: false };
     try {
-        const updatedEntry = await Services.update({ lastOnline, online: true }, {
-            where: { shortName }
-        });
+        const updateData = online ? { lastOnline, online } : { online };
+        const updatedEntry = await Services.update(updateData, { where: { shortName } });
         returnValue.success = true;
         returnValue.data = { affectedRows: updatedEntry[0] };
     } catch (error) {
