@@ -288,7 +288,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          platforms: linux/arm64, linux/amd64
+          platforms: linux/arm64, linux/amd64, linux/arm/v7
           tags: mandarons/yadd:main
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
