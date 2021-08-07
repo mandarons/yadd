@@ -90,7 +90,6 @@ jobs:
           name: build-output
           path: build
           retention-days: 1
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -134,7 +133,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          platforms: linux/386,linux/amd64
+          platforms: linux/arm64, linux/amd64, linux/arm/v7
           tags: ${{ steps.prep.outputs.tags }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
