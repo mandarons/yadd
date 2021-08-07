@@ -1,4 +1,5 @@
 FROM node:lts-alpine AS build
+RUN apk --no-cache --virtual build-dependencies add python make g++
 ENV NODE_ENV production
 WORKDIR /app
 COPY package.json .
