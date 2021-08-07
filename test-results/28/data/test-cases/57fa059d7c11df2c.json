@@ -1,0 +1,46 @@
+{
+  "uid" : "57fa059d7c11df2c",
+  "name" : "should get url by shortName",
+  "fullName" : "Runtime Schema.should get url by shortName",
+  "historyId" : "3262920f0ef8ca3aeceb6abdb0bde7a2",
+  "time" : {
+    "start" : 1628372612137,
+    "stop" : 1628372612146,
+    "duration" : 9
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should get url by shortName"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "57fa059d7c11df2c.json",
+  "parameterValues" : [ ]
+}
