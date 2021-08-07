@@ -18,6 +18,10 @@ A minimalistic dashboard for all the services that you use and love. It also mon
 * Tracks when the service was online before failure
 * Tracks number of hits (Work in progress ...)
 * Easy to backup and restore (all data is in `db.sqlite` file)
+
+## Screenshot
+![image](https://user-images.githubusercontent.com/50469173/128587087-3c90744c-d820-4de9-bf0c-e74e04d356c1.png)
+
 ## Installation
 1. Install Docker (if you haven't already)
 2. Create `yadd` deployment folder and use it as `cwd`
