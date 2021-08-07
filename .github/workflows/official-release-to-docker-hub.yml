@@ -134,7 +134,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          platform: linux/386,linux/amd64
+          platforms: linux/386,linux/amd64
           tags: ${{ steps.prep.outputs.tags }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
