@@ -156,7 +156,7 @@ describe('Runtime Schema', async () => {
         const serviceRecordData = utils.randomServiceRecord();
         (await servicesModel.addService(serviceRecordData)).success.should.be.true;
         const lastOnline = new Date();
-        const result = await servicesModel.updateLastOnline(serviceRecordData.shortName, lastOnline);
+        const result = await servicesModel.updateLastOnline(serviceRecordData.shortName, true, lastOnline);
         result.success.should.be.true;
         (result.data as { [key: string]: number; }).affectedRows.should.be.equal(1);
         const foundEntry = (await servicesModel.Services.findOne({
@@ -169,7 +169,7 @@ describe('Runtime Schema', async () => {
     it('should not update lastOnline for invalid service', async () => {
         const serviceRecordData = utils.randomServiceRecord();
         const lastOnline = new Date();
-        const result = await servicesModel.updateLastOnline(serviceRecordData.shortName, lastOnline);
+        const result = await servicesModel.updateLastOnline(serviceRecordData.shortName, true, lastOnline);
         result.success.should.be.true;
         (result.data as { [key: string]: number; }).affectedRows.should.be.equal(0);
     });
@@ -178,7 +178,7 @@ describe('Runtime Schema', async () => {
         sinon.stub(servicesModel.Services, 'update').throws({ errors: [{ message: 'Exception occurred.' }] });
         (await servicesModel.addService(serviceRecordData)).success.should.be.true;
         const lastOnline = new Date();
-        const result = await servicesModel.updateLastOnline(serviceRecordData.shortName, lastOnline);
+        const result = await servicesModel.updateLastOnline(serviceRecordData.shortName, true, lastOnline);
         result.success.should.be.false;
         result.errorMessage!.should.be.equal('Exception occurred.');
     });
@@ -186,7 +186,7 @@ describe('Runtime Schema', async () => {
         const serviceRecordData = utils.randomServiceRecord();
         (await servicesModel.addService(serviceRecordData)).success.should.be.true;
         const lastOnline = new Date();
-        let result = await servicesModel.updateLastOnline(serviceRecordData.shortName, lastOnline);
+        let result = await servicesModel.updateLastOnline(serviceRecordData.shortName, true, lastOnline);
         result.success.should.be.true;
         (result.data as { [key: string]: number; }).affectedRows.should.be.equal(1);
 
@@ -198,7 +198,7 @@ describe('Runtime Schema', async () => {
         const serviceRecordData = utils.randomServiceRecord();
         (await servicesModel.addService(serviceRecordData)).success.should.be.true;
         const lastOnline = new Date();
-        let result = await servicesModel.updateLastOnline(serviceRecordData.shortName, lastOnline);
+        let result = await servicesModel.updateLastOnline(serviceRecordData.shortName, true, lastOnline);
         result.success.should.be.true;
         (result.data as { [key: string]: number; }).affectedRows.should.be.equal(1);
 
@@ -210,7 +210,7 @@ describe('Runtime Schema', async () => {
         const serviceRecordData = utils.randomServiceRecord();
         (await servicesModel.addService(serviceRecordData)).success.should.be.true;
         const lastOnline = new Date();
-        let result = await servicesModel.updateLastOnline(serviceRecordData.shortName, lastOnline);
+        let result = await servicesModel.updateLastOnline(serviceRecordData.shortName, true, lastOnline);
         result.success.should.be.true;
         (result.data as { [key: string]: number; }).affectedRows.should.be.equal(1);
         sinon.stub(servicesModel.Services, 'findOne').throws({ errors: [{ message: 'Exception occurred.' }] });
