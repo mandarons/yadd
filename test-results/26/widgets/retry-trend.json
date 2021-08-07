@@ -1,9 +1,0 @@
-[ {
-  "buildOrder" : 26,
-  "reportUrl" : "https://mandarons.github.io/yadd/test-results/26/",
-  "reportName" : "Allure Report with history",
-  "data" : {
-    "run" : 50,
-    "retry" : 0
-  }
-} ]
