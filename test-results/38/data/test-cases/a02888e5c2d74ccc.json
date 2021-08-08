@@ -1,0 +1,66 @@
+{
+  "uid" : "a02888e5c2d74ccc",
+  "name" : "/ should return index file",
+  "fullName" : "Root route./ should return index file",
+  "historyId" : "cadc2745fc5e85315f0805ee907e22da",
+  "time" : {
+    "start" : 1628394653349,
+    "stop" : 1628394653365,
+    "duration" : 16
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Root route"
+  }, {
+    "name" : "testClass",
+    "value" : "Root route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/ should return index file"
+  }, {
+    "name" : "package",
+    "value" : "Root route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "b801078315294a57",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/37//#testresult/b801078315294a57",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394453929,
+          "stop" : 1628394453938,
+          "duration" : 9
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "a02888e5c2d74ccc.json",
+  "parameterValues" : [ ]
+}

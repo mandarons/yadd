@@ -1,0 +1,66 @@
+{
+  "uid" : "86825aa919c228fa",
+  "name" : "should handle excpetion while getting url by shortName",
+  "fullName" : "Runtime Schema.should handle excpetion while getting url by shortName",
+  "historyId" : "b17f385efabc27280e567e259ad50df3",
+  "time" : {
+    "start" : 1628394653766,
+    "stop" : 1628394653775,
+    "duration" : 9
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle excpetion while getting url by shortName"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "3d8cc15b516250c8",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/37//#testresult/3d8cc15b516250c8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394454185,
+          "stop" : 1628394454191,
+          "duration" : 6
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "86825aa919c228fa.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,66 @@
+{
+  "uid" : "f4ca7ab4c5678520",
+  "name" : "/service GET should get an existing service",
+  "fullName" : "/api route./service GET should get an existing service",
+  "historyId" : "c2bfb63044245ae7d521ae59e4e91772",
+  "time" : {
+    "start" : 1628394652958,
+    "stop" : 1628394652991,
+    "duration" : 33
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service GET should get an existing service"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "74891a39e05f81e8",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/37//#testresult/74891a39e05f81e8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394453652,
+          "stop" : 1628394453673,
+          "duration" : 21
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "f4ca7ab4c5678520.json",
+  "parameterValues" : [ ]
+}
