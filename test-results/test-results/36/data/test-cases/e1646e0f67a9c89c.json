@@ -1,0 +1,66 @@
+{
+  "uid" : "e1646e0f67a9c89c",
+  "name" : "should return an array of services",
+  "fullName" : "Runtime Schema.should return an array of services",
+  "historyId" : "2c0209228a6751a2f17b5fbc8cac5fa0",
+  "time" : {
+    "start" : 1628393114383,
+    "stop" : 1628393114427,
+    "duration" : 44
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should return an array of services"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "94f5617d40362e0a",
+        "reportUrl" : "https://mandarons.github.io/yadd/34//#testresult/94f5617d40362e0a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628389296590,
+          "stop" : 1628389296614,
+          "duration" : 24
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "e1646e0f67a9c89c.json",
+  "parameterValues" : [ ]
+}

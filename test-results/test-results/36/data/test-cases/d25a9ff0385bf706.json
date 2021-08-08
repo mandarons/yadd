@@ -1,0 +1,66 @@
+{
+  "uid" : "d25a9ff0385bf706",
+  "name" : "/service POST should return error for invalid service",
+  "fullName" : "/api route./service POST should return error for invalid service",
+  "historyId" : "94bf5ab47ab7527d65b616cba1bda3cf",
+  "time" : {
+    "start" : 1628393113836,
+    "stop" : 1628393113869,
+    "duration" : 33
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service POST should return error for invalid service"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "3f7e1a034e74f171",
+        "reportUrl" : "https://mandarons.github.io/yadd/34//#testresult/3f7e1a034e74f171",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628389296016,
+          "stop" : 1628389296040,
+          "duration" : 24
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "d25a9ff0385bf706.json",
+  "parameterValues" : [ ]
+}

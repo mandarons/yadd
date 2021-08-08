@@ -1,0 +1,66 @@
+{
+  "uid" : "9c5a17e2a822b1a9",
+  "name" : "/config GET should return list of configuration entries",
+  "fullName" : "/api route./config GET should return list of configuration entries",
+  "historyId" : "27d35feabd306abfe33b3b6f0cb89f6a",
+  "time" : {
+    "start" : 1628393114205,
+    "stop" : 1628393114228,
+    "duration" : 23
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/config GET should return list of configuration entries"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "eb758553bd407712",
+        "reportUrl" : "https://mandarons.github.io/yadd/34//#testresult/eb758553bd407712",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628389296394,
+          "stop" : 1628389296418,
+          "duration" : 24
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "9c5a17e2a822b1a9.json",
+  "parameterValues" : [ ]
+}
