@@ -1,0 +1,46 @@
+{
+  "uid" : "9054a4bb46b00cf0",
+  "name" : "should return an array of services",
+  "fullName" : "Runtime Schema.should return an array of services",
+  "historyId" : "2c0209228a6751a2f17b5fbc8cac5fa0",
+  "time" : {
+    "start" : 1628385080494,
+    "stop" : 1628385080507,
+    "duration" : 13
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should return an array of services"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9054a4bb46b00cf0.json",
+  "parameterValues" : [ ]
+}
