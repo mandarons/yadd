@@ -120,25 +120,9 @@ jobs:
       - name: Run Server Tests
         run: |
           yarn test:server:ci
-      - name: Generate Allure Test Report
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        with:
-          allure_results: allure-results
-#           subfolder: test-results
-          allure_report: allure-report
-          allure_history: allure-history
-          keep_reports: 100
       - name: Generate badges
         run: |
           node generate-badges.js
-      - name: Upload test artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-output
-          path: allure-history
-          retention-days: 1
-
       - name: Upload coverage artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -151,13 +135,28 @@ jobs:
           name: badges-output
           path: badges
           retention-days: 1
-#       - name: Checkout gh-pages
-#         uses: actions/checkout@v2
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Generate Allure Test Report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          subfolder: test-results
+          allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 100
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-output
+          path: allure-history
+          retention-days: 1
 #       - name: Publish test report to gh-pages
 #         if: always()
 #         uses: peaceiris/actions-gh-pages@v3
@@ -172,7 +171,6 @@ jobs:
 #           name: tests-output
 #           path: allure-history
 #           retention-days: 1
-      
   
   publish-test-report:
     needs: test
@@ -199,55 +197,55 @@ jobs:
           publish_dir: allure-history
           destination_dir: test-results
           
-  publish-coverage-report:
-    needs: publish-test-report
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Download coverage artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: coverage-output
-          path: coverage
-      - name: Checkout gh-pages
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-      - name: Publish test coverage to gh-pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          publish_branch: gh-pages
-          publish_dir: coverage
-          destination_dir: test-coverage
+#   publish-coverage-report:
+#     needs: publish-test-report
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: Download coverage artifacts
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: coverage-output
+#           path: coverage
+#       - name: Checkout gh-pages
+#         uses: actions/checkout@v2
+#         if: always()
+#         continue-on-error: true
+#         with:
+#           ref: gh-pages
+#           path: gh-pages
+#       - name: Publish test coverage to gh-pages
+#         if: always()
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+#           publish_branch: gh-pages
+#           publish_dir: coverage
+#           destination_dir: test-coverage
 
-  publish-badges:
-    needs: publish-coverage-report
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Download badges artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: badges-output
-          path: badges
-      - name: Checkout gh-pages
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-      - name: Publish badges to gh-pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          publish_branch: gh-pages
-          publish_dir: badges
-          destination_dir: badges
+#   publish-badges:
+#     needs: publish-coverage-report
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: Download badges artifacts
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: badges-output
+#           path: badges
+#       - name: Checkout gh-pages
+#         uses: actions/checkout@v2
+#         if: always()
+#         continue-on-error: true
+#         with:
+#           ref: gh-pages
+#           path: gh-pages
+#       - name: Publish badges to gh-pages
+#         if: always()
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+#           publish_branch: gh-pages
+#           publish_dir: badges
+#           destination_dir: badges
 
 #   e2e-tests-chrome:
 #     needs: build
