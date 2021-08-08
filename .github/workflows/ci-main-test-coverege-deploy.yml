@@ -149,7 +149,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: test-output
-          path: allure-history
+          path: allure-history/test-results/
           retention-days: 1
       - name: Upload badges artifacts
         uses: actions/upload-artifact@v2
