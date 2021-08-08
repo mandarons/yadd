@@ -1,0 +1,501 @@
+[ {
+  "uid" : "30deef260c27bd83",
+  "name" : "/service POST should not create a duplicate service",
+  "time" : {
+    "start" : 1628384607223,
+    "stop" : 1628384607249,
+    "duration" : 26
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "19342beface7785f",
+  "name" : "should handle exception on find service record",
+  "time" : {
+    "start" : 1628384607794,
+    "stop" : 1628384607799,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bd6d6b40f188c1c0",
+  "name" : "should return empty array if no services are created",
+  "time" : {
+    "start" : 1628384607728,
+    "stop" : 1628384607733,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7f4ccd9164e36f4f",
+  "name" : "should delete an existing service record",
+  "time" : {
+    "start" : 1628384607821,
+    "stop" : 1628384607831,
+    "duration" : 10
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "df0af73550a47db4",
+  "name" : "should increment hits",
+  "time" : {
+    "start" : 1628384607935,
+    "stop" : 1628384607947,
+    "duration" : 12
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "725c458b39b646c5",
+  "name" : "/:name should redirect to named URL",
+  "time" : {
+    "start" : 1628384607665,
+    "stop" : 1628384607681,
+    "duration" : 16
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2d7c598211e5fcd0",
+  "name" : "should not update lastOnline for invalid service",
+  "time" : {
+    "start" : 1628384607852,
+    "stop" : 1628384607859,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f9e61ae8113f46ca",
+  "name" : "should update an existing service",
+  "time" : {
+    "start" : 1628384607799,
+    "stop" : 1628384607809,
+    "duration" : 10
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a08b893d71f30e01",
+  "name" : "should not delete a non-existing service record",
+  "time" : {
+    "start" : 1628384607831,
+    "stop" : 1628384607835,
+    "duration" : 4
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2c4ea937abc39f5c",
+  "name" : "should not get hits for non-existant service",
+  "time" : {
+    "start" : 1628384607915,
+    "stop" : 1628384607922,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c8abe37c75da248d",
+  "name" : "should get lastOnline as null for invalid service",
+  "time" : {
+    "start" : 1628384607883,
+    "stop" : 1628384607894,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a88433b0b7c1ce5a",
+  "name" : "should handle excpetion while getting url by shortName",
+  "time" : {
+    "start" : 1628384607976,
+    "stop" : 1628384607986,
+    "duration" : 10
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5de8a296b507d709",
+  "name" : "/service DELETE should delete an existing service",
+  "time" : {
+    "start" : 1628384607411,
+    "stop" : 1628384607435,
+    "duration" : 24
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4afe3bef5f482829",
+  "name" : "should return an array of services",
+  "time" : {
+    "start" : 1628384607733,
+    "stop" : 1628384607752,
+    "duration" : 19
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f18fddc2960fcd96",
+  "name" : "should handle exception on get hits",
+  "time" : {
+    "start" : 1628384607922,
+    "stop" : 1628384607935,
+    "duration" : 13
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cda1100c0b270327",
+  "name" : "should not update a non-existing service",
+  "time" : {
+    "start" : 1628384607809,
+    "stop" : 1628384607815,
+    "duration" : 6
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e02dbf277a2e399",
+  "name" : "should handle exception for updating lastOnline",
+  "time" : {
+    "start" : 1628384607859,
+    "stop" : 1628384607867,
+    "duration" : 8
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7d52592afb740f9a",
+  "name" : "/service GET should get an existing service",
+  "time" : {
+    "start" : 1628384607270,
+    "stop" : 1628384607293,
+    "duration" : 23
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7e327c1d5f295637",
+  "name" : "should handle exception on update",
+  "time" : {
+    "start" : 1628384607815,
+    "stop" : 1628384607820,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cc0ff4c9363258e4",
+  "name" : "/:name should return error in case of exception",
+  "time" : {
+    "start" : 1628384607693,
+    "stop" : 1628384607706,
+    "duration" : 13
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3c6dcafa17728fca",
+  "name" : "/config PUT should update existing config entry",
+  "time" : {
+    "start" : 1628384607613,
+    "stop" : 1628384607634,
+    "duration" : 21
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2b243b11f99094be",
+  "name" : "/service POST should create a new service",
+  "time" : {
+    "start" : 1628384607174,
+    "stop" : 1628384607223,
+    "duration" : 49
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "63cb2400b4f81611",
+  "name" : "/services GET should return error in case of internal exception",
+  "time" : {
+    "start" : 1628384607544,
+    "stop" : 1628384607583,
+    "duration" : 39
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1a1173959f0355af",
+  "name" : "should return error in case of failure for getting all services",
+  "time" : {
+    "start" : 1628384607752,
+    "stop" : 1628384607779,
+    "duration" : 27
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "515ab8470b2847fa",
+  "name" : "/service PUT should return error for invalid data",
+  "time" : {
+    "start" : 1628384607384,
+    "stop" : 1628384607410,
+    "duration" : 26
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7de33813aea780e",
+  "name" : "should get hits",
+  "time" : {
+    "start" : 1628384607903,
+    "stop" : 1628384607915,
+    "duration" : 12
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "179d66fb9a810334",
+  "name" : "/service GET should return error in case of exception",
+  "time" : {
+    "start" : 1628384607293,
+    "stop" : 1628384607315,
+    "duration" : 22
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1a9c850caeee84f8",
+  "name" : "should create a new service record",
+  "time" : {
+    "start" : 1628384607709,
+    "stop" : 1628384607718,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3cb126ef846e5ea",
+  "name" : "/services GET should return list of services",
+  "time" : {
+    "start" : 1628384607506,
+    "stop" : 1628384607544,
+    "duration" : 38
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ef940ebd081ed193",
+  "name" : "/service PUT should update an existing service",
+  "time" : {
+    "start" : 1628384607334,
+    "stop" : 1628384607363,
+    "duration" : 29
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dbce4c32360b90e7",
+  "name" : "should handle exception on delete",
+  "time" : {
+    "start" : 1628384607836,
+    "stop" : 1628384607840,
+    "duration" : 4
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c3f9d134c672fa0c",
+  "name" : "/service DELETE should not delete a non-existing service",
+  "time" : {
+    "start" : 1628384607435,
+    "stop" : 1628384607458,
+    "duration" : 23
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "47a38a689c99c7b9",
+  "name" : "/config GET should return list of configuration entries",
+  "time" : {
+    "start" : 1628384607583,
+    "stop" : 1628384607613,
+    "duration" : 30
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ecbafb6319e9586f",
+  "name" : "/favicon.ico should redirect to /",
+  "time" : {
+    "start" : 1628384607648,
+    "stop" : 1628384607656,
+    "duration" : 8
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d13b1e09dba07758",
+  "name" : "/ should return index file",
+  "time" : {
+    "start" : 1628384607656,
+    "stop" : 1628384607665,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2431873ced7bf448",
+  "name" : "should get url by shortName",
+  "time" : {
+    "start" : 1628384607963,
+    "stop" : 1628384607971,
+    "duration" : 8
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "227b228f83ce186d",
+  "name" : "should find an existing service record",
+  "time" : {
+    "start" : 1628384607779,
+    "stop" : 1628384607787,
+    "duration" : 8
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3ca29595e6c1be51",
+  "name" : "should not find a non-existing service record",
+  "time" : {
+    "start" : 1628384607787,
+    "stop" : 1628384607794,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f9f9d21d09e3d34e",
+  "name" : "should get lastOnline",
+  "time" : {
+    "start" : 1628384607867,
+    "stop" : 1628384607883,
+    "duration" : 16
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "effb06aa2bd45e7e",
+  "name" : "/:invalid_name should return error",
+  "time" : {
+    "start" : 1628384607681,
+    "stop" : 1628384607693,
+    "duration" : 12
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d8b39892fef56578",
+  "name" : "/service DELETE should return error for invalid data",
+  "time" : {
+    "start" : 1628384607458,
+    "stop" : 1628384607505,
+    "duration" : 47
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d9d3e88bab1d409d",
+  "name" : "should handle exception on increment hits",
+  "time" : {
+    "start" : 1628384607954,
+    "stop" : 1628384607963,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "40ca8ca8f15fb7b1",
+  "name" : "should update lastOnline",
+  "time" : {
+    "start" : 1628384607840,
+    "stop" : 1628384607852,
+    "duration" : 12
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "79fc3f5e1f19e21c",
+  "name" : "should not get url by shortName for non-existing service",
+  "time" : {
+    "start" : 1628384607971,
+    "stop" : 1628384607976,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ec061db9b7aa1a95",
+  "name" : "should handle exception for get lastOnline",
+  "time" : {
+    "start" : 1628384607894,
+    "stop" : 1628384607903,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "710ab826f8f722d0",
+  "name" : "should not increment hits for non-existent service",
+  "time" : {
+    "start" : 1628384607947,
+    "stop" : 1628384607954,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fa87721460dc3cbf",
+  "name" : "/service PUT should not update a non-existing service",
+  "time" : {
+    "start" : 1628384607363,
+    "stop" : 1628384607384,
+    "duration" : 21
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f61c5e0db82e55f5",
+  "name" : "/service POST should return error for invalid service",
+  "time" : {
+    "start" : 1628384607249,
+    "stop" : 1628384607270,
+    "duration" : 21
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "44bf393fd7f3db6d",
+  "name" : "/service GET should return error for invalid data",
+  "time" : {
+    "start" : 1628384607315,
+    "stop" : 1628384607334,
+    "duration" : 19
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1150f3db09dd791e",
+  "name" : "should not create a duplicate service record",
+  "time" : {
+    "start" : 1628384607718,
+    "stop" : 1628384607728,
+    "duration" : 10
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
