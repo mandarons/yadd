@@ -1,0 +1,75 @@
+{
+  "uid" : "14008b1f6d65d889",
+  "name" : "should find an existing service record",
+  "fullName" : "Runtime Schema.should find an existing service record",
+  "historyId" : "2f1627d2e6f2b85d62b3b66e7403211",
+  "time" : {
+    "start" : 1628395170953,
+    "stop" : 1628395170960,
+    "duration" : 7
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should find an existing service record"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "4be25f0ec93c54f2",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/38//#testresult/4be25f0ec93c54f2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394653511,
+          "stop" : 1628394653523,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "c26d138c91ee6f7d",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/37//#testresult/c26d138c91ee6f7d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394454033,
+          "stop" : 1628394454041,
+          "duration" : 8
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "14008b1f6d65d889.json",
+  "parameterValues" : [ ]
+}

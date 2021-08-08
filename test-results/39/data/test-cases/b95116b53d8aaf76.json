@@ -1,0 +1,75 @@
+{
+  "uid" : "b95116b53d8aaf76",
+  "name" : "should return error in case of failure for getting all services",
+  "fullName" : "Runtime Schema.should return error in case of failure for getting all services",
+  "historyId" : "f7a4ce95b068097692bd0b8db775118d",
+  "time" : {
+    "start" : 1628395170929,
+    "stop" : 1628395170953,
+    "duration" : 24
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should return error in case of failure for getting all services"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "280b6b27be969e4a",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/38//#testresult/280b6b27be969e4a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394653478,
+          "stop" : 1628394653511,
+          "duration" : 33
+        }
+      }, {
+        "uid" : "1b1f825d5672827b",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/37//#testresult/1b1f825d5672827b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394454010,
+          "stop" : 1628394454033,
+          "duration" : 23
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "b95116b53d8aaf76.json",
+  "parameterValues" : [ ]
+}

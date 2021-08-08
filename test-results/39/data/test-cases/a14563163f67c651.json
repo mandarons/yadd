@@ -1,0 +1,75 @@
+{
+  "uid" : "a14563163f67c651",
+  "name" : "should update lastOnline",
+  "fullName" : "Runtime Schema.should update lastOnline",
+  "historyId" : "cd3786557456d69754870b103da1b869",
+  "time" : {
+    "start" : 1628395171006,
+    "stop" : 1628395171014,
+    "duration" : 8
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should update lastOnline"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "5d7451cd20820a16",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/38//#testresult/5d7451cd20820a16",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394653600,
+          "stop" : 1628394653613,
+          "duration" : 13
+        }
+      }, {
+        "uid" : "10d336d91ac82c1c",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/37//#testresult/10d336d91ac82c1c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394454089,
+          "stop" : 1628394454097,
+          "duration" : 8
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "a14563163f67c651.json",
+  "parameterValues" : [ ]
+}
