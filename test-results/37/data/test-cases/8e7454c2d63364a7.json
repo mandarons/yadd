@@ -1,0 +1,46 @@
+{
+  "uid" : "8e7454c2d63364a7",
+  "name" : "should create a new service record",
+  "fullName" : "Runtime Schema.should create a new service record",
+  "historyId" : "60e61c71295c69dbd45256823f83ec32",
+  "time" : {
+    "start" : 1628394453976,
+    "stop" : 1628394453984,
+    "duration" : 8
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should create a new service record"
+  }, {
+    "name" : "package",
+    "value" : "Runtime Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8e7454c2d63364a7.json",
+  "parameterValues" : [ ]
+}
