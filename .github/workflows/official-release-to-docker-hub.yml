@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*.*.*"
+  workflow_dispatch:
 jobs:
   cache-server-install:
     runs-on: ubuntu-18.04
