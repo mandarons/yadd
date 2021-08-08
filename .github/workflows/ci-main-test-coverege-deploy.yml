@@ -272,7 +272,7 @@ jobs:
           install: false
 
   deploy:
-    needs: [ build, test ]
+    needs: e2e
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo
