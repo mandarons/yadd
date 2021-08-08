@@ -42,63 +42,63 @@ jobs:
         run: |
           yarn install --frozen-lockfile
 
-#   cache-web-client-install:
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - name: Checkout source code
-#         uses: actions/checkout@v2
-#       - name: Set up Node.js environment
-#         uses: actions/setup-node@v2.3.2
-#         with:
-#           node-version: 14.17.0
-#       - name: Cache yarn dependencies
-#         uses: actions/cache@v2
-#         id: cache-dependencies
-#         with:
-#           path: clients/web/node_modules
-#           key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
-#           restore-keys: |
-#             ${{ runner.os }}-yarn-web-client-
-#       - name: Install Dependencies
-#         if: steps.cache-dependencies.outputs.cache-hit != 'true'
-#         run: |
-#           yarn install --cwd clients/web --frozen-lockfile
+  cache-web-client-install:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v2.3.2
+        with:
+          node-version: 14.17.0
+      - name: Cache yarn dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: clients/web/node_modules
+          key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-web-client-
+      - name: Install Dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: |
+          yarn install --cwd clients/web --frozen-lockfile
 
-#   build:
-#     needs: [cache-server-install, cache-web-client-install]
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - name: Check Out Repo
-#         uses: actions/checkout@v2
-#       - name: Setup Node.js environment
-#         uses: actions/setup-node@v2.3.2
-#         with:
-#           node-version: 14.17.0
-#       - name: Restore yarn-server depdendencies
-#         uses: actions/cache@v2
-#         with:
-#           path: node_modules
-#           key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
-#           restore-keys: |
-#             ${{ runner.os }}-yarn-server-
-#       - name: Restore yarn-web-client depdendencies
-#         uses: actions/cache@v2
-#         with:
-#           path: clients/web/node_modules
-#           key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
-#           restore-keys: |
-#             ${{ runner.os }}-yarn-web-client-
-#       - name: Build
-#         run: |
-#           yarn build
-#         env:
-#           PUBLIC_URL: "."
-#       - name: Upload build artifacts
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: build-output
-#           path: build
-#           retention-days: 1
+  build:
+    needs: [cache-server-install, cache-web-client-install]
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check Out Repo
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.3.2
+        with:
+          node-version: 14.17.0
+      - name: Restore yarn-server depdendencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-server-
+      - name: Restore yarn-web-client depdendencies
+        uses: actions/cache@v2
+        with:
+          path: clients/web/node_modules
+          key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-web-client-
+      - name: Build
+        run: |
+          yarn build
+        env:
+          PUBLIC_URL: "."
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-output
+          path: build
+          retention-days: 1
 
   test:
     needs: cache-server-install
@@ -157,20 +157,6 @@ jobs:
           name: badges-output
           path: badges
           retention-days: 1
-#       - name: Publish test report to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           publish_branch: gh-pages
-#           publish_dir: allure-history/test-results
-#           destination_dir: test-results
-#       - name: Upload tests artifacts
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: tests-output
-#           path: allure-history
-#           retention-days: 1
   
   publish-test-report:
     needs: test
@@ -247,80 +233,80 @@ jobs:
           publish_dir: badges
           destination_dir: badges
 
-#   e2e-tests-chrome:
-#     needs: build
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - name: Checkout source code
-#         uses: actions/checkout@v2
-#       - name: Setup Node.js environment
-#         uses: actions/setup-node@v2.3.2
-#         with:
-#           node-version: 14.17.0
-#       - name: Restore yarn-server depdendencies
-#         uses: actions/cache@v2
-#         with:
-#           path: node_modules
-#           key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
-#           restore-keys: |
-#             ${{ runner.os }}-yarn-server-
-#       - name: Restore Cypress binary
-#         id: cache-cypress-binary
-#         uses: actions/cache@v2
-#         with:
-#           path: ~/.cache/Cypress
-#           key: cypress-binary-${{ hashFiles('yarn.lock') }}
-#           restore-keys: |
-#             cypress-binary-
-#       - name: Download build artifacts
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: build-output
-#           path: build
-#       - name: Run cypress
-#         uses: cypress-io/github-action@v2.10.1
-#         with:
-#           start: yarn prod:local & wait-on http://localhost:3334/
-#           browser: chrome
-#           headless: true
-#           install: false
+  e2e:
+    needs: [ build, test ]
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.3.2
+        with:
+          node-version: 14.17.0
+      - name: Restore yarn-server depdendencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-server-
+      - name: Restore Cypress binary
+        id: cache-cypress-binary
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-binary-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            cypress-binary-
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-output
+          path: build
+      - name: Run cypress
+        uses: cypress-io/github-action@v2.10.1
+        with:
+          start: yarn prod:local & wait-on http://localhost:3334/
+          browser: chrome
+          headless: true
+          install: false
 
-#   deploy:
-#     needs: [build, test-and-publish-report, e2e-tests-chrome]
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Check Out Repo
-#         uses: actions/checkout@v2
-#       - name: Download build artifacts
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: build-output
-#           path: build
-#       - name: Cache Docker layers
-#         uses: actions/cache@v2
-#         with:
-#           path: /tmp/.buildx-cache
-#           key: ${{ runner.os }}-buildx-${{ github.sha }}
-#           restore-keys: |
-#             ${{ runner.os }}-buildx-
-#       - name: Log into Docker Hub
-#         uses: docker/login-action@v1
-#         with:
-#           username: ${{ secrets.DOCKER_HUB_USERNAME }}
-#           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-#       - name: Set up Docker QEMU
-#         uses: docker/setup-qemu-action@v1
-#       - name: Set up Docker Buildx
-#         id: buildx
-#         uses: docker/setup-buildx-action@v1
-#       - name: Build and push the image
-#         id: docker_build
-#         uses: docker/build-push-action@v2
-#         with:
-#           context: ./
-#           file: ./Dockerfile
-#           push: true
-#           platforms: linux/arm64, linux/amd64, linux/arm/v7
-#           tags: mandarons/yadd:main
-#       - name: Image digest
-#         run: echo ${{ steps.docker_build.outputs.digest }}
+  deploy:
+    needs: [ build, test ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo
+        uses: actions/checkout@v2
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-output
+          path: build
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Log into Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Set up Docker QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Build and push the image
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          platforms: linux/arm64, linux/amd64, linux/arm/v7
+          tags: mandarons/yadd:main
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
