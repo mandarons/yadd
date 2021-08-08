@@ -4,7 +4,7 @@
 [![Tests](https://mandarons.github.io/yadd/badges/tests.svg)](https://mandarons.github.io/yadd/test-results/)
 [![Coverage](https://mandarons.github.io/yadd/badges/coverage.svg)](https://mandarons.github.io/yadd/test-coverage/index.html)
 [![Docker](https://badgen.net/docker/pulls/mandarons/yadd)](https://hub.docker.com/r/mandarons/yadd)
-![Discord](https://img.shields.io/discord/871555550444408883?style=for-the-badge)
+[![Discord](https://img.shields.io/discord/871555550444408883?style=for-the-badge)](https://discord.gg/HfAXY2ykhp)
 
 :love_you_gesture: ***Please star this repository if you end up using the container. It will help me continue supporting this product.*** :pray:
 
