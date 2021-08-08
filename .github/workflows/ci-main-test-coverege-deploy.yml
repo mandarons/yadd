@@ -152,6 +152,7 @@ jobs:
           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_branch: gh-pages
           publish_dir: allure-history/test-results
+          destination_dir: test-results
       - name: Upload tests artifacts
         uses: actions/upload-artifact@v2
         with:
