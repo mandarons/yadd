@@ -197,55 +197,55 @@ jobs:
           publish_dir: allure-history
           destination_dir: test-results
           
-#   publish-coverage-report:
-#     needs: publish-test-report
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - name: Download coverage artifacts
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: coverage-output
-#           path: coverage
-#       - name: Checkout gh-pages
-#         uses: actions/checkout@v2
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
-#       - name: Publish test coverage to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           publish_branch: gh-pages
-#           publish_dir: coverage
-#           destination_dir: test-coverage
+  publish-coverage-report:
+    needs: publish-test-report
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Download coverage artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage-output
+          path: coverage
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Publish test coverage to gh-pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          publish_branch: gh-pages
+          publish_dir: coverage
+          destination_dir: test-coverage
 
-#   publish-badges:
-#     needs: publish-coverage-report
-#     runs-on: ubuntu-18.04
-#     steps:
-#       - name: Download badges artifacts
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: badges-output
-#           path: badges
-#       - name: Checkout gh-pages
-#         uses: actions/checkout@v2
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
-#       - name: Publish badges to gh-pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-#           publish_branch: gh-pages
-#           publish_dir: badges
-#           destination_dir: badges
+  publish-badges:
+    needs: publish-coverage-report
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Download badges artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: badges-output
+          path: badges
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Publish badges to gh-pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          publish_branch: gh-pages
+          publish_dir: badges
+          destination_dir: badges
 
 #   e2e-tests-chrome:
 #     needs: build
