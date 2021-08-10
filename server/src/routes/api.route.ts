@@ -23,9 +23,7 @@ SOFTWARE.
 */
 import express from 'express';
 import * as serviceModel from '../db/services.schema';
-import configModel, { IConfigRecordAttributes } from '../db/config.schema';
 import utils from './route.utils';
-import { IDatabaseResponse } from '../db/sql.connection';
 
 const Router = express.Router();
 
@@ -111,33 +109,6 @@ Router.put('/service', async (req, res) => {
         return utils.errorResponse(res, 500, fromDB.errorMessage as string);
     }
     return utils.successResponse(res, `Service ${req.body.shortName} has been updated.`, { ...fromDB.data });
-});
-
-Router.get('/config', async (req, res) => {
-    const fromDB = await configModel.getAllConfig();
-    if (!fromDB.success) {
-        return utils.errorResponse(res, 500, fromDB.errorMessage as string);
-    }
-    const configEntries = fromDB.values as IConfigRecordAttributes[];
-    return utils.successResponse(res, `${configEntries.length} records found.`, {
-        configEntries
-    });
-});
-
-Router.put('/config', async (req, res) => {
-    if (!configModel.validConfigKeys.find(k => k === req.body.key) || req.body.value === undefined || req.body.value === '') {
-        return utils.errorResponse(res, 403, 'Missing or incorrect data.', { ...req.body });
-    }
-    let fromDB: IDatabaseResponse = { success: false };
-    if (req.body.key === configModel.KEY_STATUS_CHECK_REFRESH_INTERVAL) {
-        fromDB = await configModel.setStatusCheckInterval(req.body.value);
-        if (!fromDB.success) {
-            return utils.errorResponse(res, 500, fromDB.errorMessage as string);
-        }
-    } else {
-        return utils.errorResponse(res, 500, fromDB.errorMessage as string);
-    }
-    return utils.successResponse(res, `Config ${req.body.key} has been updated.`, { ...fromDB.data });
 });
 
 Router.get('/status', async (req, res) => {

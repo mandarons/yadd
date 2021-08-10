@@ -28,7 +28,8 @@ import sinon from 'sinon';
 import utils from './data-generator.utils';
 import { IServiceRecordAttributes } from '../src/db/services.schema';
 import * as servicesModel from '../src/db/services.schema';
-import configModel from '../src/db/config.schema';
+import cronJobs from '../src/controllers/cron-jobs';
+import controllerUtils from '../src/controllers/utils';
 
 chai.use(chaiHTTP);
 
@@ -44,16 +45,10 @@ describe('/api route', async () => {
     });
     beforeEach(async () => {
         await servicesModel.Services.sync({ force: true });
-        await configModel.Config.sync({ force: true });
         utils.cleanUpConfigFile();
-        const fromDB = await configModel.getStatusCheckInterval();
-        if (fromDB.values === undefined) {
-            await configModel.createRecord(configModel.KEY_STATUS_CHECK_REFRESH_INTERVAL, configModel.DEFAULT_STATUS_CHECK_REFRESH_INTERVAL_IN_MS.toString());
-        }
     });
     afterEach(async () => {
         await servicesModel.Services.drop();
-        await configModel.Config.drop();
         sinon.restore();
         utils.cleanUpConfigFile();
     });
@@ -210,6 +205,117 @@ describe('/api route', async () => {
         response.status.should.to.be.equal(500);
         response.body.status.should.be.equal('error');
     });
+    it('/service PUT should return error for changing shortName', async () => {
+        const service = utils.randomServiceRecord();
+        let response = await chai.request(server)
+            .post('/api/service')
+            .send(service);
+        response.status.should.to.be.equal(200);
+        response.body.status.should.be.equal('success');
+        response = await chai.request(server)
+            .put('/api/service')
+            .send({
+                shortName: 'changed',
+                service
+            });
+        response.status.should.to.be.equal(403);
+        response.body.status.should.be.equal('error');
+        response.body.message.should.be.equal('shortName cannot be changed.');
+    });
+
+    it('/services GET should return list of services', async () => {
+        const services = utils.randomServiceRecords();
+        services.forEach(async s => {
+            let response = await chai.request(server)
+                .post('/api/service')
+                .send(s);
+            response.status.should.to.be.equal(200);
+            response.body.status.should.be.equal('success');
+        });
+        let response = await chai.request(server)
+            .get('/api/services');
+        response.status.should.to.be.equal(200);
+        response.body.status.should.be.equal('success');
+        response.body.data.services.forEach((s: IServiceRecordAttributes, i: number) => {
+            utils.compareServices(s, services[i]).should.be.true;
+        });
+    });
+    it('/services GET should return error in case of internal exception', async () => {
+        const services = utils.randomServiceRecords();
+        services.forEach(async s => {
+            let response = await chai.request(server)
+                .post('/api/service')
+                .send(s);
+            response.status.should.to.be.equal(200);
+            response.body.status.should.be.equal('success');
+        });
+        sinon.stub(servicesModel, 'getAllServices').returns(new Promise(resolve => resolve({ success: false })));
+        let response = await chai.request(server)
+            .get('/api/services');
+        response.status.should.to.be.equal(500);
+        response.body.status.should.be.equal('error');
+    });
+    it('/status GET should return online status of service with shortName', async () => {
+        const service = utils.randomServiceRecord();
+        const response = await chai.request(server)
+            .post('/api/service')
+            .send(service);
+        response.status.should.to.be.equal(200);
+        response.body.status.should.be.equal('success');
+        sinon.stub(controllerUtils, 'isReachable').returns(new Promise(resolve => resolve(true)));
+        await cronJobs.job();
+        const actual = await chai.request(server)
+            .get('/api/status').query({
+                shortName: service.shortName
+            });
+        actual.status.should.be.equal(200);
+        actual.body.status.should.be.equal('success');
+        actual.body.data.online.should.be.true;
+    });
+    it('/status GET should return offline status of service with shortName', async () => {
+        const service = utils.randomServiceRecord();
+        const response = await chai.request(server)
+            .post('/api/service')
+            .send(service);
+        response.status.should.to.be.equal(200);
+        response.body.status.should.be.equal('success');
+        sinon.stub(controllerUtils, 'isReachable').returns(new Promise(resolve => resolve(false)));
+        await cronJobs.job();
+        const actual = await chai.request(server)
+            .get('/api/status').query({
+                shortName: service.shortName
+            });
+        actual.status.should.be.equal(200);
+        actual.body.status.should.be.equal('success');
+        actual.body.data.online.should.be.false;
+    });
+    it('/status GET should return error for missing shortName', async () => {
+        const service = utils.randomServiceRecord();
+        const response = await chai.request(server)
+            .post('/api/service')
+            .send(service);
+        response.status.should.to.be.equal(200);
+        response.body.status.should.be.equal('success');
+        const actual = await chai.request(server)
+            .get('/api/status').query({});
+        actual.status.should.be.equal(403);
+        actual.body.status.should.be.equal('error');
+        actual.body.message.should.be.equal('Missing or incorrect data.');
+    });
+    it('/status GET should return error for internal exception', async () => {
+        const service = utils.randomServiceRecord();
+        const response = await chai.request(server)
+            .post('/api/service')
+            .send(service);
+        response.status.should.to.be.equal(200);
+        response.body.status.should.be.equal('success');
+        sinon.stub(servicesModel, 'getStatus').returns(new Promise(resolve => resolve({ success: false, errorMessage: 'Error occurred.' })));
+        const actual = await chai.request(server)
+            .get('/api/status').query({ shortName: service.shortName });
+        actual.status.should.be.equal(500);
+        actual.body.status.should.be.equal('error');
+        actual.body.message.should.be.equal('Error occurred.');
+    });
     it('/service DELETE should delete an existing service', async () => {
         const service = utils.randomServiceRecord();
         let response = await chai.request(server)
@@ -267,60 +373,6 @@ describe('/api route', async () => {
             });
         response.status.should.to.be.equal(500);
         response.body.status.should.be.equal('error');
-    });
-
-    it('/services GET should return list of services', async () => {
-        const services = utils.randomServiceRecords();
-        services.forEach(async s => {
-            let response = await chai.request(server)
-                .post('/api/service')
-                .send(s);
-            response.status.should.to.be.equal(200);
-            response.body.status.should.be.equal('success');
-        });
-        let response = await chai.request(server)
-            .get('/api/services');
-        response.status.should.to.be.equal(200);
-        response.body.status.should.be.equal('success');
-        response.body.data.services.forEach((s: IServiceRecordAttributes, i: number) => {
-            utils.compareServices(s, services[i]).should.be.true;
-        });
-    });
-    it('/services GET should return error in case of internal exception', async () => {
-        const services = utils.randomServiceRecords();
-        services.forEach(async s => {
-            let response = await chai.request(server)
-                .post('/api/service')
-                .send(s);
-            response.status.should.to.be.equal(200);
-            response.body.status.should.be.equal('success');
-        });
-        sinon.stub(servicesModel, 'getAllServices').returns(new Promise(resolve => resolve({ success: false })));
-        let response = await chai.request(server)
-            .get('/api/services');
-        response.status.should.to.be.equal(500);
-        response.body.status.should.be.equal('error');
-    });
-    it('/config GET should return list of configuration entries', async () => {
-        const expectedValue = 12000;
-        await configModel.setStatusCheckInterval(expectedValue.toString());
-        let response = await chai.request(server)
-            .get('/api/config');
-        response.status.should.to.be.equal(200);
-        response.body.data.configEntries[0].value.should.be.equal(expectedValue.toString());
-    });
-    it('/config PUT should update existing config entry', async () => {
-        const expectedData = {
-            key: configModel.KEY_STATUS_CHECK_REFRESH_INTERVAL,
-            value: '20 * * * * *'
-        };
-        let response = await chai.request(server)
-            .put('/api/config')
-            .send(expectedData);
-        response.status.should.be.equal(200);
-        response.body.status.should.be.equal('success');
-        const actual = await configModel.getStatusCheckInterval();
-        (actual.values as { [key: string]: string; })!.value.should.be.equal(expectedData.value);
     });
 });
 
