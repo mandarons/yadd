@@ -23,31 +23,30 @@ SOFTWARE.
 */
 
 import cron from 'node-cron';
-import isReachable from 'is-reachable';
-import configSchema from '../db/config.schema';
+import utils from './utils';
+import { DEFAULT_STATUS_CHECK_REFRESH_INTERVAL } from '../../config/app.config';
 import { getAllServices, IServiceRecordAttributes, updateLastOnline } from '../db/services.schema';
 
-const enableServiceStatusRefresh = async () => {
-    let result = ((await configSchema.getStatusCheckInterval()).values as { [key: string]: string; });
-    const statusCheckRefreshInterval = result === undefined ? configSchema.DEFAULT_STATUS_CHECK_REFRESH_INTERVAL_IN_MS : result.value;
-    return cron.schedule(statusCheckRefreshInterval, async () => {
-        const allServices = (await getAllServices()).values as [IServiceRecordAttributes];
-        await Promise.all(allServices.map(async service => {
-            try {
-                if (await isReachable(service.url)) {
-                    return updateLastOnline(service.shortName, true);
-                }
-                await updateLastOnline(service.shortName, false);
-                return new Promise(resolve => resolve(false));
-            } catch (error) {
-                console.log(`Service ${service.shortName} is offline.`);
-                return new Promise(resolve => resolve(false));
+const job = async () => {
+    const allServices = (await getAllServices()).values as [IServiceRecordAttributes];
+    return await Promise.all(allServices.map(async service => {
+        try {
+            if (await utils.isReachable(service.url)) {
+                return updateLastOnline(service.shortName, true);
             }
-        }));
-    });
+            await updateLastOnline(service.shortName, false);
+        } catch (error) {
+            console.error(`Error occurred: ${error.toString()}.`);
+        }
+        return new Promise(resolve => resolve(false));
+    }));
 };
 
+
+const enableServiceStatusRefresh = () => cron.schedule(DEFAULT_STATUS_CHECK_REFRESH_INTERVAL, job);
+
 export default {
+    job,
     enableServiceStatusRefresh
 };
 

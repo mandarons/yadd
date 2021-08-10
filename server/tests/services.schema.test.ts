@@ -27,7 +27,7 @@ import utils from './data-generator.utils';
 import * as servicesModel from '../src/db/services.schema';
 import { expect } from 'chai';
 
-describe('Runtime Schema', async () => {
+describe('Services Schema', async () => {
     beforeEach(async () => {
         await servicesModel.Services.sync({ force: true });
     });

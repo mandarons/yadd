@@ -25,6 +25,7 @@ SOFTWARE.
 import chai from 'chai';
 import chaiHTTP from 'chai-http';
 import sinon from 'sinon';
+import fs from 'fs';
 import * as servicesModel from '../src/db/services.schema';
 import utils from './data-generator.utils';
 chai.should();
@@ -59,6 +60,7 @@ describe('Root route', async () => {
             .get('/');
         response.status.should.be.equal(200);
         response.type.should.be.equal('text/html');
+        response.text.should.be.equal(fs.readFileSync(utils.INDEX_FILE_PATH, { encoding: "utf8" }).toString());
     });
     it('/:name should redirect to named URL', async () => {
         const service = utils.randomServiceRecord();

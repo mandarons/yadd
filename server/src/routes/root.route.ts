@@ -23,16 +23,12 @@ SOFTWARE.
 */
 
 import express from 'express';
-import path from 'path';
 import * as db from '../db/services.schema';
 import utils from './route.utils';
 
 const Router = express.Router();
 
 Router.get('/favicon.ico', (req, res) => res.status(204).end());
-Router.get('/', (req, res) => {
-    return res.sendFile(path.resolve(path.join(__dirname, '..', '..', 'public', 'index.html')));
-});
 Router.get('/:name', async (req, res) => {
     const fromDB = await db.findURLByShortName(req.params.name);
     if (!fromDB.success) {

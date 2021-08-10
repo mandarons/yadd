@@ -27,7 +27,6 @@ import fs from 'fs';
 import axios from 'axios';
 import server from '../src/index';
 import { IServiceRecordAttributes } from '../src/db/services.schema';
-// import { configFilePath, ServiceSchema, ServicesSchema } from '../src/db/yaml.connection';
 
 const TEMP_DIR_PATH = path.resolve(path.join(__dirname, 'temp'));
 const PUBLIC_FOLDER_PATH = path.resolve(path.join(__dirname, '..', 'public'));
@@ -38,7 +37,7 @@ const indexFile = (create = true) => {
             if (!fs.existsSync(PUBLIC_FOLDER_PATH)) {
                 fs.mkdirSync(PUBLIC_FOLDER_PATH);
             }
-            fs.writeFileSync(INDEX_FILE_PATH, '');
+            fs.writeFileSync(INDEX_FILE_PATH, '<html>This is index file</html>');
         }
     } else {
         fs.rmSync(PUBLIC_FOLDER_PATH, {
@@ -104,6 +103,7 @@ const randomService = (): IServiceRecordAttributes => {
         online: false
     };
 };
+const randomString = (): string => Math.random().toString(10);
 const randomServiceRecord = (): IServiceRecordAttributes => {
     return {
         shortName: Math.random().toString(10).slice(-5),
@@ -162,7 +162,9 @@ const cleanUpConfigFile = (): void => {
 };
 
 export default {
+    INDEX_FILE_PATH,
     TEMP_DIR_PATH,
+    randomString,
     randomRefreshInterval,
     randomNumberBetween,
     createTempDir,
