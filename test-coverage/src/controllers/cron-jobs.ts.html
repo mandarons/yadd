@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.78% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/23</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.89% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/18</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -109,8 +109,7 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,27 +138,26 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,31 +186,30 @@ SOFTWARE.
 */
 &nbsp;
 import cron from 'node-cron';
-import isReachable from 'is-reachable';
-import configSchema from '../db/config.schema';
+import utils from './utils';
+import { DEFAULT_STATUS_CHECK_REFRESH_INTERVAL } from '../../config/app.config';
 import { getAllServices, IServiceRecordAttributes, updateLastOnline } from '../db/services.schema';
 &nbsp;
-const enableServiceStatusRefresh = async () =&gt; {
-    let result = ((await configSchema.getStatusCheckInterval()).values as { [key: string]: string; });
-    const statusCheckRefreshInterval = <span class="cstat-no" title="statement not covered" >result === undefined ? configSchema.DEFAULT_STATUS_CHECK_REFRESH_INTERVAL_IN_MS : result.value;</span>
-<span class="cstat-no" title="statement not covered" >    return cron.schedule(statusCheckRefreshInterval, <span class="fstat-no" title="function not covered" >async () =</span>&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
-        const allServices = <span class="cstat-no" title="statement not covered" >(await getAllServices()).values as [IServiceRecordAttributes];</span>
-<span class="cstat-no" title="statement not covered" >        await Promise.all(allServices.map(<span class="fstat-no" title="function not covered" >async s</span>ervice =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
-<span class="cstat-no" title="statement not covered" >            try {</span>
-<span class="cstat-no" title="statement not covered" >                if (await isReachable(service.url)) {</span>
-<span class="cstat-no" title="statement not covered" >                    return updateLastOnline(service.shortName, true);</span>
-                }
-<span class="cstat-no" title="statement not covered" >                await updateLastOnline(service.shortName, false);</span>
-<span class="cstat-no" title="statement not covered" >                return new Promise(<span class="fstat-no" title="function not covered" >resolve </span>=&gt; <span class="cstat-no" title="statement not covered" >resolve(false))</span>;</span>
-            } catch (error) {
-<span class="cstat-no" title="statement not covered" >                console.log(`Service ${service.shortName} is offline.`);</span>
-<span class="cstat-no" title="statement not covered" >                return new Promise(<span class="fstat-no" title="function not covered" >resolve </span>=&gt; <span class="cstat-no" title="statement not covered" >resolve(false))</span>;</span>
+const job = async () =&gt; {
+    const allServices = (await getAllServices()).values as [IServiceRecordAttributes];
+    return await Promise.all(allServices.map(async service =&gt; {
+        try {
+            if (await utils.isReachable(service.url)) {
+                return updateLastOnline(service.shortName, true);
             }
-        }));
-    });
+            await updateLastOnline(service.shortName, false);
+        } catch (error) {
+            console.error(`Error occurred: ${error.toString()}.`);
+        }
+        return new Promise(resolve =&gt; resolve(false));
+    }));
 };
 &nbsp;
+&nbsp;
+const enableServiceStatusRefresh = () =&gt; cron.schedule(DEFAULT_STATUS_CHECK_REFRESH_INTERVAL, job);
+&nbsp;
 export default {
+    job,
     enableServiceStatusRefresh
 };
 &nbsp;
@@ -223,7 +220,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Aug 08 2021 03:59:31 GMT+0000 (Coordinated Universal Time)
+                at Tue Aug 10 2021 23:42:29 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
