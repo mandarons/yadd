@@ -1,0 +1,46 @@
+{
+  "uid" : "c30c019cd8212807",
+  "name" : "should return an array of services",
+  "fullName" : "Services Schema.should return an array of services",
+  "historyId" : "3154348eb63610f06093359329533731",
+  "time" : {
+    "start" : 1628638949137,
+    "stop" : 1628638949154,
+    "duration" : 17
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should return an array of services"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c30c019cd8212807.json",
+  "parameterValues" : [ ]
+}

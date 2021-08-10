@@ -1,0 +1,46 @@
+{
+  "uid" : "a6b1461d0b9f7d94",
+  "name" : "should get lastOnline as null for invalid service",
+  "fullName" : "Services Schema.should get lastOnline as null for invalid service",
+  "historyId" : "91f67e97bacdfdd9f5ffc78990828f6e",
+  "time" : {
+    "start" : 1628638949291,
+    "stop" : 1628638949301,
+    "duration" : 10
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should get lastOnline as null for invalid service"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a6b1461d0b9f7d94.json",
+  "parameterValues" : [ ]
+}

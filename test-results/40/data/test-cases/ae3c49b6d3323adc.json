@@ -1,0 +1,46 @@
+{
+  "uid" : "ae3c49b6d3323adc",
+  "name" : "should return error in case of failure for getting all services",
+  "fullName" : "Services Schema.should return error in case of failure for getting all services",
+  "historyId" : "7f3d3b85e49b87363fbf101747f82bef",
+  "time" : {
+    "start" : 1628638949154,
+    "stop" : 1628638949169,
+    "duration" : 15
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should return error in case of failure for getting all services"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ae3c49b6d3323adc.json",
+  "parameterValues" : [ ]
+}

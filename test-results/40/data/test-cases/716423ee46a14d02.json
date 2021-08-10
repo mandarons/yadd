@@ -1,0 +1,46 @@
+{
+  "uid" : "716423ee46a14d02",
+  "name" : "/service PUT should return error for changing shortName",
+  "fullName" : "/api route./service PUT should return error for changing shortName",
+  "historyId" : "873ba45a88f37746ac2fd60720c3a0f3",
+  "time" : {
+    "start" : 1628638948785,
+    "stop" : 1628638948796,
+    "duration" : 11
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service PUT should return error for changing shortName"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "716423ee46a14d02.json",
+  "parameterValues" : [ ]
+}

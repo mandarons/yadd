@@ -1,0 +1,46 @@
+{
+  "uid" : "c332207a28b37c60",
+  "name" : "should create a new service record",
+  "fullName" : "Services Schema.should create a new service record",
+  "historyId" : "4abc87e59fb7f36f42112d378d6a22d0",
+  "time" : {
+    "start" : 1628638949110,
+    "stop" : 1628638949123,
+    "duration" : 13
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should create a new service record"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c332207a28b37c60.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "2f58dec5f22e64cb",
+  "name" : "should record service offline in case of isReachable error",
+  "fullName" : "Cron Jobs Controller.should record service offline in case of isReachable error",
+  "historyId" : "d6e0afede5b9f0c0fc30abf3cf256da5",
+  "time" : {
+    "start" : 1628638949029,
+    "stop" : 1628638949046,
+    "duration" : 17
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "testClass",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "testMethod",
+    "value" : "should record service offline in case of isReachable error"
+  }, {
+    "name" : "package",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2f58dec5f22e64cb.json",
+  "parameterValues" : [ ]
+}

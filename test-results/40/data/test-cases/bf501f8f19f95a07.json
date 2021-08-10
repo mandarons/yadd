@@ -1,0 +1,84 @@
+{
+  "uid" : "bf501f8f19f95a07",
+  "name" : "/favicon.ico should redirect to /",
+  "fullName" : "Root route./favicon.ico should redirect to /",
+  "historyId" : "cfd7c3357e625db53be12ce920d718e0",
+  "time" : {
+    "start" : 1628638949052,
+    "stop" : 1628638949059,
+    "duration" : 7
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Root route"
+  }, {
+    "name" : "testClass",
+    "value" : "Root route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/favicon.ico should redirect to /"
+  }, {
+    "name" : "package",
+    "value" : "Root route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "c12968d736b0d54a",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/39//#testresult/c12968d736b0d54a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628395170854,
+          "stop" : 1628395170860,
+          "duration" : 6
+        }
+      }, {
+        "uid" : "cd81816429abdd08",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/38//#testresult/cd81816429abdd08",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394653339,
+          "stop" : 1628394653349,
+          "duration" : 10
+        }
+      }, {
+        "uid" : "9366b58971447104",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/37//#testresult/9366b58971447104",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394453923,
+          "stop" : 1628394453929,
+          "duration" : 6
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "bf501f8f19f95a07.json",
+  "parameterValues" : [ ]
+}

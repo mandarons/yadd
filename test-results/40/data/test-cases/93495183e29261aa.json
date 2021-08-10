@@ -1,0 +1,46 @@
+{
+  "uid" : "93495183e29261aa",
+  "name" : "should not increment hits for non-existent service",
+  "fullName" : "Services Schema.should not increment hits for non-existent service",
+  "historyId" : "aefbce9bfdfedc7902e7de26d452bb44",
+  "time" : {
+    "start" : 1628638949363,
+    "stop" : 1628638949369,
+    "duration" : 6
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should not increment hits for non-existent service"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "93495183e29261aa.json",
+  "parameterValues" : [ ]
+}

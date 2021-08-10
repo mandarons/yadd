@@ -1,0 +1,46 @@
+{
+  "uid" : "647d67cbfe3bc667",
+  "name" : "should increment hits",
+  "fullName" : "Services Schema.should increment hits",
+  "historyId" : "52a69dea7a8fa4c6dbcd7daa101bbb3",
+  "time" : {
+    "start" : 1628638949345,
+    "stop" : 1628638949363,
+    "duration" : 18
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should increment hits"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "647d67cbfe3bc667.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "ec032d41397f374c",
+  "name" : "should update an existing service",
+  "fullName" : "Services Schema.should update an existing service",
+  "historyId" : "5f936ee7b44f146e109f7f4995b3b97",
+  "time" : {
+    "start" : 1628638949189,
+    "stop" : 1628638949200,
+    "duration" : 11
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should update an existing service"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ec032d41397f374c.json",
+  "parameterValues" : [ ]
+}

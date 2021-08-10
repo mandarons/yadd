@@ -1,0 +1,46 @@
+{
+  "uid" : "6e59b2390cd70eb3",
+  "name" : "should not delete a non-existing service record",
+  "fullName" : "Services Schema.should not delete a non-existing service record",
+  "historyId" : "b4cacb8c6700cc6cb8d9a972d815dc2f",
+  "time" : {
+    "start" : 1628638949244,
+    "stop" : 1628638949248,
+    "duration" : 4
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should not delete a non-existing service record"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "6e59b2390cd70eb3.json",
+  "parameterValues" : [ ]
+}

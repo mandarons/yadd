@@ -1,0 +1,46 @@
+{
+  "uid" : "93ec4f046e104a54",
+  "name" : "should handle exception on get hits",
+  "fullName" : "Services Schema.should handle exception on get hits",
+  "historyId" : "50e1856d0e6c115d6f114b900d86236d",
+  "time" : {
+    "start" : 1628638949334,
+    "stop" : 1628638949345,
+    "duration" : 11
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle exception on get hits"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "93ec4f046e104a54.json",
+  "parameterValues" : [ ]
+}

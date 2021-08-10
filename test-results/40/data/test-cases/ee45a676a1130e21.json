@@ -1,0 +1,46 @@
+{
+  "uid" : "ee45a676a1130e21",
+  "name" : "should handle exception on update",
+  "fullName" : "Services Schema.should handle exception on update",
+  "historyId" : "d99078154bfc6bfc8a72c4d1e69b7bd3",
+  "time" : {
+    "start" : 1628638949206,
+    "stop" : 1628638949227,
+    "duration" : 21
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle exception on update"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ee45a676a1130e21.json",
+  "parameterValues" : [ ]
+}

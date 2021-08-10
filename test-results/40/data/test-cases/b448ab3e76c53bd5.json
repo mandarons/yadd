@@ -1,0 +1,46 @@
+{
+  "uid" : "b448ab3e76c53bd5",
+  "name" : "should handle exception for updating lastOnline",
+  "fullName" : "Services Schema.should handle exception for updating lastOnline",
+  "historyId" : "3a0a52f5f476d5ee6d8e0dfd893fe66a",
+  "time" : {
+    "start" : 1628638949271,
+    "stop" : 1628638949278,
+    "duration" : 7
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle exception for updating lastOnline"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b448ab3e76c53bd5.json",
+  "parameterValues" : [ ]
+}

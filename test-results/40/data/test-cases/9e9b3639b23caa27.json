@@ -1,0 +1,46 @@
+{
+  "uid" : "9e9b3639b23caa27",
+  "name" : "should handle exception on delete",
+  "fullName" : "Services Schema.should handle exception on delete",
+  "historyId" : "833dd9062e7fc10c0d45a69a2a9158f6",
+  "time" : {
+    "start" : 1628638949248,
+    "stop" : 1628638949253,
+    "duration" : 5
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle exception on delete"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9e9b3639b23caa27.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "3a5ccc51c90f04c9",
+  "name" : "should handle exception on find service record",
+  "fullName" : "Services Schema.should handle exception on find service record",
+  "historyId" : "7af60c9ab491ee77560225ce03d04ead",
+  "time" : {
+    "start" : 1628638949184,
+    "stop" : 1628638949189,
+    "duration" : 5
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should handle exception on find service record"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3a5ccc51c90f04c9.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "34cab73cc4fec34c",
+  "name" : "/status GET should return online status of service with shortName",
+  "fullName" : "/api route./status GET should return online status of service with shortName",
+  "historyId" : "2987b8725cc5e4e84987a4cd12a4ba1e",
+  "time" : {
+    "start" : 1628638948850,
+    "stop" : 1628638948868,
+    "duration" : 18
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/status GET should return online status of service with shortName"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "34cab73cc4fec34c.json",
+  "parameterValues" : [ ]
+}

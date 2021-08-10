@@ -1,0 +1,84 @@
+{
+  "uid" : "6042c0591aa79d6e",
+  "name" : "/service PUT should return error for invalid data",
+  "fullName" : "/api route./service PUT should return error for invalid data",
+  "historyId" : "b0a87d59fbf2501cffeafc5922c82661",
+  "time" : {
+    "start" : 1628638948771,
+    "stop" : 1628638948785,
+    "duration" : 14
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api route"
+  }, {
+    "name" : "testClass",
+    "value" : "/api route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service PUT should return error for invalid data"
+  }, {
+    "name" : "package",
+    "value" : "/api route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "f44f8831b53cbe4a",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/39//#testresult/f44f8831b53cbe4a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628395170703,
+          "stop" : 1628395170720,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "8899856533dd46b8",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/38//#testresult/8899856533dd46b8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394653107,
+          "stop" : 1628394653133,
+          "duration" : 26
+        }
+      }, {
+        "uid" : "bcebb266e5059728",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/37//#testresult/bcebb266e5059728",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628394453764,
+          "stop" : 1628394453782,
+          "duration" : 18
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "6042c0591aa79d6e.json",
+  "parameterValues" : [ ]
+}
