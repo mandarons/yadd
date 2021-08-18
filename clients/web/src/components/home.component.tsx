@@ -22,16 +22,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { statusAction } from './Auth/action';
+import { LoginComponent } from './Auth/login.component';
 import FooterComponent from './footer.component';
 import { NavigationComponent } from './navigation.component';
 import { ServiceListComponent } from './Services/service-list.component';
 
 const HomeComponent = () => {
+    const authEnabled = useAppSelector(state => state.auth.enabled);
+    const isLoggedIn = useAppSelector(state => state.auth.loggedIn);
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(statusAction());
+    }, [dispatch]);
     return (
         <div className="flex flex-col h-screen">
             <NavigationComponent />
             <div className={'mb-auto'}>
-                <ServiceListComponent services={[]} />
+                {true === authEnabled && false === isLoggedIn ? <LoginComponent /> :
+                    <ServiceListComponent services={[]} />}
             </div>
             <FooterComponent />
         </div>

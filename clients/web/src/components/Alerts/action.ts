@@ -34,7 +34,7 @@ const alertActionWarning = (message: string) => {
     return (dispatch: (a: IAlertAction) => IAlertAction) => dispatch({ type: ALERT_ACTION_TYPES.WARNING, message, autoClose: true });
 };
 const alertActionError = (message: string) => {
-    return (dispatch: (a: IAlertAction) => IAlertAction) => dispatch({ type: ALERT_ACTION_TYPES.ERROR, message, autoClose: false });
+    return (dispatch: (a: IAlertAction) => IAlertAction) => dispatch({ type: ALERT_ACTION_TYPES.ERROR, message, autoClose: true });
 };
 const alertActionClear = (message: string = '') => {
     return (dispatch: (a: IAlertAction) => IAlertAction) => dispatch({ type: ALERT_ACTION_TYPES.CLEAR, message, autoClose: true });

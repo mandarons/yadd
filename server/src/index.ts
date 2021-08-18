@@ -25,14 +25,17 @@ SOFTWARE.
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import routes from './routes';
 import cors from 'cors';
 import cronJobs from './controllers/cron-jobs';
 import { Server } from 'http';
 import sequelize from './db/sql.connection';
+import appConfig from './proxies/config.proxy';
 
 const app = express();
 app.use(cors());
+app.use(cookieParser(appConfig.server.auth.secretKey));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.resolve(path.join(__dirname, '..', 'public'))));

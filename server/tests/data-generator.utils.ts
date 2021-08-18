@@ -23,11 +23,17 @@ SOFTWARE.
 */
 
 import path from 'path';
+import chai from 'chai';
+import chaiHTTP from 'chai-http';
 import fs from 'fs';
 import axios from 'axios';
+import yaml from 'js-yaml';
 import server from '../src/index';
 import { IServiceRecordAttributes } from '../src/db/services.schema';
+import { Server } from 'http';
+import * as configProxy from '../src/proxies/config.proxy';
 
+chai.use(chaiHTTP);
 const TEMP_DIR_PATH = path.resolve(path.join(__dirname, 'temp'));
 const PUBLIC_FOLDER_PATH = path.resolve(path.join(__dirname, '..', 'public'));
 const INDEX_FILE_PATH = path.resolve(path.join(PUBLIC_FOLDER_PATH, 'index.html'));
@@ -71,12 +77,10 @@ const startService = (service: any, url: string, port: number, timeoutInMillisec
     }));
 };
 const stopService = (serviceInstance: any) => {
-    // const returnValue = new Promise(resolve => serviceInstance.on('close', () => resolve(null)));
     serviceInstance.close(() => {
         console.info('service closed.');
         return new Promise(resolve => resolve(null));
     });
-    // return returnValue;
 };
 const startServer = async (timeoutInms = 5000) => startService(server.app, `http://localhost:8000`, 8000, timeoutInms);
 
@@ -88,7 +92,6 @@ const randomRefreshInterval = (): number => {
 const randomNumberBetween = (min: number, max: number): number => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
-
 const validURLs = ['http://google.com', 'http://yahoo.com', 'http://duckduckgo.com'];
 const validLogoURLs = ['/icons/adguardhome.png', '/icons/adminer.png', '/icons/amazon.png'];
 const randomService = (): IServiceRecordAttributes => {
@@ -120,10 +123,7 @@ const compareServiceRecords = (serviceRecord1: IServiceRecordAttributes, service
         serviceRecord1.shortName === serviceRecord2.shortName &&
         serviceRecord1.url === serviceRecord2.url &&
         serviceRecord1.logoURL === serviceRecord2.logoURL;
-    // serviceRecord1.hits === serviceRecord2.hits &&
-    // serviceRecord1.lastOnline!.toISOString() === serviceRecord2.lastOnline!.toISOString();
 };
-
 const randomServiceRecords = (size = 5): IServiceRecordAttributes[] => {
     const randomServiceRecords = [];
     for (let i = 0; i < size; ++i) {
@@ -131,14 +131,12 @@ const randomServiceRecords = (size = 5): IServiceRecordAttributes[] => {
     }
     return randomServiceRecords;
 };
-
 const compareServices = (service1: IServiceRecordAttributes, service2: IServiceRecordAttributes) => {
     return service1.logoURL === service2.logoURL &&
         service1.name === service2.name &&
         service1.shortName === service2.shortName &&
         service1.url === service2.url;
 };
-
 const randomServices = (size = 5): { [key: string]: IServiceRecordAttributes; } => {
     const services: { [key: string]: IServiceRecordAttributes; } = {};
     for (let i = 0; i < size; ++i) {
@@ -147,7 +145,6 @@ const randomServices = (size = 5): { [key: string]: IServiceRecordAttributes; } 
     }
     return services;
 };
-
 const createTempDir = (): void => {
     if (!fs.existsSync(TEMP_DIR_PATH)) {
         fs.mkdirSync(TEMP_DIR_PATH);
@@ -156,9 +153,27 @@ const createTempDir = (): void => {
 const cleanUpTempDir = (): void => {
     fs.rmSync(TEMP_DIR_PATH, { recursive: true, force: true });
 };
-
 const cleanUpConfigFile = (): void => {
     // fs.rmSync(configFilePath, { force: true });
+};
+const checkForSuccess = (response: any) => {
+    response.status.should.be.equal(200);
+    response.body.status.should.be.equal('success');
+    return response;
+};
+const checkForError = (response: any, code: number) => {
+    response.status.should.be.equal(code);
+    response.body.status.should.be.equal('error');
+    return response;
+};
+const postData = async (service: Server, endpoint: string, data: object) => {
+    return chai.request(service)
+        .post(endpoint)
+        .send(data);
+};
+const enableAuth = async (enable = true) => {
+    configProxy.default.server.auth.enable = enable;
+    fs.writeFileSync(configProxy.getConfigYamlPath(), yaml.dump(configProxy.default));
 };
 
 export default {
@@ -178,5 +193,9 @@ export default {
     compareServiceRecords,
     startServer,
     stopServer,
-    indexFile
+    indexFile,
+    checkForSuccess,
+    checkForError,
+    postData,
+    enableAuth
 };

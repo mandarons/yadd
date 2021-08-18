@@ -24,15 +24,33 @@ SOFTWARE.
 
 import { AlertListComponent } from './Alerts/list.component';
 import { connect } from 'react-redux';
+import { SyntheticEvent } from 'react';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import * as authActions from './Auth/action';
 
 const NavigationComponent = () => {
+    const dispatch = useAppDispatch();
+    const isLoggedIn = useAppSelector(state => state.auth.loggedIn);
+    const handleLogout = (event: SyntheticEvent) => {
+        event.preventDefault();
+        dispatch(authActions.logoutAction());
+    };
     return (
-        <nav className={'flex items-center-stretch justify-center flex-wrap p-6'}>
+        <nav className={'flex items-center-stretch justify-center flex-wrap p-2'}>
             <div>
-                <img id={'appLogoImage'} src={'/yadd.png'} alt={'Mandarons:: Yadd Logo'} width={180} height={60} className={'rounded-sm'} />
+                <img id={'appLogoImage'} src={'/yadd.png'} alt={'Mandarons:: Yadd Logo'} width={150} height={50} className={'rounded-sm'} />
             </div>
             <div className={'flex flex-grow justify-center'}>
                 <AlertListComponent />
+            </div>
+            <div>
+                {
+                    isLoggedIn ?
+                        <button id={`btnLogout`}
+                            className="hover:bg-red-500 hover:text-white border-solid border- border-red-500 font-bold uppercase text-red-500 text-sm px-6 py-3 rounded shadow hover:shadow-lg mr-1 mb-1 ease-linear transition-all duration-150"
+                            type="button" onClick={handleLogout}>Logout</button> :
+                        null
+                }
             </div>
         </nav>
     );

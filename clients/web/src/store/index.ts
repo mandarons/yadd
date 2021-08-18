@@ -26,8 +26,8 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer, applyMiddleware<any>(thunk));
-
+const store = createStore(rootReducer, localStorage.getItem('state') ? JSON.parse(localStorage.getItem('state')!) : {}, applyMiddleware<any>(thunk));
+store.subscribe(() => localStorage.setItem('state', JSON.stringify(store.getState())));
 export type Dispatch = typeof store.dispatch;
-
+export type RootState = ReturnType<typeof store.getState>;
 export default store;

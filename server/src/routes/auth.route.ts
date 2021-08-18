@@ -23,33 +23,38 @@ SOFTWARE.
 */
 
 import express from 'express';
-import * as db from '../db/services.schema';
-import utils from './route.utils';
 import authController from '../controllers/auth.controller';
+import ms from 'ms';
+import appConfig from '../proxies/config.proxy';
+import utils from './route.utils';
 
 const Router = express.Router();
 
-Router.get('/favicon.ico', (req, res) => res.status(204).end());
-Router.get('/:name',
-    utils.authMiddleware(authController.passport.authenticate('cookie', { session: false })),
-    async (req, res) => {
-        const fromDB = await db.findURLByShortName(req.params.name);
-        if (!fromDB.success) {
-            return utils.errorResponse(res, 500, fromDB.errorMessage as string);
-        }
-        const url = fromDB.data !== undefined ? (fromDB.data as { [key: string]: string; }).url : undefined;
-        if (url === undefined) {
-            return utils.errorResponse(res, 404, 'Service not found.', {
-                shortName: req.params.name
+Router.post('/login', (req: express.Request, res: express.Response) => {
+    authController.passport.authenticate('localLogin', {}, (err, data) => {
+        if (err) {
+            utils.errorResponse(res, 500, 'Internal error.', { err });
+        } else if (data) {
+            res.cookie('token', data, {
+                httpOnly: true,
+                signed: true,
+                maxAge: ms(appConfig.server.auth!.tokenExpiration)
             });
+            utils.successResponse(res, 'Logged in.');
+        } else {
+            utils.errorResponse(res, 401, 'Invalid credentials.');
         }
-        return res.send(`
-            <head>
-            <script async defer data-domain="yadd.mandarons" src="https://bea26a2221fd8090ea38720fc445eca6.mandarons.com/js/plausible.js"></script>
-            <meta http-equiv="refresh" content="0; URL=${url}" />
-            </head>
-        `);
-    });
+    })(req, res);
+});
 
+Router.get('/logout', (req, res) => {
+    req.logout();
+    res.clearCookie('token');
+    return utils.successResponse(res, 'Logged out.');
+});
+
+Router.get('/status', (req, res) => {
+    utils.successResponse(res, `Auth is ${appConfig.server.auth.enable ? 'enabled.' : 'disabled.'}`, { enabled: appConfig.server.auth.enable });
+});
 
 export default Router;

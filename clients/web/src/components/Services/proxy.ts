@@ -29,6 +29,7 @@ const getAllServices = async (): Promise<IProxyResponse> => {
     const returnValue: IProxyResponse = createEmptyProxyResponse();
     try {
         const response = await axios.get(SERVICES_ENDPOINT);
+        returnValue.code = response.status;
         if (response.status === 200) {
             returnValue.services = response.data.data.services as IService[];
             returnValue.success = true;
@@ -37,6 +38,7 @@ const getAllServices = async (): Promise<IProxyResponse> => {
         }
     } catch (err) {
         // TODO: handle correctly
+        returnValue.code = err.response.status;
         console.error('Failed to retrieve services.', err);
         returnValue.errorMessage = err.response.data.message || 'Failed to retrieve services.';
     }
@@ -47,6 +49,7 @@ const postService = async (service: IService): Promise<IProxyResponse> => {
     const returnValue: IProxyResponse = createEmptyProxyResponse();
     try {
         const response = await axios.post(SERVICE_ENDPOINT, service);
+        returnValue.code = response.status;
         if (response.status === 200) {
             returnValue.success = true;
         } else {
@@ -64,6 +67,7 @@ const putService = async (shortName: string, service: IService): Promise<IProxyR
     const returnValue: IProxyResponse = createEmptyProxyResponse();
     try {
         const response = await axios.put(SERVICE_ENDPOINT, { shortName, service });
+        returnValue.code = response.status;
         if (response.status === 200) {
             returnValue.success = true;
         } else {
@@ -81,6 +85,7 @@ const deleteService = async (shortName: string): Promise<IProxyResponse> => {
     const returnValue: IProxyResponse = createEmptyProxyResponse();
     try {
         const response = await axios.delete(SERVICE_ENDPOINT, { data: { shortName } });
+        returnValue.code = response.status;
         if (response.status === 200) {
             returnValue.success = true;
         } else {
@@ -99,6 +104,7 @@ const getServiceStatus = async (shortName: string): Promise<IProxyResponse> => {
     returnValue.status = { online: false, lastOnline: null };
     try {
         const response = await axios.get(STATUS_ENDPOINT, { params: { shortName } });
+        returnValue.code = response.status;
         if (response.status === 200) {
             returnValue.success = true;
             returnValue.status.online = response.data.data.online;

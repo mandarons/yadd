@@ -24,8 +24,8 @@ SOFTWARE.
 
 import cron from 'node-cron';
 import utils from './utils';
-import { DEFAULT_STATUS_CHECK_REFRESH_INTERVAL } from '../../config/app.config';
 import { getAllServices, IServiceRecordAttributes, updateLastOnline } from '../db/services.schema';
+import appConfig from '../proxies/config.proxy';
 
 const job = async () => {
     const allServices = (await getAllServices()).values as [IServiceRecordAttributes];
@@ -43,7 +43,7 @@ const job = async () => {
 };
 
 
-const enableServiceStatusRefresh = () => cron.schedule(DEFAULT_STATUS_CHECK_REFRESH_INTERVAL, job);
+const enableServiceStatusRefresh = () => cron.schedule(appConfig.server.statusCheckRefreshInterval, job);
 
 export default {
     job,

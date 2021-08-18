@@ -22,49 +22,49 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-export interface IService {
-    name: string;
-    shortName: string;
-    url: string;
-    logoURL: string;
-    online?: boolean;
-    lastOnline?: string | null;
-};
-export const SEVICES_ACTION_TYPES = {
-    FETCHING_ALL: 'FETCHING_ALL',
-    FETCH_ALL_SUCCESS: 'FETCH_ALL_SUCCESS',
-    FETCH_ALL_FAILED: 'FETCH_ALL_FAILED'
-};
-export interface IServicesState {
-    services: IService[];
-    fetching: boolean;
-    invalidated: boolean;
-};
-export interface IServiceAction {
-    type: string;
-    services: IService[];
+export interface IAuth {
+    username: string;
+    enabled: boolean;
 };
 
+export const AUTH_ACTION_TYPES = {
+    LOGIN_SUCCESS: 'LOGIN_SUCCESS',
+    LOGIN_FAILED: 'LOGIN_FAILED',
+    LOGOUT_SUCCESS: 'LOGOUT_SUCCESS',
+    STATUS_SUCCESS: 'STATUS_SUCCESS',
+    STATUS_FAILED: 'STATUS_FAILED'
+};
+
+export interface IAuthState {
+    username: string;
+    enabled: boolean;
+    loggedIn: boolean;
+};
+
+export interface IAuthAction {
+    type: string;
+    payload: IStatusResponse | {};
+};
+
+export interface IStatusResponse {
+    enabled: boolean;
+};
 export interface IProxyResponse {
     success: boolean;
-    services: IService[] | null;
-    service: IService | null;
-    status: { online: boolean; lastOnline: string | null; } | null;
     errorMessage: string | null;
-    code: number | null;
-}
+    data: IStatusResponse | {};
+};
+
 export const createEmptyProxyResponse = (): IProxyResponse => {
     return {
         success: false,
-        services: null,
-        service: null,
-        status: null,
         errorMessage: null,
-        code: null
+        data: {}
     };
 };
 
 const API_ROOT = '/api';
-export const SERVICE_ENDPOINT = `${API_ROOT}/service`;
-export const SERVICES_ENDPOINT = `${SERVICE_ENDPOINT}/all`;
-export const STATUS_ENDPOINT = `${SERVICE_ENDPOINT}/status`;
+export const AUTH_ENDPOINT = `${API_ROOT}/auth`;
+export const LOGIN_ENDPOINT = `${AUTH_ENDPOINT}/login`;
+export const LOGOUT_ENDPOINT = `${AUTH_ENDPOINT}/logout`;
+export const STATUS_ENDPOINT = `${AUTH_ENDPOINT}/status`;

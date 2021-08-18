@@ -27,14 +27,17 @@ import { IAlert } from '../components/Alerts/constants';
 import { alerts } from '../components/Alerts/alert.reducer';
 import { IService } from '../components/Services/constants';
 import { services } from '../components/Services/reducer';
-
+import { IAuth } from '../components/Auth/constants';
+import authReducer from '../components/Auth/reducer';
 export interface IState {
     alerts: IAlert[];
     services: IService[];
+    auth: IAuth;
 };
 const rootReducer = combineReducers({
     alerts,
-    services
+    services,
+    auth: authReducer
 });
 
 export default rootReducer;
