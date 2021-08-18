@@ -25,6 +25,7 @@ SOFTWARE.
 import { SEVICES_ACTION_TYPES, IService } from "./constants";
 import { getAllServices } from './proxy';
 import { Dispatch } from '../../store';
+import { logoutAction } from '../Auth/action';
 
 export const fetchServicesAction = () => {
     const request = () => ({ type: SEVICES_ACTION_TYPES.FETCHING_ALL });
@@ -36,6 +37,9 @@ export const fetchServicesAction = () => {
         if (response.success) {
             dispatch(success(response.services as IService[]));
         } else {
+            if (response.code === 401) {
+                dispatch(logoutAction());
+            }
             dispatch(failure());
         }
     };

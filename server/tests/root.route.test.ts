@@ -31,10 +31,11 @@ import utils from './data-generator.utils';
 chai.should();
 chai.use(chaiHTTP);
 
-describe('Root route', async () => {
+describe('/ route', async () => {
     let server: any = null;
     before(async () => {
         utils.indexFile(true);
+        utils.enableAuth(false);
         server = await utils.startServer();
     });
     after(async () => {
@@ -74,8 +75,6 @@ describe('Root route', async () => {
         response.status.should.be.equal(200);
         response.type.should.be.equal('text/html');
         response.text.should.include(`<meta http-equiv="refresh" content="0; URL=${service.url}" />`);
-        // response.redirects.length.should.be.greaterThan(0);
-        // response.redirects[0].startsWith(service.url).should.be.true;
     });
     it('/:invalid_name should return error', async () => {
         const service = utils.randomServiceRecord();
@@ -98,6 +97,84 @@ describe('Root route', async () => {
         sinon.stub(servicesModel, 'findURLByShortName').returns(new Promise(resolve => resolve({ success: false })));
         response = await chai.request(server)
             .get(`/${service.shortName}`);
+        response.status.should.be.equal(500);
+    });
+});
+
+describe('/ route - authenticated', async () => {
+    let server: any = null;
+    let cookieString: string = '';
+    before(async () => {
+        utils.indexFile(true);
+        utils.enableAuth(true);
+        server = await utils.startServer();
+        cookieString = (await chai.request(server).post('/api/auth/login').send({ username: 'admin', password: 'admin' })).header['set-cookie'][0];
+    });
+    after(async () => {
+        utils.indexFile(false);
+        await utils.stopServer(server);
+    });
+    beforeEach(async () => {
+        await servicesModel.Services.sync({ force: true });
+        utils.cleanUpConfigFile();
+    });
+    afterEach(async () => {
+        await servicesModel.Services.drop();
+        utils.cleanUpConfigFile();
+        sinon.restore();
+    });
+    it('/favicon.ico should redirect to /', async () => {
+        const response = await chai.request(server)
+            .get('/favicon.ico');
+        response.status.should.be.equal(204);
+    });
+    it('/ should return index file', async () => {
+        const response = await chai.request(server)
+            .get('/');
+        response.status.should.be.equal(200);
+        response.type.should.be.equal('text/html');
+        response.text.should.be.equal(fs.readFileSync(utils.INDEX_FILE_PATH, { encoding: "utf8" }).toString());
+    });
+    it('/:name should redirect to named URL', async () => {
+        const service = utils.randomServiceRecord();
+        let response = await chai.request(server)
+            .post('/api/service')
+            .set('Cookie', cookieString)
+            .send(service);
+        response.status.should.be.equal(200);
+
+        response = await chai.request(server)
+            .get(`/${service.shortName}`)
+            .set('Cookie', cookieString);
+        response.status.should.be.equal(200);
+        response.type.should.be.equal('text/html');
+        response.text.should.include(`<meta http-equiv="refresh" content="0; URL=${service.url}" />`);
+    });
+    it('/:invalid_name should return error', async () => {
+        const service = utils.randomServiceRecord();
+        let response = await chai.request(server)
+            .post('/api/service')
+            .set('Cookie', cookieString)
+            .send(service);
+        response.status.should.be.equal(200);
+
+        response = await chai.request(server)
+            .get(`/${service.shortName}-invalid`)
+            .set('Cookie', cookieString);
+        response.status.should.be.equal(404);
+        response.redirects.length.should.be.equal(0);
+    });
+    it('/:name should return error in case of exception', async () => {
+        const service = utils.randomServiceRecord();
+        let response = await chai.request(server)
+            .post('/api/service')
+            .set('Cookie', cookieString)
+            .send(service);
+        response.status.should.be.equal(200);
+        sinon.stub(servicesModel, 'findURLByShortName').returns(new Promise(resolve => resolve({ success: false })));
+        response = await chai.request(server)
+            .get(`/${service.shortName}`)
+            .set('Cookie', cookieString);
         response.status.should.be.equal(500);
     });
 });

@@ -1,3 +1,4 @@
+
 /*
 MIT License
 
@@ -22,38 +23,38 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import express from 'express';
+import passport from 'passport';
+import jwt from 'jsonwebtoken';
+import { Strategy as LocalStrategy } from 'passport-local';
+import { Strategy as CookieStrategy } from 'passport-cookie';
 import appConfig from '../proxies/config.proxy';
+import { VerifiedCallback } from 'passport-jwt';
 
-const successResponse = (res: express.Response, message: string, data: object = {}): express.Response => {
-    return res.status(200).json({
-        status: 'success',
-        message,
-        data
-    });
-};
-const errorResponse = (res: express.Response, code: number, message: string, data: object = {}): express.Response => {
-    return res.status(code).json({
-        status: 'error',
-        message,
-        data
-    });
-};
-
-const isValidService = (data: object): boolean => {
-    return data !== undefined && data.hasOwnProperty('name') && data.hasOwnProperty('shortName') && data.hasOwnProperty('url') && data.hasOwnProperty('logoURL');
-};
-
-const authMiddleware = (success: express.RequestHandler) => (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    if (appConfig.server.auth.enable) {
-        return success(req, res, next);
+passport.use('localLogin', new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password'
+}, async (username: string, password: string, done) => {
+    if (username === 'admin') {
+        if (password === appConfig.server.auth.adminPassword) {
+            const token = jwt.sign({ password: appConfig.server.auth.adminPassword }, appConfig.server.auth.secretKey, {
+                algorithm: 'HS256',
+                expiresIn: appConfig.server.authTokenExpiration
+            });
+            return done(null, token);
+        }
     }
-    return next();
-};
+    done(null, false);
+}));
+
+passport.use(new CookieStrategy({
+    cookieName: 'token',
+    signed: true
+}, async (token: string, done: VerifiedCallback) => {
+    const decodedToken: any = jwt.verify(token, appConfig.server.auth.secretKey);
+    done(null, decodedToken.password === appConfig.server.auth.adminPassword);
+}));
 
 export default {
-    successResponse,
-    errorResponse,
-    isValidService,
-    authMiddleware
+    jwt,
+    passport
 };

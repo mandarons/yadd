@@ -22,38 +22,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import express from 'express';
-import appConfig from '../proxies/config.proxy';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { Dispatch, RootState } from '.';
 
-const successResponse = (res: express.Response, message: string, data: object = {}): express.Response => {
-    return res.status(200).json({
-        status: 'success',
-        message,
-        data
-    });
-};
-const errorResponse = (res: express.Response, code: number, message: string, data: object = {}): express.Response => {
-    return res.status(code).json({
-        status: 'error',
-        message,
-        data
-    });
-};
+const useAppDispatch = () => useDispatch<Dispatch>();
+const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-const isValidService = (data: object): boolean => {
-    return data !== undefined && data.hasOwnProperty('name') && data.hasOwnProperty('shortName') && data.hasOwnProperty('url') && data.hasOwnProperty('logoURL');
-};
-
-const authMiddleware = (success: express.RequestHandler) => (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    if (appConfig.server.auth.enable) {
-        return success(req, res, next);
-    }
-    return next();
-};
-
-export default {
-    successResponse,
-    errorResponse,
-    isValidService,
-    authMiddleware
+export {
+    useAppDispatch,
+    useAppSelector
 };
