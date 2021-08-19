@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -108,7 +108,10 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,22 +138,25 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,28 +192,31 @@ SOFTWARE.
 import express from 'express';
 import * as db from '../db/services.schema';
 import utils from './route.utils';
+import authController from '../controllers/auth.controller';
 &nbsp;
 const Router = express.Router();
 &nbsp;
 Router.get('/favicon.ico', (req, res) =&gt; res.status(204).end());
-Router.get('/:name', async (req, res) =&gt; {
-    const fromDB = await db.findURLByShortName(req.params.name);
-    if (!fromDB.success) {
-        return utils.errorResponse(res, 500, fromDB.errorMessage as string);
-    }
-    const url = fromDB.data !== undefined ? (fromDB.data as { [key: string]: string; }).url : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
-    if (url === undefined) {
-        return utils.errorResponse(res, 404, 'Service not found.', {
-            shortName: req.params.name
-        });
-    }
-    return res.send(`
-    &lt;head&gt;
-    &lt;script async defer data-domain="yadd.mandarons" src="https://bea26a2221fd8090ea38720fc445eca6.mandarons.com/js/plausible.js"&gt;&lt;/script&gt;
-    &lt;meta http-equiv="refresh" content="0; URL=${url}" /&gt;
-    &lt;/head&gt;
-    `);
-});
+Router.get('/:name',
+    utils.authMiddleware(authController.passport.authenticate('cookie', { session: false })),
+    async (req, res) =&gt; {
+        const fromDB = await db.findURLByShortName(req.params.name);
+        if (!fromDB.success) {
+            return utils.errorResponse(res, 500, fromDB.errorMessage as string);
+        }
+        const url = fromDB.data !== undefined ? (fromDB.data as { [key: string]: string; }).url : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
+        if (url === undefined) {
+            return utils.errorResponse(res, 404, 'Service not found.', {
+                shortName: req.params.name
+            });
+        }
+        return res.send(`
+            &lt;head&gt;
+            &lt;script async defer data-domain="yadd.mandarons" src="https://bea26a2221fd8090ea38720fc445eca6.mandarons.com/js/plausible.js"&gt;&lt;/script&gt;
+            &lt;meta http-equiv="refresh" content="0; URL=${url}" /&gt;
+            &lt;/head&gt;
+        `);
+    });
 &nbsp;
 &nbsp;
 export default Router;</pre></td></tr></table></pre>
@@ -217,7 +226,7 @@ export default Router;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Aug 10 2021 23:42:29 GMT+0000 (Coordinated Universal Time)
+                at Thu Aug 19 2021 15:05:24 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
