@@ -1,0 +1,46 @@
+{
+  "uid" : "3905670a7f53a228",
+  "name" : "/service/status GET should return 401 for unauthorized",
+  "fullName" : "/api/service - authenticated./service/status GET should return 401 for unauthorized",
+  "historyId" : "b93d3083e286c278e5a0dea3ffba683d",
+  "time" : {
+    "start" : 1629385523664,
+    "stop" : 1629385523683,
+    "duration" : 19
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service/status GET should return 401 for unauthorized"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3905670a7f53a228.json",
+  "parameterValues" : [ ]
+}

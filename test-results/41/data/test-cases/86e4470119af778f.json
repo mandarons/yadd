@@ -1,0 +1,46 @@
+{
+  "uid" : "86e4470119af778f",
+  "name" : "/service PUT should update an existing service",
+  "fullName" : "/api/service - authenticated./service PUT should update an existing service",
+  "historyId" : "6db2cb8380d1a233fbb4a11ed4172ad6",
+  "time" : {
+    "start" : 1629385523476,
+    "stop" : 1629385523495,
+    "duration" : 19
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service PUT should update an existing service"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "86e4470119af778f.json",
+  "parameterValues" : [ ]
+}

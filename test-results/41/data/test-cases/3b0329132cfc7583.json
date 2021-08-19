@@ -1,0 +1,46 @@
+{
+  "uid" : "3b0329132cfc7583",
+  "name" : "/service GET should return error for invalid data",
+  "fullName" : "/api/service - authenticated./service GET should return error for invalid data",
+  "historyId" : "88b20f986d47dfcd1ef96f9e08034888",
+  "time" : {
+    "start" : 1629385523463,
+    "stop" : 1629385523476,
+    "duration" : 13
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service GET should return error for invalid data"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3b0329132cfc7583.json",
+  "parameterValues" : [ ]
+}

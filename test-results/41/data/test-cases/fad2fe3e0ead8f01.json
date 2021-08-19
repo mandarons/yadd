@@ -1,0 +1,46 @@
+{
+  "uid" : "fad2fe3e0ead8f01",
+  "name" : "should load dev-config.yaml for non-production, non-tests environment",
+  "fullName" : "Config Proxy .should load dev-config.yaml for non-production, non-tests environment",
+  "historyId" : "8b8cb772e9efbb95b9ef140107e8a6de",
+  "time" : {
+    "start" : 1629385523841,
+    "stop" : 1629385523841,
+    "duration" : 0
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "testClass",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "testMethod",
+    "value" : "should load dev-config.yaml for non-production, non-tests environment"
+  }, {
+    "name" : "package",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "fad2fe3e0ead8f01.json",
+  "parameterValues" : [ ]
+}

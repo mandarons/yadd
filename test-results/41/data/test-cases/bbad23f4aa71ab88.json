@@ -1,0 +1,46 @@
+{
+  "uid" : "bbad23f4aa71ab88",
+  "name" : "/service PUT should not update a non-existing service",
+  "fullName" : "/api/service./service PUT should not update a non-existing service",
+  "historyId" : "b005ac6ff17763a3e75152a58fcb484e",
+  "time" : {
+    "start" : 1629385523124,
+    "stop" : 1629385523137,
+    "duration" : 13
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service PUT should not update a non-existing service"
+  }, {
+    "name" : "package",
+    "value" : "/api/service"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "bbad23f4aa71ab88.json",
+  "parameterValues" : [ ]
+}

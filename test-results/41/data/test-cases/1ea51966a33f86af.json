@@ -1,0 +1,46 @@
+{
+  "uid" : "1ea51966a33f86af",
+  "name" : "should load configuration file",
+  "fullName" : "Config Proxy .should load configuration file",
+  "historyId" : "4f07c15c8e8308814476cc159635909a",
+  "time" : {
+    "start" : 1629385523841,
+    "stop" : 1629385523842,
+    "duration" : 1
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "testClass",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "testMethod",
+    "value" : "should load configuration file"
+  }, {
+    "name" : "package",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1ea51966a33f86af.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "58acbdc56c44219f",
+  "name" : "/service POST should not create a duplicate service",
+  "fullName" : "/api/service./service POST should not create a duplicate service",
+  "historyId" : "d4f6b13c12fb9ea8f9bfc84310853ef7",
+  "time" : {
+    "start" : 1629385523010,
+    "stop" : 1629385523032,
+    "duration" : 22
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service POST should not create a duplicate service"
+  }, {
+    "name" : "package",
+    "value" : "/api/service"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "58acbdc56c44219f.json",
+  "parameterValues" : [ ]
+}

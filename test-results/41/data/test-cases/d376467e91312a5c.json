@@ -1,0 +1,46 @@
+{
+  "uid" : "d376467e91312a5c",
+  "name" : "/service/status GET should return offline status of service with shortName",
+  "fullName" : "/api/service - authenticated./service/status GET should return offline status of service with shortName",
+  "historyId" : "a41b4546b1e50de59571f25859283d50",
+  "time" : {
+    "start" : 1629385523683,
+    "stop" : 1629385523701,
+    "duration" : 18
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service/status GET should return offline status of service with shortName"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d376467e91312a5c.json",
+  "parameterValues" : [ ]
+}

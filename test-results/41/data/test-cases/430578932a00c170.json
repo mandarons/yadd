@@ -1,0 +1,46 @@
+{
+  "uid" : "430578932a00c170",
+  "name" : "/service POST should not create a new service if unauthenticated",
+  "fullName" : "/api/service - authenticated./service POST should not create a new service if unauthenticated",
+  "historyId" : "10b902b2b8f1975ba53412d43a0bb569",
+  "time" : {
+    "start" : 1629385523390,
+    "stop" : 1629385523396,
+    "duration" : 6
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service POST should not create a new service if unauthenticated"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "430578932a00c170.json",
+  "parameterValues" : [ ]
+}

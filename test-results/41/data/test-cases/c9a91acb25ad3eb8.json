@@ -1,0 +1,46 @@
+{
+  "uid" : "c9a91acb25ad3eb8",
+  "name" : "/api/auth/status should correctly return auth enable status",
+  "fullName" : "/api/auth Route ./api/auth/status should correctly return auth enable status",
+  "historyId" : "200bff231630d52ee87f71f13e65f50d",
+  "time" : {
+    "start" : 1629385523832,
+    "stop" : 1629385523837,
+    "duration" : 5
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testClass",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testMethod",
+    "value" : "/api/auth/status should correctly return auth enable status"
+  }, {
+    "name" : "package",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c9a91acb25ad3eb8.json",
+  "parameterValues" : [ ]
+}

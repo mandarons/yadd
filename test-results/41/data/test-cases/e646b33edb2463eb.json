@@ -1,0 +1,46 @@
+{
+  "uid" : "e646b33edb2463eb",
+  "name" : "/:invalid_name should return error",
+  "fullName" : "/ route - authenticated./:invalid_name should return error",
+  "historyId" : "7b1de5ccfc6737bd14c1d3d62cdeb117",
+  "time" : {
+    "start" : 1629385524042,
+    "stop" : 1629385524054,
+    "duration" : 12
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/:invalid_name should return error"
+  }, {
+    "name" : "package",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e646b33edb2463eb.json",
+  "parameterValues" : [ ]
+}

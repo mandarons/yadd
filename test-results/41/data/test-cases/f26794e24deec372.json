@@ -1,0 +1,66 @@
+{
+  "uid" : "f26794e24deec372",
+  "name" : "should delete an existing service record",
+  "fullName" : "Services Schema.should delete an existing service record",
+  "historyId" : "6b4dd27ce7fcab9a9a5a14dece3a5720",
+  "time" : {
+    "start" : 1629385524174,
+    "stop" : 1629385524197,
+    "duration" : 23
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testClass",
+    "value" : "Services Schema"
+  }, {
+    "name" : "testMethod",
+    "value" : "should delete an existing service record"
+  }, {
+    "name" : "package",
+    "value" : "Services Schema"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "4ef4b4c1f258df82",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/40//#testresult/4ef4b4c1f258df82",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628638949227,
+          "stop" : 1628638949244,
+          "duration" : 17
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "f26794e24deec372.json",
+  "parameterValues" : [ ]
+}

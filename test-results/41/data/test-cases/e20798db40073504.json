@@ -1,0 +1,66 @@
+{
+  "uid" : "e20798db40073504",
+  "name" : "should record service offline if it is offline",
+  "fullName" : "Cron Jobs Controller.should record service offline if it is offline",
+  "historyId" : "1a6f99bf08856b1f242e85effab67fe1",
+  "time" : {
+    "start" : 1629385523868,
+    "stop" : 1629385523906,
+    "duration" : 38
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "testClass",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "testMethod",
+    "value" : "should record service offline if it is offline"
+  }, {
+    "name" : "package",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "e598a599ae1b8701",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/40//#testresult/e598a599ae1b8701",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628638948991,
+          "stop" : 1628638949029,
+          "duration" : 38
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "e20798db40073504.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "65b3c5ab64ad6ec",
+  "name" : "/service POST should return error for invalid service",
+  "fullName" : "/api/service./service POST should return error for invalid service",
+  "historyId" : "d6e639df205d52471757b31f2175141",
+  "time" : {
+    "start" : 1629385523032,
+    "stop" : 1629385523045,
+    "duration" : 13
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service POST should return error for invalid service"
+  }, {
+    "name" : "package",
+    "value" : "/api/service"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "65b3c5ab64ad6ec.json",
+  "parameterValues" : [ ]
+}

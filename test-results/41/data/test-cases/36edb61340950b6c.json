@@ -1,0 +1,46 @@
+{
+  "uid" : "36edb61340950b6c",
+  "name" : "/api/auth/login should return success for valid credentials",
+  "fullName" : "/api/auth Route ./api/auth/login should return success for valid credentials",
+  "historyId" : "3cb75e1e414b08e064d568588f87d506",
+  "time" : {
+    "start" : 1629385523804,
+    "stop" : 1629385523807,
+    "duration" : 3
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testClass",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testMethod",
+    "value" : "/api/auth/login should return success for valid credentials"
+  }, {
+    "name" : "package",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "36edb61340950b6c.json",
+  "parameterValues" : [ ]
+}

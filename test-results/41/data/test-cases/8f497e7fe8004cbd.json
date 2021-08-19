@@ -1,0 +1,46 @@
+{
+  "uid" : "8f497e7fe8004cbd",
+  "name" : "/api/auth/login should return 500 for internal error",
+  "fullName" : "/api/auth Route ./api/auth/login should return 500 for internal error",
+  "historyId" : "1d28c5a657389ff0e6fb6353fcf19ca5",
+  "time" : {
+    "start" : 1629385523816,
+    "stop" : 1629385523818,
+    "duration" : 2
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testClass",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testMethod",
+    "value" : "/api/auth/login should return 500 for internal error"
+  }, {
+    "name" : "package",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8f497e7fe8004cbd.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "77f8b7279e66c862",
+  "name" : "/api/auth/login should return error for invalid credentials",
+  "fullName" : "/api/auth Route ./api/auth/login should return error for invalid credentials",
+  "historyId" : "fd0a760fe789497ea8077693cfb75e08",
+  "time" : {
+    "start" : 1629385523808,
+    "stop" : 1629385523816,
+    "duration" : 8
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testClass",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testMethod",
+    "value" : "/api/auth/login should return error for invalid credentials"
+  }, {
+    "name" : "package",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "77f8b7279e66c862.json",
+  "parameterValues" : [ ]
+}

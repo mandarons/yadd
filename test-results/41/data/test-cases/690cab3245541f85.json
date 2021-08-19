@@ -1,0 +1,46 @@
+{
+  "uid" : "690cab3245541f85",
+  "name" : "/service GET should return error in case of exception",
+  "fullName" : "/api/service./service GET should return error in case of exception",
+  "historyId" : "f111655ef798b9d31ca03b4bbcd2a0c2",
+  "time" : {
+    "start" : 1629385523069,
+    "stop" : 1629385523084,
+    "duration" : 15
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service GET should return error in case of exception"
+  }, {
+    "name" : "package",
+    "value" : "/api/service"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "690cab3245541f85.json",
+  "parameterValues" : [ ]
+}

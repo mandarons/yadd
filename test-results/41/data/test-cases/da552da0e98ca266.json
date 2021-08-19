@@ -1,0 +1,46 @@
+{
+  "uid" : "da552da0e98ca266",
+  "name" : "/:name should return error in case of exception",
+  "fullName" : "/ route - authenticated./:name should return error in case of exception",
+  "historyId" : "86c8be4aecf3ebdedb40caac930e602c",
+  "time" : {
+    "start" : 1629385524054,
+    "stop" : 1629385524074,
+    "duration" : 20
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/:name should return error in case of exception"
+  }, {
+    "name" : "package",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "da552da0e98ca266.json",
+  "parameterValues" : [ ]
+}

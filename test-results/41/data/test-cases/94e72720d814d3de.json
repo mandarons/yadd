@@ -1,0 +1,46 @@
+{
+  "uid" : "94e72720d814d3de",
+  "name" : "should logout an existing admin on /api/auth/logout",
+  "fullName" : "/api/auth Route .should logout an existing admin on /api/auth/logout",
+  "historyId" : "ba512f9cb83d1f48116e905fdebc00d7",
+  "time" : {
+    "start" : 1629385523819,
+    "stop" : 1629385523830,
+    "duration" : 11
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testClass",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testMethod",
+    "value" : "should logout an existing admin on /api/auth/logout"
+  }, {
+    "name" : "package",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "94e72720d814d3de.json",
+  "parameterValues" : [ ]
+}

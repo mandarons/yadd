@@ -1,0 +1,46 @@
+{
+  "uid" : "bc16a700a55c8345",
+  "name" : "/:name should redirect to named URL",
+  "fullName" : "/ route - authenticated./:name should redirect to named URL",
+  "historyId" : "bc1edbcaebaa73453ea204d30362296a",
+  "time" : {
+    "start" : 1629385524029,
+    "stop" : 1629385524042,
+    "duration" : 13
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/:name should redirect to named URL"
+  }, {
+    "name" : "package",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "bc16a700a55c8345.json",
+  "parameterValues" : [ ]
+}

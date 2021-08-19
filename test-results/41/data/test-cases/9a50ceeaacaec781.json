@@ -1,0 +1,46 @@
+{
+  "uid" : "9a50ceeaacaec781",
+  "name" : "/:name should redirect to named URL",
+  "fullName" : "/ route./:name should redirect to named URL",
+  "historyId" : "21471c16d25030e7ca4fd21cc10f93f9",
+  "time" : {
+    "start" : 1629385523960,
+    "stop" : 1629385523974,
+    "duration" : 14
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/ route"
+  }, {
+    "name" : "testClass",
+    "value" : "/ route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/:name should redirect to named URL"
+  }, {
+    "name" : "package",
+    "value" : "/ route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9a50ceeaacaec781.json",
+  "parameterValues" : [ ]
+}

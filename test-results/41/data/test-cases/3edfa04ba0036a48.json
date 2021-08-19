@@ -1,0 +1,46 @@
+{
+  "uid" : "3edfa04ba0036a48",
+  "name" : "/favicon.ico should redirect to /",
+  "fullName" : "/ route - authenticated./favicon.ico should redirect to /",
+  "historyId" : "3eda4e6c4b0bf8dbab52c854c30205dc",
+  "time" : {
+    "start" : 1629385524014,
+    "stop" : 1629385524021,
+    "duration" : 7
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/favicon.ico should redirect to /"
+  }, {
+    "name" : "package",
+    "value" : "/ route - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3edfa04ba0036a48.json",
+  "parameterValues" : [ ]
+}

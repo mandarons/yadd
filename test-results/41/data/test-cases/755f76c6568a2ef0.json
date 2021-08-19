@@ -1,0 +1,46 @@
+{
+  "uid" : "755f76c6568a2ef0",
+  "name" : "/favicon.ico should redirect to /",
+  "fullName" : "/ route./favicon.ico should redirect to /",
+  "historyId" : "70df9349831d7ba1ea527f3e535c63d2",
+  "time" : {
+    "start" : 1629385523933,
+    "stop" : 1629385523949,
+    "duration" : 16
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/ route"
+  }, {
+    "name" : "testClass",
+    "value" : "/ route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/favicon.ico should redirect to /"
+  }, {
+    "name" : "package",
+    "value" : "/ route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "755f76c6568a2ef0.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "7df992f6179dbdae",
+  "name" : "should logout a non-existing, missing user on /api/auth/logout",
+  "fullName" : "/api/auth Route .should logout a non-existing, missing user on /api/auth/logout",
+  "historyId" : "fce100f54ff91aca761ef2f57c0d7003",
+  "time" : {
+    "start" : 1629385523830,
+    "stop" : 1629385523832,
+    "duration" : 2
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testClass",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "testMethod",
+    "value" : "should logout a non-existing, missing user on /api/auth/logout"
+  }, {
+    "name" : "package",
+    "value" : "/api/auth Route "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7df992f6179dbdae.json",
+  "parameterValues" : [ ]
+}

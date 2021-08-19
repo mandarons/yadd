@@ -1,0 +1,46 @@
+{
+  "uid" : "4ba3e4e3261f5dd",
+  "name" : "/service PUT should return error for invalid data",
+  "fullName" : "/api/service./service PUT should return error for invalid data",
+  "historyId" : "e4622835f142f4cc03703c02666b1693",
+  "time" : {
+    "start" : 1629385523138,
+    "stop" : 1629385523154,
+    "duration" : 16
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service PUT should return error for invalid data"
+  }, {
+    "name" : "package",
+    "value" : "/api/service"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "4ba3e4e3261f5dd.json",
+  "parameterValues" : [ ]
+}

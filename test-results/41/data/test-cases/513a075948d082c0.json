@@ -1,0 +1,46 @@
+{
+  "uid" : "513a075948d082c0",
+  "name" : "/service/status GET should return error for missing shortName",
+  "fullName" : "/api/service - authenticated./service/status GET should return error for missing shortName",
+  "historyId" : "9bbd0611791ee24215136596836d846c",
+  "time" : {
+    "start" : 1629385523701,
+    "stop" : 1629385523713,
+    "duration" : 12
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service/status GET should return error for missing shortName"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "513a075948d082c0.json",
+  "parameterValues" : [ ]
+}

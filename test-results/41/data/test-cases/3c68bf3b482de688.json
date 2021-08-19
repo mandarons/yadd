@@ -1,0 +1,46 @@
+{
+  "uid" : "3c68bf3b482de688",
+  "name" : "/ should return index file",
+  "fullName" : "/ route./ should return index file",
+  "historyId" : "108372198192b78e70aed7656356f178",
+  "time" : {
+    "start" : 1629385523950,
+    "stop" : 1629385523960,
+    "duration" : 10
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/ route"
+  }, {
+    "name" : "testClass",
+    "value" : "/ route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/ should return index file"
+  }, {
+    "name" : "package",
+    "value" : "/ route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3c68bf3b482de688.json",
+  "parameterValues" : [ ]
+}

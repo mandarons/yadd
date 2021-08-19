@@ -1,0 +1,46 @@
+{
+  "uid" : "e39df207260b1240",
+  "name" : "/service/status GET should return error for internal exception",
+  "fullName" : "/api/service - authenticated./service/status GET should return error for internal exception",
+  "historyId" : "8210ad370e1f34badbb38a551d7f0e25",
+  "time" : {
+    "start" : 1629385523713,
+    "stop" : 1629385523738,
+    "duration" : 25
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service/status GET should return error for internal exception"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e39df207260b1240.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,46 @@
+{
+  "uid" : "d0f7023894bb94d7",
+  "name" : "/:name should return error in case of exception",
+  "fullName" : "/ route./:name should return error in case of exception",
+  "historyId" : "416b38e56fddca9daf32b5997daa60c0",
+  "time" : {
+    "start" : 1629385523985,
+    "stop" : 1629385524005,
+    "duration" : 20
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/ route"
+  }, {
+    "name" : "testClass",
+    "value" : "/ route"
+  }, {
+    "name" : "testMethod",
+    "value" : "/:name should return error in case of exception"
+  }, {
+    "name" : "package",
+    "value" : "/ route"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d0f7023894bb94d7.json",
+  "parameterValues" : [ ]
+}

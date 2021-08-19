@@ -1,0 +1,46 @@
+{
+  "uid" : "b1bdc14fb081d555",
+  "name" : "/service DELETE should return 401 for unauthorized",
+  "fullName" : "/api/service - authenticated./service DELETE should return 401 for unauthorized",
+  "historyId" : "81c365ea2140c12c536e362a916ba700",
+  "time" : {
+    "start" : 1629385523759,
+    "stop" : 1629385523771,
+    "duration" : 12
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service DELETE should return 401 for unauthorized"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b1bdc14fb081d555.json",
+  "parameterValues" : [ ]
+}

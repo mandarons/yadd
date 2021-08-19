@@ -1,0 +1,46 @@
+{
+  "uid" : "565d748f153f5b19",
+  "name" : "/service POST should create a new service",
+  "fullName" : "/api/service - authenticated./service POST should create a new service",
+  "historyId" : "72a48466eb148ccbf6767781f378b636",
+  "time" : {
+    "start" : 1629385523377,
+    "stop" : 1629385523390,
+    "duration" : 13
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service POST should create a new service"
+  }, {
+    "name" : "package",
+    "value" : "/api/service - authenticated"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "565d748f153f5b19.json",
+  "parameterValues" : [ ]
+}

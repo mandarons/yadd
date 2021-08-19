@@ -1,0 +1,46 @@
+{
+  "uid" : "8883f0c9af351753",
+  "name" : "/service DELETE should delete an existing service",
+  "fullName" : "/api/service./service DELETE should delete an existing service",
+  "historyId" : "88100f7c848d565dc09ebf79a0724e67",
+  "time" : {
+    "start" : 1629385523305,
+    "stop" : 1629385523326,
+    "duration" : 21
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "/api/service"
+  }, {
+    "name" : "testClass",
+    "value" : "/api/service"
+  }, {
+    "name" : "testMethod",
+    "value" : "/service DELETE should delete an existing service"
+  }, {
+    "name" : "package",
+    "value" : "/api/service"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8883f0c9af351753.json",
+  "parameterValues" : [ ]
+}

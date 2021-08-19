@@ -1,0 +1,66 @@
+{
+  "uid" : "e8c9a6ae18e7d27b",
+  "name" : "should record service offline in case of isReachable error",
+  "fullName" : "Cron Jobs Controller.should record service offline in case of isReachable error",
+  "historyId" : "d6e0afede5b9f0c0fc30abf3cf256da5",
+  "time" : {
+    "start" : 1629385523906,
+    "stop" : 1629385523922,
+    "duration" : 16
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "testClass",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "testMethod",
+    "value" : "should record service offline in case of isReachable error"
+  }, {
+    "name" : "package",
+    "value" : "Cron Jobs Controller"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "2f58dec5f22e64cb",
+        "reportUrl" : "https://mandarons.github.io/yadd/test-results/40//#testresult/2f58dec5f22e64cb",
+        "status" : "passed",
+        "time" : {
+          "start" : 1628638949029,
+          "stop" : 1628638949046,
+          "duration" : 17
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "e8c9a6ae18e7d27b.json",
+  "parameterValues" : [ ]
+}

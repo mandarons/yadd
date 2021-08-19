@@ -1,0 +1,46 @@
+{
+  "uid" : "ad567c76e1e2675",
+  "name" : "should load tests-config.yaml for tests environment",
+  "fullName" : "Config Proxy .should load tests-config.yaml for tests environment",
+  "historyId" : "b8c352e9acfa035847c095401562a73c",
+  "time" : {
+    "start" : 1629385523840,
+    "stop" : 1629385523841,
+    "duration" : 1
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "testClass",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "testMethod",
+    "value" : "should load tests-config.yaml for tests environment"
+  }, {
+    "name" : "package",
+    "value" : "Config Proxy "
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ad567c76e1e2675.json",
+  "parameterValues" : [ ]
+}
