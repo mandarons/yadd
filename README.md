@@ -102,7 +102,8 @@ yadd:
     ports:
       - 3334:3334
     volumes:
-      - ${PWD}/yadd/:/app/config/
+      - ${PWD}/yadd/config/:/app/config/
+      - ${PWD}/yadd/config/config.yaml:/app/config/config.yaml
     healthcheck:
       test: wget --quiet --tries=1 --spider http://localhost:3334/ || exit 1
       interval: 10s
