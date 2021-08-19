@@ -25,7 +25,7 @@ A minimalistic dashboard for all the services that you use and love. It also mon
 ## Screenshot
 ### Sample dashboard
 ![services screenshot](https://user-images.githubusercontent.com/50469173/128587087-3c90744c-d820-4de9-bf0c-e74e04d356c1.png)
-### Optional authentication - can be enabled in `config.yaml` file ([details below](https://github.com/mandarons/yadd#configuration-file))
+### Optional authentication - can be enabled in `config.yaml` file ([details below](#configuration-file))
 ![authentication screenshot](https://user-images.githubusercontent.com/50469173/130120350-180e8c67-d0cb-4407-b8f7-f9ff98980de8.png)
 
 
