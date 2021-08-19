@@ -18,10 +18,16 @@ A minimalistic dashboard for all the services that you use and love. It also mon
 * URL shortening for quick navigation - no need to open the dashboard page and then click to navigate
 * Tracks when the service was online before failure
 * Tracks number of hits (Work in progress ...)
-* Easy to backup and restore (all data is in `db.sqlite` file)
+* Easy to backup and restore (all data is in `db.sqlite` file and configuration is in `config.yaml` file)
+* Configuration through YAML file
+* Single user authentication (optional)
 
 ## Screenshot
-![image](https://user-images.githubusercontent.com/50469173/128587087-3c90744c-d820-4de9-bf0c-e74e04d356c1.png)
+### Sample dashboard
+![services screenshot](https://user-images.githubusercontent.com/50469173/128587087-3c90744c-d820-4de9-bf0c-e74e04d356c1.png)
+### Optional authentication - can be enabled in `config.yaml` file ([details below](https://github.com/mandarons/yadd#configuration-file))
+![authentication screenshot](https://user-images.githubusercontent.com/50469173/130120350-180e8c67-d0cb-4407-b8f7-f9ff98980de8.png)
+
 
 ## Installation
 1. Install Docker (if you haven't already)
@@ -103,4 +109,26 @@ yadd:
       timeout: 10s
       retries: 3
       start_period: 30s
+```
+
+### Configuration File
+Configuration file `config.yaml` is located in the `config` folder. Default configuration file looks like below:
+```yaml
+server:
+  # Container port on which server to run
+  port: 3334
+  # `token` to expire after when authentication is enabled 
+  authTokenExpiration: 7d
+  # Interval for checking if the service is reachable or not
+  statusCheckRefreshInterval: "5 * * * * *" # 5 seconds
+  # Authentication
+  auth:
+    # If authentication is to be enabled -  container must be restarted if this value is changed
+    enable: false
+    # password - set this to something complex
+    adminPassword: "admin"
+    # Unused (TODO: use it instead of `authTokenExpiration` above
+    tokenExpiration: "7d" # 7 days
+    # Secret key - must be set to something long and random string
+    secretKey: "some-random-long-string"
 ```
