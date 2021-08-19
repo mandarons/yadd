@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import yaml from 'js-yaml';
+
+Cypress.Commands.add('enableAuth', enable => {
+    const configFilePath = 'build/config/config.yaml';
+    cy.readFile(configFilePath).then(text => {
+        const data = yaml.load(text);
+        data.server.auth.enable = enable;
+        cy.writeFile(configFilePath, yaml.dump(data));
+    });
+});

@@ -27,6 +27,7 @@ import sinon from 'sinon';
 import utils from './data-generator.utils';
 import express from 'express';
 import authController from '../src/controllers/auth.controller';
+import appConfig from '../src/proxies/config.proxy';
 chai.should();
 
 describe('/api/auth Route ', async () => {
@@ -81,5 +82,15 @@ describe('/api/auth Route ', async () => {
     });
     it('should logout a non-existing, missing user on /api/auth/logout', async () => {
         utils.checkForSuccess(await (await chai.request(service).get('/api/auth/logout')));
+    });
+    it('/api/auth/status should correctly return auth enable status', async () => {
+        const originalAuthEnable = appConfig.server.auth.enable;
+        utils.enableAuth(!originalAuthEnable);
+        let response = utils.checkForSuccess(await chai.request(service).get('/api/auth/status'));
+        response.body.data.enabled.should.be.equal(!originalAuthEnable);
+
+        utils.enableAuth(originalAuthEnable);
+        response = utils.checkForSuccess(await chai.request(service).get('/api/auth/status'));
+        response.body.data.enabled.should.be.equal(originalAuthEnable);
     });
 });
