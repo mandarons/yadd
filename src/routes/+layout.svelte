@@ -1,6 +1,11 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
+	import { AppBar, AppShell, Modal, getModalStore } from '@skeletonlabs/skeleton';
+	import { initializeStores } from '@skeletonlabs/skeleton';
+	import ServiceForm from '$lib/serviceForm.svelte';
+	export let data;
+	initializeStores();
+	const modalStore = getModalStore();
 </script>
 
 <AppBar>
@@ -10,12 +15,23 @@
 		</a>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<!-- Create button for new service -->
-		<a href="/services/new" class="btn bg-pink-500 text-white hover:bg-white hover:text-pink-500">
+		<button
+			class="btn variant-filled-primary"
+			on:click={() =>
+				modalStore.trigger({
+					type: 'component',
+					component: { ref: ServiceForm },
+					title: 'New Service',
+					body: 'This is the body of the modal',
+					meta: { ...data, action: 'createService' }
+				})}
+		>
 			New Service
-		</a>
+		</button>
 	</svelte:fragment>
 </AppBar>
+
+<Modal />
 
 <AppShell>
 	<slot />
