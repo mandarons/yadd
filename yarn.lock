@@ -2209,6 +2209,7 @@ std-env@^3.5.0:
   integrity sha512-JPbdCEQLj1w5GilpiHAx3qJvFndqybBysA3qUOnznweH4QbNYUsW/ea8QzSrnh0vNsezMMw5bcVool8lM0gwzg==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -2348,6 +2349,11 @@ svelte@^4.2.7:
     locate-character "^3.0.0"
     magic-string "^0.30.4"
     periscopic "^3.1.0"
+
+sveltekit-superforms@^1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/sveltekit-superforms/-/sveltekit-superforms-1.13.2.tgz#140e08f6aa9e2faa9dd5300906698027338c3af6"
+  integrity sha512-5PKnL1v+9P3G6HPissMlAyV7bNjvrPAkfkAEgJcrCH5lSkaw23Wf8obUMD4EDwLp3b5d6J7JPQCR6hYUsi2BLg==
 
 tailwindcss@3.4.1:
   version "3.4.1"
@@ -2622,3 +2628,8 @@ yocto-queue@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
+
+zod@^3.22.4:
+  version "3.22.4"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.22.4.tgz#f31c3a9386f61b1f228af56faa9255e845cf3fff"
+  integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==
