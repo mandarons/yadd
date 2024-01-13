@@ -15,53 +15,11 @@ export const serviceSchema = z.object({
 	logoUrl: z
 		.string({ required_error: 'Service logo URL is required' })
 		.url({ message: 'Service logo URL is required' })
-		.trim()
+		.trim(),
+	isUp: z.boolean().optional(),
+	createdAt: z.date().optional(),
+	updatedAt: z.date().optional()
 });
 
 export type ServiceSchema = z.infer<typeof serviceSchema>;
 export type ServiceDB = z.infer<typeof serviceSchema>[];
-const g = globalThis as unknown as { services: ServiceDB };
-export const services: ServiceDB = (g.services = g.services || [
-	{
-		name: 'Google',
-		shortName: 'google',
-		url: 'https://google.com',
-		logoUrl: 'https://google.com/favicon.ico'
-	},
-	{
-		name: 'Facebook',
-		shortName: 'facebook',
-		url: 'https://facebook.com',
-		logoUrl: 'https://facebook.com/favicon.ico'
-	},
-	{
-		name: 'Twitter',
-		shortName: 'twitter',
-		url: 'https://twitter.com',
-		logoUrl: 'https://twitter.com/favicon.ico'
-	},
-	{
-		name: 'Instagram',
-		shortName: 'instagram',
-		url: 'https://instagram.com',
-		logoUrl: 'https://instagram.com/favicon.ico'
-	},
-	{
-		name: 'LinkedIn',
-		shortName: 'linkedin',
-		url: 'https://linkedin.com',
-		logoUrl: 'https://linkedin.com/favicon.ico'
-	},
-	{
-		name: 'Snapchat',
-		shortName: 'snapchat',
-		url: 'https://snapchat.com',
-		logoUrl: 'https://snapchat.com/favicon.ico'
-	},
-	{
-		name: 'TikTok',
-		shortName: 'tiktok',
-		url: 'https://tiktok.com',
-		logoUrl: 'https://tiktok.com/favicon.ico'
-	}
-]);

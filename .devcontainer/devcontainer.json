@@ -21,7 +21,8 @@
         "github.remotehub",
         "github.vscode-github-actions",
         "github.copilot-labs",
-        "github.vscode-codeql"
+        "github.vscode-codeql",
+        "prisma.prisma"
     ],
     "mounts": [
         "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached",
