@@ -1,8 +1,10 @@
 import cron from 'node-cron';
-import isReachable from 'is-reachable';
+// import isReachable from 'is-reachable';
 import prisma from '$lib/prisma';
 const DEFAULT_SCHEDULE = '*/30 * * * * *';
-const job = async () => {
+const job = async (): Promise<
+	{ id: number; shortName: string; checkedAt: Date; isUp: boolean }[]
+> => {
 	const allServices = await prisma.service.findMany();
 	const dataToUpdate: {
 		where: { shortName: string };
@@ -12,23 +14,19 @@ const job = async () => {
 
 	await Promise.all(
 		allServices.map(async (service) => {
-			try {
-				if (await isReachable(service.url)) {
-					console.log(`${service.name} is up.`);
-					dataToUpdate.push({
-						where: { shortName: service.shortName },
-						data: { checkedAt: new Date(), isUp: true }
-					});
-				} else {
-					console.log(`${service.name} is down.`);
-					dataToUpdate.push({
-						where: { shortName: service.shortName },
-						data: { isUp: false, checkedAt: new Date() }
-					});
-				}
-			} catch (error) {
-				console.error(error);
+			if ((await fetch(service.url)).ok) {
+				console.log(`${service.name} is up.`);
+				dataToUpdate.push({
+					where: { shortName: service.shortName },
+					data: { checkedAt: new Date(), isUp: true }
+				});
+				return new Promise((resolve) => resolve(true));
 			}
+			console.log(`${service.name} is down.`);
+			dataToUpdate.push({
+				where: { shortName: service.shortName },
+				data: { isUp: false, checkedAt: new Date() }
+			});
 			return new Promise((resolve) => resolve(false));
 		})
 	);

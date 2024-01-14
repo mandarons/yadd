@@ -15,10 +15,7 @@ export const serviceSchema = z.object({
 	logoUrl: z
 		.string({ required_error: 'Service logo URL is required' })
 		.url({ message: 'Service logo URL is required' })
-		.trim(),
-	isUp: z.boolean().optional(),
-	createdAt: z.date().optional(),
-	updatedAt: z.date().optional()
+		.trim()
 });
 
 export type ServiceSchema = z.infer<typeof serviceSchema>;

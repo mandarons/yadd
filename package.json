@@ -57,8 +57,6 @@
   "type": "module",
   "dependencies": {
     "@prisma/client": "5.8.0",
-    "is-reachable": "^5.2.1",
-    "js-yaml": "^4.1.0",
     "node-cron": "^3.0.3"
   }
 }
