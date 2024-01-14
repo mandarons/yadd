@@ -6,7 +6,7 @@ const main = async () => {
 	console.log('Starting seed ...');
 	for (const service of data) {
 		const s = await prisma.service.create({
-			data: service
+			data: { ...service, ServiceCheck: { create: { isUp: false, checkedAt: new Date() } } }
 		});
 		console.log(`Created service ${s.name}`);
 	}

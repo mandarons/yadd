@@ -14,8 +14,24 @@ export const load: PageServerLoad = async (event) => {
 		// TODO: redirect to / with service not found message.
 		else throw error(404, { message: 'Service not found' });
 	}
-	const services = await prisma.service.findMany();
-	return { form, services };
+	const services = await prisma.service.findMany({
+		include: {
+			ServiceCheck: {
+				select: { checkedAt: true, isUp: true },
+				orderBy: { checkedAt: 'desc' },
+				take: 1
+			}
+		}
+	});
+	const servicesData = services.map((service) => ({
+		name: service.name,
+		shortName: service.shortName,
+		url: service.url,
+		checkedAt: service.ServiceCheck[0].checkedAt,
+		isUp: service.ServiceCheck[0].isUp,
+		logoUrl: service.logoUrl
+	}));
+	return { form, services: servicesData };
 };
 
 export const actions: Actions = {
@@ -24,7 +40,7 @@ export const actions: Actions = {
 		if (!form.valid) return fail(400, { form });
 		try {
 			await prisma.service.create({
-				data: form.data
+				data: { ...form.data, ServiceCheck: { create: { isUp: false, checkedAt: new Date() } } }
 			});
 		} catch (error) {
 			console.error(error);
@@ -50,9 +66,12 @@ export const actions: Actions = {
 	deleteService: async (event) => {
 		const form = await superValidate(event.request, serviceSchema);
 		if (!form.valid) return fail(400, { form });
-		await prisma.service.delete({
-			where: { shortName: form.data.shortName }
+		await prisma.service.update({
+			where: { shortName: form.data.shortName },
+			data: { ServiceCheck: { deleteMany: {} } },
+			include: { ServiceCheck: true }
 		});
+		await prisma.service.delete({ where: { shortName: form.data.shortName } });
 		return { form };
 	}
 };
