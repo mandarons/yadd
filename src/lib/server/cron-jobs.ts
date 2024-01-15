@@ -14,19 +14,23 @@ const job = async (): Promise<
 
 	await Promise.all(
 		allServices.map(async (service) => {
-			if ((await fetch(service.url)).ok) {
-				console.log(`${service.name} is up.`);
+			try {
+				if ((await fetch(service.url)).ok) {
+					console.log(`${service.name} is up.`);
+					dataToUpdate.push({
+						where: { shortName: service.shortName },
+						data: { checkedAt: new Date(), isUp: true }
+					});
+					return new Promise((resolve) => resolve(true));
+				}
+			} catch (error) {
+				console.error(error);
+				console.log(`${service.name} is down.`);
 				dataToUpdate.push({
 					where: { shortName: service.shortName },
-					data: { checkedAt: new Date(), isUp: true }
+					data: { isUp: false, checkedAt: new Date() }
 				});
-				return new Promise((resolve) => resolve(true));
 			}
-			console.log(`${service.name} is down.`);
-			dataToUpdate.push({
-				where: { shortName: service.shortName },
-				data: { isUp: false, checkedAt: new Date() }
-			});
 			return new Promise((resolve) => resolve(false));
 		})
 	);

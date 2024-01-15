@@ -3,8 +3,16 @@
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	import type { PageData } from './$types';
 	import ServiceForm from '$lib/serviceForm.svelte';
+	import { onMount } from 'svelte';
+	import { invalidateAll } from '$app/navigation';
 	export let data: PageData & { form: any; services: ServiceDB };
 	const modalStore = getModalStore();
+	onMount(() => {
+		const interval = setInterval(() => {
+			invalidateAll();
+		}, 5000);
+		return () => clearInterval(interval);
+	});
 </script>
 
 <div class="logo-cloud py-4 px-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">

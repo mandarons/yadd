@@ -5,7 +5,7 @@ import type { PageServerLoad } from './$types';
 import { setError, superValidate } from 'sveltekit-superforms/server';
 
 export const load: PageServerLoad = async (event) => {
-	const form = await superValidate(event, serviceSchema);
+	// const form = await superValidate(event, serviceSchema);
 	if (event.params.shortName) {
 		const service = await prisma.service.findUnique({
 			where: { shortName: event.params.shortName }
@@ -31,7 +31,7 @@ export const load: PageServerLoad = async (event) => {
 		isUp: service.ServiceCheck[0].isUp,
 		logoUrl: service.logoUrl
 	}));
-	return { form, services: servicesData };
+	return { services: servicesData };
 };
 
 export const actions: Actions = {
