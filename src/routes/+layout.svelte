@@ -12,7 +12,7 @@
 		</a>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<LightSwitch />
+		<LightSwitch name="toggle-dark-mode" />
 	</svelte:fragment>
 </AppBar>
 

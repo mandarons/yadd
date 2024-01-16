@@ -49,7 +49,7 @@
 				</svg>
 			</div>
 			<div class="m-2 text-xl text-pink-500">
-				<span>Add new Service</span>
+				<span>Add a new Service</span>
 			</div>
 		</button>
 	</div>
@@ -83,6 +83,7 @@
 						>{service.shortName}</span
 					>
 					<button
+						id={`btnUpdate${service.shortName}`}
 						on:click={() => {
 							const meta = { ...data, service, action: 'updateService' };
 							modalStore.trigger({

@@ -110,6 +110,7 @@
 				{#if data.service}
 					<div class="flex justify-between gap-2">
 						<button
+							id="btnDeleteService"
 							formaction="?/deleteService"
 							class="btn variant-filled-error bg-pink-500 text-white hover:bg-white hover:text-pink-500"
 							type="submit"
@@ -117,6 +118,7 @@
 							Delete
 						</button>
 						<button
+							id="btnUpdateService"
 							formaction={`?/${data.action}`}
 							class="btn variant-filled-primary bg-pink-500 text-white hover:bg-white hover:text-pink-500"
 							type="submit"

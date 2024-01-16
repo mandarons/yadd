@@ -22,7 +22,7 @@ model Service {
 
 model ServiceCheck {
   id        Int      @id @default(autoincrement())
-  service   Service  @relation(fields: [shortName], references: [shortName])
+  service   Service  @relation(fields: [shortName], references: [shortName], onDelete: Cascade)
   shortName String
   checkedAt DateTime
   isUp      Boolean
