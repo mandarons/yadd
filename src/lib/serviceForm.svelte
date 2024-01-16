@@ -12,6 +12,9 @@
 	const data = $modalStore[0].meta;
 	const { form, errors, enhance, delayed } = superForm(data.form, {
 		taintedMessage: null,
+		warnings: {
+			noValidationAndConstraints: true
+		},
 		validators: serviceSchema,
 		delayMs: 0,
 		onResult(event) {
