@@ -31,31 +31,36 @@ describe('Cron Jobs Controller', async () => {
 		}
 	});
 	beforeAll(async () => {
-		global.fetch = vi.fn();
+		await prisma.$transaction([prisma.serviceCheck.deleteMany(), prisma.service.deleteMany()]);
 	});
 	afterAll(async () => {
-		await prisma.$transaction([prisma.serviceCheck.deleteMany(), prisma.service.deleteMany()]);
 		await prisma.$disconnect();
 	});
 	beforeEach(async () => {
-		global.fetch.mockReset();
+		global.fetch = vi.fn();
 	});
 	afterEach(async () => {
+		await prisma.$transaction([prisma.serviceCheck.deleteMany(), prisma.service.deleteMany()]);
+		global.fetch.mockReset();
 		vi.resetAllMocks();
 	});
 	it('should record service online if it is online', async () => {
-		seedData.map(async (s) => await prisma.service.create({ data: s }));
+		for (const s of seedData) {
+			await prisma.service.create({ data: { ...s } });
+		}
 		fetch.mockResolvedValue(mockFetchReturn(true));
 		const actual = await cronJobs.job();
-		expect(actual).not.toBeNull();
+		expect(actual.length).toEqual(seedData.length);
 		actual.map((a) => expect(a.id).not.toBeNull());
 		actual.map((a) => expect(a.isUp).toBe(true));
 	});
 	it('should record service offline if it is offline', async () => {
-		// seedData.map(async (s) => await prisma.service.create({ data: s }));
+		for (const s of seedData) {
+			await prisma.service.create({ data: { ...s } });
+		}
 		fetch.mockResolvedValue(mockFetchReturn(false));
 		const actual = await cronJobs.job();
-		expect(actual).not.toBeNull();
+		expect(actual.length).toEqual(seedData.length);
 		actual.map((a) => expect(a.id).not.toBeNull());
 		actual.map((a) => {
 			return expect(a.isUp).toBe(false);
