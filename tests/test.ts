@@ -1,5 +1,6 @@
 import prisma from '../src/lib/prisma';
-import { expect, test } from '@playwright/test';
+// import { expect, test } from '@playwright/test';
+import { expect, test } from './baseFixtures.js';
 
 test.beforeEach('Cleanup database', async () => {
 	const services = await prisma.service.findMany();

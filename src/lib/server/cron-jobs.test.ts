@@ -1,7 +1,7 @@
 import cronJobs from './cron-jobs';
 import seedData from '../../../prisma/data.json';
 import { describe, beforeAll, afterAll, beforeEach, afterEach, it, vi, expect } from 'vitest';
-import prisma from '$lib/prisma';
+import prisma from '../prisma';
 describe('Cron Jobs Controller', async () => {
 	const mockFetchReturn = (ok: boolean) => ({
 		json: () => new Promise((resolve) => resolve(ok)),
