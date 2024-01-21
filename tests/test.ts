@@ -92,3 +92,55 @@ test('navigate to url on clicking service', async ({ page }) => {
 	await popup.waitForLoadState();
 	expect(popup.url()).toContain('https://duckduckgo.com');
 });
+// Check for error messages for each field in add service form
+test('check for error messages for each field in add service form', async ({ page }) => {
+	await page.goto('/');
+	await page.click('text=Add a new service');
+	await page.click('button[type="submit"]');
+	await expect(page.locator('#nameError')).toBeVisible();
+	await expect(page.locator('#shortNameError')).toBeVisible();
+	await expect(page.locator('#urlError')).toBeVisible();
+	await expect(page.locator('#logoUrlError')).toBeVisible();
+});
+// Check for error messages for each field in update service form
+test('check for error messages for each field in update service form', async ({ page }) => {
+	await page.goto('/');
+	await page.click('text=Add a new service');
+	await page.fill('input[name="name"]', 'Google');
+	await page.fill('input[name="shortName"]', 'google');
+	await page.fill('input[name="url"]', 'https://google.com');
+	await page.fill('input[name="logoUrl"]', 'https://google.com/favicon.ico');
+	await page.click('button[type="submit"]');
+	await page.reload();
+	await page.click('#btnUpdategoogle');
+	await page.fill('input[name="name"]', '');
+	await page.fill('input[name="shortName"]', '');
+	await page.fill('input[name="url"]', '');
+	await page.fill('input[name="logoUrl"]', '');
+	await page.click('#btnUpdateService');
+	await expect(page.locator('#nameError')).toBeVisible();
+	await expect(page.locator('#shortNameError')).toBeVisible();
+	await expect(page.locator('#urlError')).toBeVisible();
+	await expect(page.locator('#logoUrlError')).toBeVisible();
+});
+
+// Check for error message when adding a service with an existing shortName
+test('check for error message when adding a service with an existing shortName', async ({
+	page
+}) => {
+	await page.goto('/');
+	await page.click('text=Add a new service');
+	await page.fill('input[name="name"]', 'Google');
+	await page.fill('input[name="shortName"]', 'google');
+	await page.fill('input[name="url"]', 'https://google.com');
+	await page.fill('input[name="logoUrl"]', 'https://google.com/favicon.ico');
+	await page.click('button[type="submit"]');
+	await page.reload();
+	await page.click('text=Add a new service');
+	await page.fill('input[name="name"]', 'Google');
+	await page.fill('input[name="shortName"]', 'google');
+	await page.fill('input[name="url"]', 'https://google.com');
+	await page.fill('input[name="logoUrl"]', 'https://google.com/favicon.ico');
+	await page.click('button[type="submit"]');
+	await expect(page.locator('#shortNameError')).toBeVisible();
+});

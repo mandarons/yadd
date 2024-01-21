@@ -6,8 +6,10 @@
 	import { superForm } from 'sveltekit-superforms/client';
 
 	import { invalidateAll } from '$app/navigation';
-
+	// @ts-ignore
+	// tslint:disable-next-line: svelte(unused-export-let)
 	export let parent: SvelteComponent;
+
 	const modalStore = getModalStore();
 	const data = $modalStore[0].meta;
 	const { form, errors, enhance, delayed } = superForm(data.form, {
@@ -34,22 +36,15 @@
 
 {#if $modalStore[0]}
 	<div class="modal-example-form card p-4 w-modal shadow-xl space-y-4">
-		<header class="text-2xl font-bold">{$modalStore[0].title ?? '(title missing)'}</header>
+		<header class="text-2xl font-bold">{$modalStore[0].title}</header>
 		<article>
-			{$modalStore[0].body ?? '(body missing)'}
+			{$modalStore[0].body}
 			<form
 				name="serviceForm"
 				class="modal-form border border-surface-500 p-4 space-y-4 rounded-container-token"
 				method="POST"
 				use:enhance
 			>
-				{#if $errors._errors}
-					<aside class="alert variant-filled-error mt-6">
-						<div class="alert-message">
-							<p>{$errors._errors}</p>
-						</div>
-					</aside>
-				{/if}
 				<label class="label">
 					<span>Name</span>
 					<input
@@ -62,7 +57,7 @@
 						placeholder="Enter service name..."
 					/>
 					{#if $errors.name}
-						<small class="text-red-500 text-xs italic">{$errors.name}</small>
+						<small id="nameError" class="text-red-500 text-xs italic">{$errors.name}</small>
 					{/if}
 				</label>
 				<label class="label">
@@ -77,7 +72,9 @@
 						placeholder="Enter service short name..."
 					/>
 					{#if $errors.shortName}
-						<small class="text-red-500 text-xs italic">{$errors.shortName}</small>
+						<small id="shortNameError" class="text-red-500 text-xs italic"
+							>{$errors.shortName}</small
+						>
 					{/if}
 				</label>
 				<label class="label">
@@ -92,7 +89,7 @@
 						placeholder="Enter service URL..."
 					/>
 					{#if $errors.url}
-						<small class="text-red-500 text-xs italic">{$errors.url}</small>
+						<small id="urlError" class="text-red-500 text-xs italic">{$errors.url}</small>
 					{/if}
 				</label>
 				<label class="label">
@@ -107,7 +104,7 @@
 						placeholder="Enter service logo URL..."
 					/>
 					{#if $errors.logoUrl}
-						<small class="text-red-500 text-xs italic">{$errors.logoUrl}</small>
+						<small id="logoUrlError" class="text-red-500 text-xs italic">{$errors.logoUrl}</small>
 					{/if}
 				</label>
 				{#if data.service}

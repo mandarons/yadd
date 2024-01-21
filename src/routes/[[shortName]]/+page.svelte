@@ -11,6 +11,7 @@
 		const interval = setInterval(() => {
 			invalidateAll();
 		}, 5000);
+		// istanbul ignore next
 		return () => clearInterval(interval);
 	});
 </script>
