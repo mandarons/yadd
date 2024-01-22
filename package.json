@@ -15,7 +15,8 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "test:integration": "playwright test",
-    "test:unit": "vitest",
+    "test:unit": "vitest run",
+    "test:watch": "vitest",
     "test:integration:watch": "playwright test --watch --headed",
     "start:prod": "npx prisma db push && node index.js",
     "ci": "npm run test && npx nyc report --report-dir ./coverage --temp-dir .nyc_output --reporter=html --exclude-after-remap false"

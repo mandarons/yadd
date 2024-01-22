@@ -4,15 +4,15 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - "clients/**"
-      - "cypress/**"
-      - "server/**"
-      - "Dockerfile"
-      - "*.json"
-      - "yarn.lock"
+      - 'src/**'
+      - 'tests/**'
+      - 'static/**'
+      - 'Dockerfile'
+      - '.github/workflows/ci-pr-build-test.yml'
+      - 'yarn.lock'
   workflow_dispatch:
 jobs:
-  cache-server-install:
+  cache-install:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout source code
@@ -26,44 +26,15 @@ jobs:
         id: cache-dependencies
         with:
           path: node_modules
-          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-server-
-      - name: Cache Cypress binary
-        id: cache-cypress-binary
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-binary-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            cypress-binary-
-      - name: Install Dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true' || steps.cache-cypress-binary.outputs.cache-hit != 'true'
-        run: |
-          yarn install --frozen-lockfile
-  cache-web-client-install:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
-      - name: Set up Node.js environment
-        uses: actions/setup-node@v2.3.2
-        with:
-          node-version: 14.17.0
-      - name: Cache yarn dependencies
-        uses: actions/cache@v2
-        id: cache-dependencies
-        with:
-          path: clients/web/node_modules
-          key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-web-client-
+            ${{ runner.os }}-yarn-
       - name: Install Dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
-          yarn install --cwd clients/web --frozen-lockfile
+          yarn install --frozen-lockfile
   build:
-    needs: [cache-server-install, cache-web-client-install]
+    needs: [cache-install]
     runs-on: ubuntu-18.04
     steps:
       - name: Check Out Repo
@@ -72,25 +43,16 @@ jobs:
         uses: actions/setup-node@v2.3.2
         with:
           node-version: 14.17.0
-      - name: Restore yarn-server depdendencies
+      - name: Restore yarn depdendencies
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-server-
-      - name: Restore yarn-web-client depdendencies
-        uses: actions/cache@v2
-        with:
-          path: clients/web/node_modules
-          key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-web-client-
+            ${{ runner.os }}-yarn-
       - name: Build
         run: |
           yarn build
-        env:
-          PUBLIC_URL: "."
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -98,7 +60,7 @@ jobs:
           path: build
           retention-days: 1
   test:
-    needs: cache-server-install
+    needs: cache-install
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout source code
@@ -107,80 +69,43 @@ jobs:
         uses: actions/setup-node@v2.3.2
         with:
           node-version: 14.17.0
-      - name: Restore yarn-server depdendencies
+      - name: Restore yarn depdendencies
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-server-
-      - name: Run Server Tests
+            ${{ runner.os }}-yarn-
+      - name: Run Tests
         run: |
-          yarn test:server:ci
-      - name: Generate Allure Test Report
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        with:
-          allure_results: allure-results
-          subfolder: test-results
-          allure_report: allure-report
-          allure_history: allure-history
-          keep_reports: 100
-      - name: Generate badges
-        run: |
-          node generate-badges.js
-      - name: Upload badges artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: badges-output
-          path: badges
-          retention-days: 1
-      - name: Upload tests artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: tests-output
-          path: allure-history
-          retention-days: 1
-      - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage-output
-          path: coverage
-          retention-days: 1
-  e2e-tests-chrome:
-    needs: build
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.3.2
-        with:
-          node-version: 14.17.0
-      - name: Restore yarn-server depdendencies
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-server-
-      - name: Restore Cypress binary
-        id: cache-cypress-binary
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-binary-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            cypress-binary-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-output
-          path: build
-      - name: Run cypress
-        uses: cypress-io/github-action@v2.10.1
-        with:
-          start: yarn prod:local & wait-on http://localhost:3334/
-          browser: chrome
-          headless: true
-          install: false
+          yarn ci
+      # - name: Generate Allure Test Report
+      #   uses: simple-elf/allure-report-action@master
+      #   if: always()
+      #   with:
+      #     allure_results: allure-results
+      #     subfolder: test-results
+      #     allure_report: allure-report
+      #     allure_history: allure-history
+      #     keep_reports: 100
+      # - name: Generate badges
+      #   run: |
+      #     node generate-badges.js
+      # - name: Upload badges artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: badges-output
+      #     path: badges
+      #     retention-days: 1
+      # - name: Upload tests artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: tests-output
+      #     path: allure-history
+      #     retention-days: 1
+      # - name: Upload coverage artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: coverage-output
+      #     path: coverage
+      #     retention-days: 1
