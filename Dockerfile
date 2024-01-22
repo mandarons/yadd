@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 FROM node:lts-alpine AS build
-RUN apk --no-cache --virtual build-dependencies add python make g++
+RUN apk --no-cache --virtual build-dependencies add python3 make g++
 ENV NODE_ENV production
 WORKDIR /app
 COPY package.json .
@@ -34,5 +34,8 @@ ENV NODE_ENV production
 USER node
 WORKDIR /app
 COPY --chown=node:node --from=build /app/node_modules /app/node_modules
+COPY --chown=node:node package.json .
 COPY --chown=node:node build .
-CMD ["dumb-init", "node", "./src/index.js"]
+COPY --chown=node:node prisma/ ./prisma/
+RUN npx prisma generate
+CMD ["dumb-init", "yarn",  "start:prod"]
