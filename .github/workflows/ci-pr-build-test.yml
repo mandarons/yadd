@@ -13,16 +13,16 @@ on:
   workflow_dispatch:
 jobs:
   cache-install:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up Node.js environment
-        uses: actions/setup-node@v2.3.2
+        uses: actions/setup-node@v4
         with:
-          node-version: 14.17.0
+          node-version: 20.11.0
       - name: Cache yarn dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cache-dependencies
         with:
           path: node_modules
@@ -35,16 +35,16 @@ jobs:
           yarn install --frozen-lockfile
   build:
     needs: [cache-install]
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.3.2
+        uses: actions/setup-node@v4
         with:
-          node-version: 14.17.0
+          node-version: 20.11.0
       - name: Restore yarn depdendencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
@@ -61,16 +61,16 @@ jobs:
           retention-days: 1
   test:
     needs: cache-install
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.3.2
+        uses: actions/setup-node@v4
         with:
-          node-version: 14.17.0
+          node-version: 20.11.0
       - name: Restore yarn depdendencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
