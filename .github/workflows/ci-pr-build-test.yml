@@ -62,6 +62,8 @@ jobs:
   test:
     needs: cache-install
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.41.1-jammy
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
