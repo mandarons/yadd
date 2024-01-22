@@ -19,7 +19,7 @@
     "test:watch": "vitest",
     "test:integration:watch": "playwright test --watch --headed",
     "start:prod": "npx prisma db push && node index.js",
-    "ci": "npm run test && npx nyc report --report-dir ./coverage --temp-dir .nyc_output --reporter=html --exclude-after-remap false"
+    "ci": "npx prisma db push && npm run test && npx nyc report --report-dir ./coverage --temp-dir .nyc_output --reporter=html --exclude-after-remap false"
   },
   "devDependencies": {
     "@playwright/test": "^1.28.1",
