@@ -13,3 +13,9 @@ test-results/
 html/
 coverage/
 .nyc_output/
+
+# Database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm

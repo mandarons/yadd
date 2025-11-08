@@ -1,0 +1,15 @@
+# Bun configuration
+[install]
+# Install scopes for different package registries
+auto = "auto"
+
+[test]
+# Test configuration
+preload = ["./prisma/client"]
+coverage = true
+coverageDir = "./coverage"
+coverageReporter = ["text", "html", "json"]
+
+[run]
+# Runtime configuration
+bun = true

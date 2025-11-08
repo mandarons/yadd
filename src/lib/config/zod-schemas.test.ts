@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'bun:test';
 import { serviceSchema } from './zod-schemas';
 
 describe('Service Schema Validation', () => {

@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'bun:test';
 import prisma from '$lib/prisma';
 
 describe('Page Server Load and Actions Integration Tests', () => {

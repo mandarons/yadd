@@ -1,6 +1,6 @@
 import cronJobs from './cron-jobs';
 import seedData from '../../../prisma/data.json';
-import { describe, beforeAll, afterAll, beforeEach, afterEach, it, vi, expect } from 'vitest';
+import { describe, beforeAll, afterAll, beforeEach, afterEach, it, vi, expect } from 'bun:test';
 import prisma from '../prisma';
 
 describe('Cron Jobs Controller', async () => {
