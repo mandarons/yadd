@@ -5,10 +5,15 @@
 	initializeStores();
 </script>
 
+<svelte:head>
+	<title>YADD - Yet Another Dashboard</title>
+	<meta name="description" content="A minimalistic dashboard for all your services" />
+</svelte:head>
+
 <AppBar>
 	<svelte:fragment slot="lead">
-		<a href="/">
-			<img src="/yadd.png" alt="yadd" style="max-width: 150px;" />
+		<a href="/" aria-label="Go to homepage">
+			<img src="/yadd.png" alt="YADD Logo" style="max-width: 150px;" />
 		</a>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
@@ -19,5 +24,7 @@
 <Modal />
 
 <AppShell>
-	<slot />
+	<div id="main-content">
+		<slot />
+	</div>
 </AppShell>
