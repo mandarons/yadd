@@ -4,12 +4,12 @@ on:
   push:
     branches: [main]
     paths:
-      - "clients/**"
-      - "cypress/**"
-      - "server/**"
-      - "Dockerfile"
-      - "*.json"
-      - "yarn.lock"
+      - 'clients/**'
+      - 'cypress/**'
+      - 'server/**'
+      - 'Dockerfile'
+      - '*.json'
+      - 'yarn.lock'
   workflow_dispatch:
 jobs:
   cache-server-install:
@@ -92,7 +92,7 @@ jobs:
         run: |
           yarn build
         env:
-          PUBLIC_URL: "."
+          PUBLIC_URL: '.'
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -157,7 +157,7 @@ jobs:
           name: badges-output
           path: badges
           retention-days: 1
-  
+
   publish-test-report:
     needs: test
     runs-on: ubuntu-18.04
@@ -182,7 +182,7 @@ jobs:
           publish_branch: gh-pages
           publish_dir: allure-history
           destination_dir: test-results
-          
+
   publish-coverage-report:
     needs: publish-test-report
     runs-on: ubuntu-18.04
@@ -234,7 +234,7 @@ jobs:
           destination_dir: badges
 
   e2e:
-    needs: [ build, test ]
+    needs: [build, test]
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout source code

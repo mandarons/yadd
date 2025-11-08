@@ -9,7 +9,7 @@ const config = {
 	preprocess: [vitePreprocess()],
 
 	vitePlugin: {
-		inspector: true,
+		inspector: true
 	},
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
