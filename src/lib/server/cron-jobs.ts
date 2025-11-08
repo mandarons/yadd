@@ -27,10 +27,10 @@ type ServiceCheckResult = {
  * @returns Promise<boolean> - true if service is up, false otherwise
  */
 async function checkServiceStatus(url: string): Promise<boolean> {
-	try {
-		const controller = new AbortController();
-		const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
+	const controller = new AbortController();
+	const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
 
+	try {
 		const response = await fetch(url, {
 			signal: controller.signal,
 			method: 'HEAD', // Use HEAD to reduce bandwidth
@@ -39,11 +39,13 @@ async function checkServiceStatus(url: string): Promise<boolean> {
 			}
 		});
 
-		clearTimeout(timeoutId);
 		return response.ok;
 	} catch (error) {
 		// Service is down or unreachable
 		return false;
+	} finally {
+		// Always clear timeout to prevent memory leaks
+		clearTimeout(timeoutId);
 	}
 }
 
@@ -68,34 +70,68 @@ const job = async (): Promise<ServiceCheckResult[]> => {
 		})
 	);
 
-	const updatedData: ServiceCheckResult[] = [];
+	// Fetch all latest service checks in a single query to avoid N+1 pattern
+	const latestChecks = await prisma.serviceCheck.groupBy({
+		by: ['serviceId'],
+		_max: {
+			checkedAt: true
+		}
+	});
 
-	for (const result of checkResults) {
-		// Check latest record to avoid unnecessary writes if status hasn't changed
-		const latestServiceCheck = await prisma.serviceCheck.findFirst({
-			where: { service: { shortName: result.shortName } },
-			orderBy: { checkedAt: 'desc' }
+	// Build a map of the latest checks for each service
+	const latestCheckMap = new Map<
+		string,
+		{ id: number; serviceId: number; isUp: boolean; service: { shortName: string } }
+	>();
+
+	if (latestChecks.length > 0) {
+		const latestCheckIds = await prisma.serviceCheck.findMany({
+			where: {
+				OR: latestChecks.map((check) => ({
+					serviceId: check.serviceId,
+					checkedAt: check._max.checkedAt
+				}))
+			},
+			select: {
+				id: true,
+				serviceId: true,
+				isUp: true,
+				service: {
+					select: {
+						shortName: true
+					}
+				}
+			}
 		});
 
-		if (latestServiceCheck?.isUp === result.isUp) {
-			// Status unchanged, just update the timestamp
-			const updated = await prisma.serviceCheck.update({
-				where: { id: latestServiceCheck.id },
-				data: { checkedAt: result.checkedAt }
-			});
-			updatedData.push(updated);
-		} else {
-			// Status changed, create a new record
-			const created = await prisma.serviceCheck.create({
-				data: {
-					isUp: result.isUp,
-					checkedAt: result.checkedAt,
-					service: { connect: { shortName: result.shortName } }
-				}
-			});
-			updatedData.push(created);
+		for (const check of latestCheckIds) {
+			latestCheckMap.set(check.service.shortName, check);
 		}
 	}
+
+	// Use a transaction to batch all database operations
+	const updatedData = await prisma.$transaction(
+		checkResults.map((result) => {
+			const latestCheck = latestCheckMap.get(result.shortName);
+
+			if (latestCheck && latestCheck.isUp === result.isUp) {
+				// Status unchanged, just update the timestamp
+				return prisma.serviceCheck.update({
+					where: { id: latestCheck.id },
+					data: { checkedAt: result.checkedAt }
+				});
+			} else {
+				// Status changed or no previous check, create a new record
+				return prisma.serviceCheck.create({
+					data: {
+						isUp: result.isUp,
+						checkedAt: result.checkedAt,
+						service: { connect: { shortName: result.shortName } }
+					}
+				});
+			}
+		})
+	);
 
 	return updatedData;
 };
