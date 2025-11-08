@@ -9,7 +9,14 @@ export default defineConfig({
 			reporter: ['html', 'text-summary'],
 			include: ['src/**/*.ts']
 		},
-		reporters: ['default', 'html']
+		reporters: ['default', 'html'],
+		// Run tests sequentially to avoid database conflicts
+		pool: 'forks',
+		poolOptions: {
+			forks: {
+				singleFork: true
+			}
+		}
 	},
 	resolve: {
 		alias: {
