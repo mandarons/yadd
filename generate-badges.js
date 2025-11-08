@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const https = require('https');
 
@@ -29,26 +30,35 @@ const testSummary = JSON.parse(fs.readFileSync('./allure-report/widgets/summary.
 const testResult = testSummary.statistic.total === testSummary.statistic.passed;
 const badgesDirectory = './badges';
 if (fs.existsSync(badgesDirectory)) {
-    fs.rmSync(badgesDirectory, { recursive: true, force: true });
-    fs.mkdirSync(badgesDirectory);
+	fs.rmSync(badgesDirectory, { recursive: true, force: true });
+	fs.mkdirSync(badgesDirectory);
 } else {
-    fs.mkdirSync(badgesDirectory);
+	fs.mkdirSync(badgesDirectory);
 }
 
-https.get(`https://img.shields.io/static/v1?label=Tests&message=${testResult ? 'Passing&color=brightgreen' : 'Failing&color=critical'}`, response => {
-    let data = '';
-    response.on('data', chunk => data += chunk);
-    response.on('end', () => fs.writeFileSync(`${badgesDirectory}/tests.svg`, data));
-    response.on('error', error => console.error(error.toString()));
-});
+https.get(
+	`https://img.shields.io/static/v1?label=Tests&message=${
+		testResult ? 'Passing&color=brightgreen' : 'Failing&color=critical'
+	}`,
+	(response) => {
+		let data = '';
+		response.on('data', (chunk) => (data += chunk));
+		response.on('end', () => fs.writeFileSync(`${badgesDirectory}/tests.svg`, data));
+		response.on('error', (error) => console.error(error.toString()));
+	}
+);
 
 const coverageSummary = JSON.parse(fs.readFileSync('./coverage/coverage-summary.json'));
 const coveragePercentage = coverageSummary.total.lines.pct;
 const coverageResult = coveragePercentage === 100;
-const requestString = `https://img.shields.io/static/v1?label=Coverage&message=${coverageResult ? coveragePercentage.toString() + '%&color=brightgreen' : coveragePercentage.toString() + '%&color=critical'}`;
-https.get(requestString, response => {
-    let data = '';
-    response.on('data', chunk => data += chunk);
-    response.on('end', () => fs.writeFileSync(`${badgesDirectory}/coverage.svg`, data));
-    response.on('error', error => console.error(error.toString()));
+const requestString = `https://img.shields.io/static/v1?label=Coverage&message=${
+	coverageResult
+		? coveragePercentage.toString() + '%&color=brightgreen'
+		: coveragePercentage.toString() + '%&color=critical'
+}`;
+https.get(requestString, (response) => {
+	let data = '';
+	response.on('data', (chunk) => (data += chunk));
+	response.on('end', () => fs.writeFileSync(`${badgesDirectory}/coverage.svg`, data));
+	response.on('error', (error) => console.error(error.toString()));
 });

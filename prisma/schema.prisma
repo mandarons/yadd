@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  shortName    String         @id @unique
+  name         String
+  url          String
+  logoUrl      String
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  ServiceCheck ServiceCheck[]
+}
+
+model ServiceCheck {
+  id        Int      @id @default(autoincrement())
+  service   Service  @relation(fields: [shortName], references: [shortName], onDelete: Cascade)
+  shortName String
+  checkedAt DateTime
+  isUp      Boolean
+}

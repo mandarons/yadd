@@ -3,90 +3,54 @@ name: CD - Official Release
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
   workflow_dispatch:
 jobs:
-  cache-server-install:
-    runs-on: ubuntu-18.04
+  cache-install:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
-      - name: Set up Node.js environment
-        uses: actions/setup-node@v2.3.2
+        uses: actions/checkout@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 14.17.0
-      - name: Cache yarn dependencies
-        uses: actions/cache@v2
+          bun-version: latest
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
         id: cache-dependencies
         with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lockb') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-server-
-      - name: Cache Cypress binary
-        id: cache-cypress-binary
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-binary-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            cypress-binary-
-      - name: Install Dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true' || steps.cache-cypress-binary.outputs.cache-hit != 'true'
-        run: |
-          yarn install --frozen-lockfile
-  cache-web-client-install:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
-      - name: Set up Node.js environment
-        uses: actions/setup-node@v2.3.2
-        with:
-          node-version: 14.17.0
-      - name: Cache yarn dependencies
-        uses: actions/cache@v2
-        id: cache-dependencies
-        with:
-          path: clients/web/node_modules
-          key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-web-client-
+            ${{ runner.os }}-bun-
       - name: Install Dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
-          yarn install --cwd clients/web --frozen-lockfile
+          bun install --frozen-lockfile
   build:
-    needs: [cache-server-install, cache-web-client-install]
-    runs-on: ubuntu-18.04
+    needs: [cache-install]
+    runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo
-        uses: actions/checkout@v2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.3.2
+        uses: actions/checkout@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 14.17.0
-      - name: Restore yarn-server depdendencies
-        uses: actions/cache@v2
+          bun-version: latest
+      - name: Restore Bun dependencies
+        uses: actions/cache@v4
         with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-server-${{ hashFiles('yarn.lock') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lockb') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-server-
-      - name: Restore yarn-web-client depdendencies
-        uses: actions/cache@v2
-        with:
-          path: clients/web/node_modules
-          key: ${{ runner.os }}-yarn-web-client-${{ hashFiles('clients/web/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-web-client-
+            ${{ runner.os }}-bun-
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
       - name: Build
         run: |
-          yarn build
-        env:
-          PUBLIC_URL: "."
+          bun run build
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: build-output
           path: build
@@ -96,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Prepare
         id: prep
         run: |
@@ -106,32 +70,32 @@ jobs:
           fi
           TAGS="${DOCKER_IMAGE}:${VERSION},${DOCKER_IMAGE}:latest"
           echo "${TAGS}"
-          echo ::set-output name=tags::${TAGS}
+          echo "tags=${TAGS}" >> $GITHUB_OUTPUT
       - name: Download build artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build-output
           path: build
       - name: Cache Docker layers
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
       - name: Log into Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: Set up Docker QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v3
       - name: Build and push the image
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./Dockerfile
