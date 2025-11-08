@@ -5,7 +5,7 @@
 	import ServiceForm from '$lib/serviceForm.svelte';
 	import { onMount } from 'svelte';
 	import { invalidateAll } from '$app/navigation';
-	export let data: PageData & { form: any; services: ServiceDB };
+	export let data: PageData & { form: unknown; services: ServiceDB };
 	const modalStore = getModalStore();
 	onMount(() => {
 		const interval = setInterval(() => {

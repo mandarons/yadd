@@ -6,13 +6,12 @@
 	import { superForm } from 'sveltekit-superforms/client';
 
 	import { invalidateAll } from '$app/navigation';
-	// @ts-ignore
-	// tslint:disable-next-line: svelte(unused-export-let)
-	export let parent: SvelteComponent;
+	// @ts-expect-error - parent is used by Skeleton UI Modal
+	export const parent: SvelteComponent = undefined as unknown as SvelteComponent;
 
 	const modalStore = getModalStore();
 	const data = $modalStore[0].meta;
-	const { form, errors, enhance, delayed } = superForm(data.form, {
+	const { form, errors, enhance } = superForm(data.form, {
 		taintedMessage: null,
 		warnings: {
 			noValidationAndConstraints: true

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppBar, AppShell, LightSwitch, Modal, getModalStore } from '@skeletonlabs/skeleton';
+	import { AppBar, AppShell, LightSwitch, Modal } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	initializeStores();
 </script>

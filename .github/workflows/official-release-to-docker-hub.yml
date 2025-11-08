@@ -3,7 +3,7 @@ name: CD - Official Release
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
   workflow_dispatch:
 jobs:
   cache-server-install:
@@ -84,7 +84,7 @@ jobs:
         run: |
           yarn build
         env:
-          PUBLIC_URL: "."
+          PUBLIC_URL: '.'
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
