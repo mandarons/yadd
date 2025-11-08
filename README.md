@@ -22,11 +22,12 @@ A minimalistic dashboard for all the services that you use and love. Built with 
 
 ## Technology Stack
 
+- **Runtime** - Bun.js (modern JavaScript runtime)
 - **SvelteKit** - Modern web framework
 - **TailwindCSS** - Utility-first CSS framework
 - **Skeleton UI** - UI component library
 - **Prisma** - Type-safe database ORM
-- **Vitest** - Unit testing framework
+- **Bun Test** - Fast native test runner
 - **Playwright** - End-to-end testing
 
 ## Screenshot
@@ -61,13 +62,17 @@ yadd:
 
 ## Development
 
-Once you've cloned the repository and installed dependencies with `yarn install`, start a development server:
+### Prerequisites
+
+- [Bun](https://bun.sh/) - JavaScript runtime and toolkit
+
+Once you've cloned the repository and installed dependencies with `bun install`, start a development server:
 
 ```bash
-yarn dev
+bun run dev
 
 # or start the server and open the app in a new browser tab
-yarn dev -- --open
+bun run dev -- --open
 ```
 
 ## Building
@@ -75,29 +80,37 @@ yarn dev -- --open
 To create a production version of the app:
 
 ```bash
-yarn build
+bun run build
 ```
 
-You can preview the production build with `yarn preview`.
+You can preview the production build with `bun run preview`.
 
 ## Testing
 
 Run unit tests:
 
 ```bash
-yarn test:unit
+bun test:unit
+# or simply
+bun test
 ```
 
 Run end-to-end tests:
 
 ```bash
-yarn test:integration
+bun test:integration
 ```
 
 Run all tests:
 
 ```bash
-yarn test
+bun run test
+```
+
+Watch mode for tests:
+
+```bash
+bun test:watch
 ```
 
 ## User Guide
